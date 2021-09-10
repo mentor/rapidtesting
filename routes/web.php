@@ -14,7 +14,8 @@ Route::get('/home', function () {
 Route::get('userVerification/{token}', 'UserVerificationController@approve')->name('userVerification');
 Auth::routes();
 
-Route::post('webhook', 'WebhookController@index')->name('webhook')->withoutMiddleware(VerifyCsrfToken::class);
+Route::post('webhook', 'WebhookController@index')->withoutMiddleware(VerifyCsrfToken::class);
+Route::get('test', 'WebhookController@test')->withoutMiddleware(VerifyCsrfToken::class);
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
     Route::get('/', 'HomeController@index')->name('home');
