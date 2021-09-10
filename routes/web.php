@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Middleware\VerifyCsrfToken;
+
 Route::redirect('/', '/login');
 Route::get('/home', function () {
     if (session('status')) {
@@ -12,7 +14,7 @@ Route::get('/home', function () {
 Route::get('userVerification/{token}', 'UserVerificationController@approve')->name('userVerification');
 Auth::routes();
 
-Route::post('webhook', 'WebhookController@index')->name('webhook');
+Route::post('webhook', 'WebhookController@index')->name('webhook')->withoutMiddleware(VerifyCsrfToken::class);
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
     Route::get('/', 'HomeController@index')->name('home');

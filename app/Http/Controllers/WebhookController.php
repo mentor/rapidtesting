@@ -8,5 +8,6 @@ class WebhookController extends Controller
 {
     public function index() {
         echo 'REENIO';
+        exit;
     }
 }
