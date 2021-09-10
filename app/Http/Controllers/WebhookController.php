@@ -32,6 +32,7 @@ class WebhookController extends Controller
         echo ($reservation->body());
         echo "\n\n";
         echo ($place->body());
+        exit;
     }
     public function index(Request $request) {
         $reservationId = $request->input('reservationId');
