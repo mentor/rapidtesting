@@ -29,9 +29,9 @@ class WebhookController extends Controller
     public function test(Request $request) {
         $reservation = $this->getReservationDetail('3323722');
         $place = $this->getPlace($reservation->json()['detail']['placeId']);
-        echo ($reservation->body());
+        var_dump($reservation);
         echo "\n\n";
-        echo ($place->body());
+        var_dump($place);
         exit;
     }
     public function index(Request $request) {
