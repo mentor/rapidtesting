@@ -19,16 +19,16 @@ class WebhookController extends Controller
         return $response;
     }
 
-    private function getPlace($placeId)
+    private function getCustomerDetail($customerId)
     {
-        $response = Http::acceptJson()->withToken(self::API_KEY)->get(self::API_HOST . '/resource/place/' . $placeId);
+        $response = Http::acceptJson()->withToken(self::API_KEY)->get(self::API_HOST . '/customer/detail/' . $customerId);
         Log::info(print_r($response->json(), true));
         return $response;
     }
 
     public function test(Request $request) {
         $reservation = $this->getReservationDetail('3323722');
-        $place = $this->getPlace($reservation->json()['detail']['placeId']);
+        $place = $this->getCustomerDetail($reservation->json()['detail']['customer']['id']);
         var_dump($reservation);
         echo "\n\n";
         var_dump($place);
