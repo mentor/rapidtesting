@@ -169,6 +169,8 @@ return [
             'result_test_manufacturer_helper' => 'Test Manufacturer',
             'result_diagnosis'                => 'Diagnosis',
             'result_diagnosis_helper'         => 'Diagnosis',
+            'centre'                          => 'Centre',
+            'centre_helper'                   => 'Centre',
         ],
     ],
 ];

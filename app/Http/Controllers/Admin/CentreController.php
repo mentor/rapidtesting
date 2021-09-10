@@ -99,6 +99,8 @@ class CentreController extends Controller
     {
         abort_if(Gate::denies('centre_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
+        $centre->load('centreTests');
+
         return view('admin.centres.show', compact('centre'));
     }
 

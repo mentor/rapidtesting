@@ -167,6 +167,14 @@
                             {{ App\Models\Test::RESULT_DIAGNOSIS_SELECT[$test->result_diagnosis] ?? '' }}
                         </td>
                     </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.test.fields.centre') }}
+                        </th>
+                        <td>
+                            {{ $test->centre->name ?? '' }}
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             <div class="form-group">

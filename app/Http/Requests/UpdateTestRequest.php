@@ -72,6 +72,10 @@ class UpdateTestRequest extends FormRequest
                 'date_format:' . config('panel.date_format') . ' ' . config('panel.time_format'),
                 'nullable',
             ],
+            'centre_id' => [
+                'required',
+                'integer',
+            ],
         ];
     }
 }

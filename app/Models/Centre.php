@@ -32,6 +32,11 @@ class Centre extends Model
         'deleted_at',
     ];
 
+    public function centreTests()
+    {
+        return $this->hasMany(Test::class, 'centre_id', 'id');
+    }
+
     protected function serializeDate(DateTimeInterface $date)
     {
         return $date->format('Y-m-d H:i:s');
