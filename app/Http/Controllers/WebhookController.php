@@ -28,10 +28,10 @@ class WebhookController extends Controller
 
     public function test(Request $request) {
         $reservation = $this->getReservationDetail('3323722');
-        $place = $this->getCustomerDetail($reservation->json()['detail']['customer']['id']);
-        var_dump($reservation);
+        $customer = $this->getCustomerDetail($reservation->json()['detail']['customer']['id']);
+        var_dump($reservation->json());
         echo "\n\n";
-        var_dump($place);
+        var_dump($customer->json());
         exit;
     }
     public function index(Request $request) {
