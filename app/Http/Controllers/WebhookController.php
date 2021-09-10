@@ -13,7 +13,7 @@ class WebhookController extends Controller
     private function getReservationDetail($reservationId) {
         $response = Http::acceptJson()->withToken('TkNqej2CkRjWsuAPWs15OkW4OpKIViM961Ffa4Ym6fds30C9IFckhWPYTVW9QOQ7')->get('https://reenio.cz/cs/api/v1/admin/reservation/detail/' . $reservationId);
         Log::info(print_r($response->json(), true));
-        return $response->json();
+        return $response->body();
     }
     public function test(Request $request) {
         var_dump($this->getReservationDetail('3323722'));
