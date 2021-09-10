@@ -1,0 +1,35 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateTestsTable extends Migration
+{
+    public function up()
+    {
+        Schema::create('tests', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->string('pinid');
+            $table->string('pinrc')->nullable();
+            $table->string('firstname');
+            $table->string('lastname');
+            $table->string('email');
+            $table->string('phone');
+            $table->date('dob');
+            $table->string('street');
+            $table->string('city');
+            $table->string('postal');
+            $table->string('country');
+            $table->string('symptoms');
+            $table->string('result_type');
+            $table->datetime('result_date')->nullable();
+            $table->string('result_status')->nullable();
+            $table->string('result_test_name')->nullable();
+            $table->string('result_test_manufacturer')->nullable();
+            $table->string('result_diagnosis')->nullable();
+            $table->timestamps();
+            $table->softDeletes();
+        });
+    }
+}

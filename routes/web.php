@@ -28,6 +28,18 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 
     // Audit Logs
     Route::resource('audit-logs', 'AuditLogsController', ['except' => ['create', 'store', 'edit', 'update', 'destroy']]);
+
+    // Centre
+    Route::delete('centres/destroy', 'CentreController@massDestroy')->name('centres.massDestroy');
+    Route::post('centres/parse-csv-import', 'CentreController@parseCsvImport')->name('centres.parseCsvImport');
+    Route::post('centres/process-csv-import', 'CentreController@processCsvImport')->name('centres.processCsvImport');
+    Route::resource('centres', 'CentreController');
+
+    // Test
+    Route::delete('tests/destroy', 'TestController@massDestroy')->name('tests.massDestroy');
+    Route::post('tests/parse-csv-import', 'TestController@parseCsvImport')->name('tests.parseCsvImport');
+    Route::post('tests/process-csv-import', 'TestController@processCsvImport')->name('tests.processCsvImport');
+    Route::resource('tests', 'TestController');
 });
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 'middleware' => ['auth']], function () {
     // Change password
