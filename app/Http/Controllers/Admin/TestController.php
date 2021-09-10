@@ -7,6 +7,7 @@ use App\Http\Controllers\Traits\CsvImportTrait;
 use App\Http\Requests\MassDestroyTestRequest;
 use App\Http\Requests\StoreTestRequest;
 use App\Http\Requests\UpdateTestRequest;
+use App\Models\Centre;
 use App\Models\Test;
 use Gate;
 use Illuminate\Http\Request;
@@ -22,7 +23,7 @@ class TestController extends Controller
         abort_if(Gate::denies('test_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         if ($request->ajax()) {
-            $query = Test::query()->select(sprintf('%s.*', (new Test())->table));
+            $query = Test::with(['centre'])->select(sprintf('%s.*', (new Test())->table));
             $table = Datatables::of($query);
 
             $table->addColumn('placeholder', '&nbsp;');
@@ -96,20 +97,27 @@ class TestController extends Controller
             $table->editColumn('result_diagnosis', function ($row) {
                 return $row->result_diagnosis ? Test::RESULT_DIAGNOSIS_SELECT[$row->result_diagnosis] : '';
             });
+            $table->addColumn('centre_name', function ($row) {
+                return $row->centre ? $row->centre->name : '';
+            });
 
-            $table->rawColumns(['actions', 'placeholder']);
+            $table->rawColumns(['actions', 'placeholder', 'centre']);
 
             return $table->make(true);
         }
 
-        return view('admin.tests.index');
+        $centres = Centre::get();
+
+        return view('admin.tests.index', compact('centres'));
     }
 
     public function create()
     {
         abort_if(Gate::denies('test_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.tests.create');
+        $centres = Centre::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+
+        return view('admin.tests.create', compact('centres'));
     }
 
     public function store(StoreTestRequest $request)
@@ -123,7 +131,11 @@ class TestController extends Controller
     {
         abort_if(Gate::denies('test_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        return view('admin.tests.edit', compact('test'));
+        $centres = Centre::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+
+        $test->load('centre');
+
+        return view('admin.tests.edit', compact('centres', 'test'));
     }
 
     public function update(UpdateTestRequest $request, Test $test)
@@ -136,6 +148,8 @@ class TestController extends Controller
     public function show(Test $test)
     {
         abort_if(Gate::denies('test_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $test->load('centre');
 
         return view('admin.tests.show', compact('test'));
     }

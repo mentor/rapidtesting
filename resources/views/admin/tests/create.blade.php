@@ -184,6 +184,18 @@
                 <span class="help-block">{{ trans('cruds.test.fields.result_diagnosis_helper') }}</span>
             </div>
             <div class="form-group">
+                <label class="required" for="centre_id">{{ trans('cruds.test.fields.centre') }}</label>
+                <select class="form-control select2 {{ $errors->has('centre') ? 'is-invalid' : '' }}" name="centre_id" id="centre_id" required>
+                    @foreach($centres as $id => $entry)
+                        <option value="{{ $id }}" {{ old('centre_id') == $id ? 'selected' : '' }}>{{ $entry }}</option>
+                    @endforeach
+                </select>
+                @if($errors->has('centre'))
+                    <span class="text-danger">{{ $errors->first('centre') }}</span>
+                @endif
+                <span class="help-block">{{ trans('cruds.test.fields.centre_helper') }}</span>
+            </div>
+            <div class="form-group">
                 <button class="btn btn-danger" type="submit">
                     {{ trans('global.save') }}
                 </button>

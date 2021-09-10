@@ -76,6 +76,7 @@ class Test extends Model
         'result_test_name',
         'result_test_manufacturer',
         'result_diagnosis',
+        'centre_id',
         'created_at',
         'updated_at',
         'deleted_at',
@@ -99,6 +100,11 @@ class Test extends Model
     public function setResultDateAttribute($value)
     {
         $this->attributes['result_date'] = $value ? Carbon::createFromFormat(config('panel.date_format') . ' ' . config('panel.time_format'), $value)->format('Y-m-d H:i:s') : null;
+    }
+
+    public function centre()
+    {
+        return $this->belongsTo(Centre::class, 'centre_id');
     }
 
     protected function serializeDate(DateTimeInterface $date)

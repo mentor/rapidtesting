@@ -83,6 +83,9 @@
                         {{ trans('cruds.test.fields.result_diagnosis') }}
                     </th>
                     <th>
+                        {{ trans('cruds.test.fields.centre') }}
+                    </th>
+                    <th>
                         &nbsp;
                     </th>
                 </tr>
@@ -176,6 +179,14 @@
                         </select>
                     </td>
                     <td>
+                        <select class="search">
+                            <option value>{{ trans('global.all') }}</option>
+                            @foreach($centres as $key => $item)
+                                <option value="{{ $item->name }}">{{ $item->name }}</option>
+                            @endforeach
+                        </select>
+                    </td>
+                    <td>
                     </td>
                 </tr>
             </thead>
@@ -249,6 +260,7 @@
 { data: 'result_test_name', name: 'result_test_name' },
 { data: 'result_test_manufacturer', name: 'result_test_manufacturer' },
 { data: 'result_diagnosis', name: 'result_diagnosis' },
+{ data: 'centre_name', name: 'centre.name' },
 { data: 'actions', name: '{{ trans('global.actions') }}' }
     ],
     orderCellsTop: true,

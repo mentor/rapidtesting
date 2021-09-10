@@ -98,7 +98,7 @@
                             @can('centre_access')
                                 <li class="nav-item">
                                     <a href="{{ route("admin.centres.index") }}" class="nav-link {{ request()->is("admin/centres") || request()->is("admin/centres/*") ? "active" : "" }}">
-                                        <i class="fa-fw nav-icon fas fa-cogs">
+                                        <i class="fa-fw nav-icon fas fa-briefcase-medical">
 
                                         </i>
                                         <p>
