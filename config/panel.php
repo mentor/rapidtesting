@@ -3,10 +3,10 @@
 return [
     'date_format'         => 'Y-m-d',
     'time_format'         => 'H:i:s',
-    'primary_language'    => 'en',
+    'primary_language'    => 'sk',
     'available_languages' => [
-        'en' => 'English',
         'sk' => 'Slovak',
+        'en' => 'English',
     ],
     'registration_default_role' => '2',
 ];
