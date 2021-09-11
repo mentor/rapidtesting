@@ -38,7 +38,7 @@ class WebhookController extends Controller
             $this->response();
         }
 
-       // try {
+        try {
             // build payload to store into database
             $payload = [];
 
@@ -72,10 +72,9 @@ class WebhookController extends Controller
 
             Test::create($payload);
 
-
-//        } catch (\Exception $e) {
-//            Log::error($e->getMessage());
-//        }
+        } catch (\Exception $e) {
+            Log::error($e->getMessage());
+        }
 
         // return happy response back!
         $this->response();
