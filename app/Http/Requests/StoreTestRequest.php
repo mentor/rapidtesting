@@ -104,6 +104,10 @@ class StoreTestRequest extends FormRequest
                 'max:11',
                 'required',
             ],
+            'insurance_company' => [
+                'string',
+                'required',
+            ],
         ];
     }
 }

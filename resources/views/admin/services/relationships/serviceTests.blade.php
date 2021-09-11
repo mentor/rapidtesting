@@ -100,6 +100,9 @@
                             {{ trans('cruds.test.fields.code_ref') }}
                         </th>
                         <th>
+                            {{ trans('cruds.test.fields.insurance_company') }}
+                        </th>
+                        <th>
                             &nbsp;
                         </th>
                     </tr>
@@ -187,6 +190,9 @@
                             </td>
                             <td>
                                 {{ $test->code_ref ?? '' }}
+                            </td>
+                            <td>
+                                {{ $test->insurance_company ?? '' }}
                             </td>
                             <td>
                                 @can('test_show')

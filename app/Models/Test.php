@@ -43,18 +43,18 @@ class Test extends Model
     ];
 
     public const STATUS_SELECT = [
-        '0'  => 'Created',
-        '1'  => 'Ended',
-        '2'  => 'Finished',
-        '3'  => 'Confirmed',
-        '4'  => 'Started',
-        '5'  => 'Registered',
-        '6'  => 'Unpaid',
-        '7'  => 'Paid',
-        '8'  => 'Withdrawn',
-        '9'  => 'Cancelled',
-        '10' => 'No Show',
-        '11' => 'Not Arrived',
+        'created'    => 'Created',
+        'ended'      => 'Ended',
+        'finished'   => 'Finished',
+        'confirmed'  => 'Confirmed',
+        'started'    => 'Started',
+        'registered' => 'Registered',
+        'unpaid'     => 'Unpaid',
+        'paid'       => 'Paid',
+        'withdrawn'  => 'Withdrawn',
+        'cancelled'  => 'Cancelled',
+        'noshow'     => 'No Show',
+        'notarrived' => 'Not Arrived',
     ];
 
     public $table = 'tests';
@@ -95,6 +95,7 @@ class Test extends Model
         'note',
         'reservation_id_ref',
         'code_ref',
+        'insurance_company',
         'created_at',
         'updated_at',
         'deleted_at',

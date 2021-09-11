@@ -223,6 +223,14 @@
                             {{ $test->code_ref }}
                         </td>
                     </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.test.fields.insurance_company') }}
+                        </th>
+                        <td>
+                            {{ $test->insurance_company }}
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             <div class="form-group">
