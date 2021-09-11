@@ -1,5 +1,10 @@
 <?php
 
+use App\Http\Middleware\VerifyCsrfToken;
+
+Route::post('webhook/created', 'WebhookController@created')->withoutMiddleware(VerifyCsrfToken::class);
+Route::post('webhook/status', 'WebhookController@status')->withoutMiddleware(VerifyCsrfToken::class);
+Route::get('webhook/test', 'WebhookController@test');
 Route::redirect('/', '/login');
 Route::get('/home', function () {
     if (session('status')) {
