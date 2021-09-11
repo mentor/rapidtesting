@@ -6,9 +6,10 @@
     <meta charset="utf-8"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <!--[if mso]><xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch><o:AllowPNG/></o:OfficeDocumentSettings></xml><![endif]-->
-    <!--[if !mso]><!-->
-<!--    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css"/>
+    {{--
+<!--    [if mso]><xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch><o:AllowPNG/></o:OfficeDocumentSettings></xml><![endif]
+    [if !mso]><!
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css"/>
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet" type="text/css"/>
     <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet" type="text/css"/>
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css"/>
@@ -16,8 +17,9 @@
     <link href="https://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet" type="text/css"/>
     <link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet" type="text/css"/>
     <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet" type="text/css"/>
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css"/>-->
-    <!--<![endif]-->
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css"/>
+    <![endif]-->
+--}}
 
     <style>
         .page-break {
@@ -643,43 +645,6 @@
                 </tr>
                 </tbody>
             </table>
-<!--            <table align="center" border="0" cellpadding="0" cellspacing="0" class="row row-12" role="presentation" style="mso-table-lspace: 0; mso-table-rspace: 0;" width="100%">
-                <tbody>
-                <tr>
-                    <td>
-                        <table align="center" border="0" cellpadding="0" cellspacing="0" class="row-content stack" role="presentation" style="mso-table-lspace: 0; mso-table-rspace: 0;" width="640">
-                            <tbody>
-                            <tr>
-                                <th class="column" style="mso-table-lspace: 0; mso-table-rspace: 0; font-weight: 400; text-align: left; vertical-align: top;" width="100%">
-                                    <table border="0" cellpadding="0" cellspacing="0" class="icons_block" role="presentation" style="mso-table-lspace: 0; mso-table-rspace: 0;" width="100%">
-                                        <tr>
-                                            <td style="color:#9d9d9d;font-family:inherit;font-size:15px;padding-bottom:10px;padding-top:10px;text-align:center;">
-                                                <table cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0; mso-table-rspace: 0;" width="100%">
-                                                    <tr>
-                                                        <td style="text-align:center;">
-                                                            &lt;!&ndash;[if vml]><table align="left" cellpadding="0" cellspacing="0" role="presentation" style="display:inline-block;padding-left:0px;padding-right:0px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;"><![endif]&ndash;&gt;
-                                                            &lt;!&ndash;[if !vml]>&lt;!&ndash;dash;&gt;
-                                                            <table cellpadding="0" cellspacing="0" class="icons-inner" role="presentation" style="mso-table-lspace: 0; mso-table-rspace: 0; display: inline-block; margin-right: -4px; padding-left: 0px; padding-right: 0px;">
-                                                                &lt;!&ndash;<![endif]&ndash;&gt;
-                                                                <tr>
-                                                                    <td style="text-align:center;padding-top:5px;padding-bottom:5px;padding-left:5px;padding-right:6px;"><a href="https://www.designedwithbee.com/"><img align="center" alt="Designed with BEE" class="icon" height="32" src="images/bee.png" style="display: block; height: auto; border: 0;" width="34"/></a></td>
-                                                                    <td style="font-family:Oxygen, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:15px;color:#9d9d9d;vertical-align:middle;letter-spacing:undefined;text-align:center;"><a href="https://www.designedwithbee.com/" style="color:#9d9d9d;text-decoration:none;">Designed with BEE</a></td>
-                                                                </tr>
-                                                            </table>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </th>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </td>
-                </tr>
-                </tbody>
-            </table>-->
         </td>
     </tr>
     </tbody>
@@ -888,66 +853,6 @@
                 </tr>
                 </tbody>
             </table>
-<!--            <table align="center" border="0" cellpadding="0" cellspacing="0" class="row row-6" role="presentation" style="mso-table-lspace: 0; mso-table-rspace: 0;" width="100%">
-                <tbody>
-                <tr>
-                    <td>
-                        <table align="center" border="0" cellpadding="0" cellspacing="0" class="row-content stack" role="presentation" style="mso-table-lspace: 0; mso-table-rspace: 0;" width="640">
-                            <tbody>
-                            <tr>
-                                <th class="column" style="mso-table-lspace: 0; mso-table-rspace: 0; font-weight: 400; text-align: left; vertical-align: top;" width="100%">
-                                    <table border="0" cellpadding="0" cellspacing="0" class="empty_block" role="presentation" style="mso-table-lspace: 0; mso-table-rspace: 0;" width="100%">
-                                        <tr>
-                                            <td style="padding-right:0px;padding-bottom:5px;padding-left:0px;padding-top:5px;">
-                                                <div></div>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </th>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-            <table align="center" border="0" cellpadding="0" cellspacing="0" class="row row-7" role="presentation" style="mso-table-lspace: 0; mso-table-rspace: 0;" width="100%">
-                <tbody>
-                <tr>
-                    <td>
-                        <table align="center" border="0" cellpadding="0" cellspacing="0" class="row-content stack" role="presentation" style="mso-table-lspace: 0; mso-table-rspace: 0;" width="640">
-                            <tbody>
-                            <tr>
-                                <th class="column" style="mso-table-lspace: 0; mso-table-rspace: 0; font-weight: 400; text-align: left; vertical-align: top;" width="100%">
-                                    <table border="0" cellpadding="0" cellspacing="0" class="icons_block" role="presentation" style="mso-table-lspace: 0; mso-table-rspace: 0;" width="100%">
-                                        <tr>
-                                            <td style="color:#9d9d9d;font-family:inherit;font-size:15px;padding-bottom:10px;padding-top:10px;text-align:center;">
-                                                <table cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0; mso-table-rspace: 0;" width="100%">
-                                                    <tr>
-                                                        <td style="text-align:center;">
-                                                            &lt;!&ndash;[if vml]><table align="left" cellpadding="0" cellspacing="0" role="presentation" style="display:inline-block;padding-left:0px;padding-right:0px;mso-table-lspace: 0pt;mso-table-rspace: 0pt;"><![endif]&ndash;&gt;
-                                                            &lt;!&ndash;[if !vml]>&lt;!&ndash;dash;&gt;
-                                                            <table cellpadding="0" cellspacing="0" class="icons-inner" role="presentation" style="mso-table-lspace: 0; mso-table-rspace: 0; display: inline-block; margin-right: -4px; padding-left: 0px; padding-right: 0px;">
-                                                                &lt;!&ndash;<![endif]&ndash;&gt;
-                                                                <tr>
-                                                                    <td style="text-align:center;padding-top:5px;padding-bottom:5px;padding-left:5px;padding-right:6px;"><a href="https://www.designedwithbee.com/"><img align="center" alt="Designed with BEE" class="icon" height="32" src="{{ asset('images/bee.png') }}" style="display: block; height: auto; border: 0;" width="34"/></a></td>
-                                                                    <td style="font-family:Oxygen, Trebuchet MS, Lucida Grande, Lucida Sans Unicode, Lucida Sans, Tahoma, sans-serif;font-size:15px;color:#9d9d9d;vertical-align:middle;letter-spacing:undefined;text-align:center;"><a href="https://www.designedwithbee.com/" style="color:#9d9d9d;text-decoration:none;">Designed with BEE</a></td>
-                                                                </tr>
-                                                            </table>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                </th>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </td>
-                </tr>
-                </tbody>
-            </table>-->
         </td>
     </tr>
     </tbody>
