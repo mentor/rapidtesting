@@ -39,7 +39,7 @@
         }
 
         h3 {
-            font-size: 15px;
+            font-size: 12px;
             margin:10px 0 0 10px;
         }
 
