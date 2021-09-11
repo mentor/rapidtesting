@@ -52,7 +52,7 @@
             font-weight: bold;
         }
         .table {
-            margin-top:100px;
+            /*margin-top:50px;*/
         }
         .table td {
             width:50%;
@@ -70,10 +70,10 @@
             <h1 class="color-a">Testy MoM</h1>
             <h3 class="color-c">Rýchle a spoľahlivé antigénové a PCR testovanie</h3>
         </div>
+    </div>
 
-        <div class="stripe text-center bold">
-            Potvrdenie o vykonaní testu / Test Result Certificate / Testergebnis Bescheinigung
-        </div>
+    <div class="stripe text-center bold">
+        Potvrdenie o vykonaní testu / Test Result Certificate / Testergebnis Bescheinigung
     </div>
 
     <table class="table" style="width:100%; border:0; padding: 10px 10px 10px 10px;">
