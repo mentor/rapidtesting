@@ -157,7 +157,7 @@ class WebhookController extends Controller
         $reservationId = $request->input('reservationId');
         $triggerType = $request->input('triggerType');
 
-        Test::whereFirst('reservation_id_ref', $reservationId)->update(['status' => $triggerType]);
+        Test::firstWhere('reservation_id_ref', $reservationId)->update(['status' => $triggerType]);
 
         $this->response();
     }
