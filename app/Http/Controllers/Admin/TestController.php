@@ -25,8 +25,8 @@ class TestController extends Controller
 
         if ($request->ajax()) {
             $query = Test::with(['service', 'centre'])->select(sprintf('%s.*', (new Test())->table));
-            if ($request->user()->service_id) {
-                $query = $query->where('service_id', $request->user()->service_id);
+            if ($request->user()->centre_id) {
+                $query = $query->where('centre_id', $request->user()->centre_id);
             }
             $table = Datatables::of($query);
 
