@@ -11,7 +11,7 @@
     <style>
         body {
             font-family: DejaVu Sans;
-            color: #05223b;
+            color: #555555;
         }
         .page-break {
             page-break-after: always;
@@ -57,6 +57,7 @@
         }
         .table td.first {
             width:65%;
+            font-weight: bold;
         }
 
 
