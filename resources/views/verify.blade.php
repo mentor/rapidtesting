@@ -708,7 +708,7 @@
                                     <table border="0" cellpadding="0" cellspacing="0" class="image_block" role="presentation" style="mso-table-lspace: 0; mso-table-rspace: 0;" width="100%">
                                         <tr>
                                             <td style="width:100%;padding-right:0px;padding-left:0px;padding-top:20px;padding-bottom:20px;">
-                                                <div style="line-height:10px"><img src="images/testy_mom-logo.png" style="display: block; height: auto; border: 0; width: 67px; max-width: 100%;" width="67"/></div>
+                                                <div style="line-height:10px"><img src="{{ asset('images/testy_mom-logo.png') }}" style="display: block; height: auto; border: 0; width: 67px; max-width: 100%;" width="67"/></div>
                                             </td>
                                         </tr>
                                     </table>
