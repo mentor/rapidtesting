@@ -69,10 +69,38 @@
             Potvrdenie o vykonaní testu / Test Result Certificate / Testergebnis Bescheinigung
         </div>
     </div>
+
+    <table style="width:100%; border:0; padding: 10px 10px 10px 10px;">
+        <tr>
+            <td>KOKOT</td>
+            <td>PICA</td>
+        </tr>
+        <tr>
+            <td>KOKOT</td>
+            <td>PICA</td>
+        </tr>
+        <tr>
+            <td>KOKOT</td>
+            <td>PICA</td>
+        </tr>
+        <tr>
+            <td>KOKOT</td>
+            <td>PICA</td>
+        </tr>
+    </table>
     <div class="page-break"></div>
-    <div class="container">
-        <div class="row">
-            <img alt="" src="{{ asset('images/testy_mom-logo.png') }}" style="height:150px; width:150px" />
+
+    <div class="container" style="height:106px; ">
+        <div style="float: left; width: 86px; height:106px; padding-left: 20px; padding-right: 20px;">
+            <img alt="" src="{{ asset('images/testy_mom-logo.png') }}" style="vertical-align: middle; height:66px; width:66px" />
+        </div>
+        <div style=" height:106px">
+            <h1 class="color-a">Testy MoM</h1>
+            <h3 class="color-c">Rýchle a spoľahlivé antigénové a PCR testovanie</h3>
+        </div>
+
+        <div class="stripe text-center bold">
+            Potvrdenie o vykonaní testu / Test Result Certificate / Testergebnis Bescheinigung
         </div>
     </div>
 </body>
