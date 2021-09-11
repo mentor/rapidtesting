@@ -64,8 +64,12 @@ class WebhookController extends Controller
             //Log::info($this->getPlainValueFromCustomField($reservation->json('detail.customForms.0.fields'), 'DXCWCJIL'));
             $payload['dob'] = Carbon::createFromFormat('d.m.Y', $this->getPlainValueFromCustomField($reservation->json('detail.customForms.0.fields'), 'DXCWCJIL'))->toDateString();
             //$payload['dob'] = Carbon::createFromFormat('d.m.Y', '02.12.1984')->toDateString();
-            $payload['start'] = Carbon::parse($reservation->json('detail.start'))->tz('Europe/Bratislava')->toDateTimeString();
-            $payload['end'] = Carbon::parse($reservation->json('detail.end'))->tz('Europe/Bratislava')->toDateTimeString();
+            $payload['start'] = Carbon::parse($reservation->json('detail.start'))
+                ->tz('Europe/Bratislava')
+                ->format('Y-m-d H:i:s');
+            $payload['end'] = Carbon::parse($reservation->json('detail.end'))
+                ->tz('Europe/Bratislava')
+                ->format('Y-m-d H:i:s');
             $payload['status'] = $reservation->json('detail.state');
 
             Log::info(print_r($payload, true));
@@ -135,8 +139,8 @@ class WebhookController extends Controller
         $test->pinid = '9312098147';
         $test->symptoms = 'OVYNP';
         $test->dob = '1993-12-09';
-        $test->start = Carbon::parse('2021-09-13T07:00:00Z')->tz('Europe/Bratislava')->toDateTimeString();
-        $test->end = Carbon::parse('2021-09-13T07:10:00Z')->tz('Europe/Bratislava')->toDateTimeString();
+        $test->start = Carbon::parse('2021-09-13T07:00:00Z')->tz('Europe/Bratislava')->format('Y-m-d H:i:s')->toDateTimeString();
+        $test->end = Carbon::parse('2021-09-13T07:10:00Z')->tz('Europe/Bratislava')->format('Y-m-d H:i:s')->toDateTimeString();
         $test->status = '0';
         $test->save();
         //Test::create($payload);
