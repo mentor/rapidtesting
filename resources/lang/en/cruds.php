@@ -97,10 +97,6 @@ return [
             'updated_at_helper'   => ' ',
         ],
     ],
-    'laboratory' => [
-        'title'          => 'Laboratory',
-        'title_singular' => 'Laboratory',
-    ],
     'centre' => [
         'title'          => 'Centre',
         'title_singular' => 'Centre',
