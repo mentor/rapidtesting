@@ -51,6 +51,12 @@
         .bold {
             font-weight: bold;
         }
+        .table {
+            margin-bot:100px;
+        }
+        .table td {
+            width:50%;
+        }
 
 
     </style>
@@ -70,7 +76,7 @@
         </div>
     </div>
 
-    <table style="width:100%; border:0; padding: 10px 10px 10px 10px;">
+    <table class="table" style="width:100%; border:0; padding: 10px 10px 10px 10px;">
         <tr>
             <td>KOKOT</td>
             <td>PICA</td>
