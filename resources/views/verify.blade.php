@@ -38,12 +38,9 @@
             clear:both;
         }
 
-        .row>div {
-            float:left;
-        }
-
         .col-4 {
             width: 33%;
+            display: inline;
         }
 
         .col-8 {
@@ -53,15 +50,14 @@
 </head>
 <body style="background-color: #fff; margin: 0; padding: 0;">
     <div class="container">
-        <div class="row">
-            <div class="col-4">
-                <img alt="" src="{{ asset('images/testy_mom-logo.png') }}" style="height:150px; width:150px" />
-            </div>
-            <div class="col-8">
-                <h1 class="color-a">Testy MoM</h1>
-                <h3 class="color-c">Rýchle a spoľahlivé antigénové a PCR testovanie</h3>
-            </div>
+        <div style="float: left; width: 25%; height: 150px;">
+            <img alt="" src="{{ asset('images/testy_mom-logo.png') }}" style="height:150px; width:150px" />
         </div>
+        <div style="margin-left: 35%; width: 65%; height: 15px;">
+            <h1 class="color-a">Testy MoM</h1>
+            <h3 class="color-c">Rýchle a spoľahlivé antigénové a PCR testovanie</h3>
+        </div>
+
         <div class="stripe">
             Potvrdenie o vykonaní testu / Test Result Certificate / Testergebnis Bescheinigung
         </div>
