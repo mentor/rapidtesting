@@ -67,16 +67,6 @@
                 </ul>
             </li>
         @endcan
-        @can('centre_access')
-            <li class="c-sidebar-nav-item">
-                <a href="{{ route("admin.centres.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/centres") || request()->is("admin/centres/*") ? "c-active" : "" }}">
-                    <i class="fa-fw fas fa-briefcase-medical c-sidebar-nav-icon">
-
-                    </i>
-                    {{ trans('cruds.centre.title') }}
-                </a>
-            </li>
-        @endcan
         @can('test_access')
             <li class="c-sidebar-nav-item">
                 <a href="{{ route("admin.tests.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/tests") || request()->is("admin/tests/*") ? "c-active" : "" }}">
@@ -84,6 +74,16 @@
 
                     </i>
                     {{ trans('cruds.test.title') }}
+                </a>
+            </li>
+        @endcan
+        @can('centre_access')
+            <li class="c-sidebar-nav-item">
+                <a href="{{ route("admin.centres.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/centres") || request()->is("admin/centres/*") ? "c-active" : "" }}">
+                    <i class="fa-fw fas fa-briefcase-medical c-sidebar-nav-icon">
+
+                    </i>
+                    {{ trans('cruds.centre.title') }}
                 </a>
             </li>
         @endcan
