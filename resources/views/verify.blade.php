@@ -107,7 +107,7 @@
     </tr>
     <tr>
         <td class="first">Dátum narodenia / Date of birth / Geburtsdatum:</td>
-        <td>{{ $payload->dob }}</td>
+        <td>{{ $payload->dob->format('d.m.Y') }}</td>
     </tr>
     <tr>
         <td class="first">Číslo dokladu / Person identifier / ID-Passnummer:</td>
@@ -140,7 +140,7 @@
     </tr>
     <tr>
         <td class="first">Čas odberu / Date & Time / Datum und Uhrzeit der Testung:</td>
-        <td>{{ $payload->end }}</td>
+        <td>{{ $payload->end->format('d.m.Y H:i:s') }}</td>
     </tr>
 </table>
 
