@@ -38,7 +38,7 @@ class WebhookController extends Controller
             $this->response();
         }
 
-//        try {
+        try {
             // build payload to store into database
             $payload = [];
 
@@ -64,18 +64,17 @@ class WebhookController extends Controller
             //Log::info($this->getPlainValueFromCustomField($reservation->json('detail.customForms.0.fields'), 'DXCWCJIL'));
             $payload['dob'] = Carbon::createFromFormat('d.m.Y', $this->getPlainValueFromCustomField($reservation->json('detail.customForms.0.fields'), 'DXCWCJIL'))->toDateString();
             //$payload['dob'] = Carbon::createFromFormat('d.m.Y', '02.12.1984')->toDateString();
-            $payload['start'] = $reservation->json('detail.start');
-            $payload['end'] = $reservation->json('detail.end');
+            $payload['start'] = Carbon::parse($reservation->json('detail.start'))->tz('Europe/Bratislava')->toDateTimeString();
+            $payload['end'] = Carbon::parse($reservation->json('detail.end'))->tz('Europe/Bratislava')->toDateTimeString();
             $payload['status'] = $reservation->json('detail.state');
 
             Log::info(print_r($payload, true));
 
             Test::create($payload);
 
-//        } catch (\Exception $e) {
-//            Log::error($e->getMessage());
-//        }
-
+        } catch (\Exception $e) {
+            Log::error($e->getMessage());
+        }
 
         // return happy response back!
         $this->response();
