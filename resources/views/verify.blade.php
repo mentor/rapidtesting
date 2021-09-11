@@ -52,7 +52,7 @@
             font-weight: bold;
         }
         .table {
-            /*margin-top:50px;*/
+
         }
         .table td {
             width:50%;
@@ -78,22 +78,44 @@
 
     <table class="table" style="width:100%; border:0; padding: 10px 10px 10px 10px;">
         <tr>
-            <td>KOKOT</td>
-            <td>PICA</td>
+            <td>Meno / Name / Vor-und- Nachname:</td>
+            <td>{{ $payload->firstname }} {{ $payload->lastname}}</td>
         </tr>
         <tr>
-            <td>KOKOT</td>
-            <td>PICA</td>
+            <td>Rodné číslo / Birth ID / Sozialversiecherungsnummer:</td>
+            <td>@if($payload->pinrc) {{ $payload->pinrc }} @else &nbsp; @endif</td>
         </tr>
         <tr>
-            <td>KOKOT</td>
-            <td>PICA</td>
+            <td>Dátum narodenia / Date of birth / Geburtsdatum:</td>
+            <td>{{ $payload->dob }}</td>
         </tr>
         <tr>
-            <td>KOKOT</td>
-            <td>PICA</td>
+            <td>Číslo dokladu / Person identifier / ID-Passnummer:</td>
+            <td>{{ $payload->pinid }}</td>
         </tr>
     </table>
+
+    <hr/>
+
+    <table class="table" style="width:100%; border:0; padding: 10px 10px 10px 10px;">
+        <tr>
+            <td>Diagnóza / Diagnosis / Diagnose:</td>
+            <td>{{ $payload->firstname }} {{ $payload->lastname}}</td>
+        </tr>
+        <tr>
+            <td>Type testu / Test type / Testart:</td>
+            <td>@if($payload->pinrc) {{ $payload->pinrc }} @else &nbsp; @endif</td>
+        </tr>
+        <tr>
+            <td>Názov testu / Test name / Testname:</td>
+            <td>{{ $payload->dob }}</td>
+        </tr>
+        <tr>
+            <td>Výrobca testu / Test manufacturer / Hersteller:</td>
+            <td>{{ $payload->pinid }}</td>
+        </tr>
+    </table>
+
     <div class="page-break"></div>
 
     <div class="container" style="height:106px; ">
