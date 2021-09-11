@@ -118,7 +118,29 @@ class WebhookController extends Controller
             'end' => '2021-09-13T07:10:00Z',
             'status' => '0',
         ];
-        Test::create($payload);
+
+        $test = new Test();
+        $test->firstname = 'filip';
+        $test->lastname = 'sersik';
+        $test->email = 'filip.sersik@outlook.com';
+        $test->phone = '+420 720 968 217';
+        $test->street = 'vychodna 10';
+        $test->city = 'martin';
+        $test->postal = '03601';
+        $test->country = 'CZ';
+        $test->reservation_id_ref = '3326013';
+        $test->code_ref = 'NT3-UEZ-OQL';
+        $test->service_id = '1';
+        $test->centre_id = '1';
+        $test->pinrc = null;
+        $test->pinid = '9312098147';
+        $test->symptoms = 'OVYNP';
+        $test->dob = '1993-12-09';
+        $test->start = '2021-09-13T07:00:00Z';
+        $test->end = '2021-09-13T07:10:00Z';
+        $test->status = '0';
+        $test->save();
+        //Test::create($payload);
         echo 'ok';
     }
 
