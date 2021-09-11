@@ -84,70 +84,66 @@ class PermissionsTableSeeder extends Seeder
             ],
             [
                 'id'    => 19,
-                'title' => 'laboratory_access',
-            ],
-            [
-                'id'    => 20,
                 'title' => 'centre_create',
             ],
             [
-                'id'    => 21,
+                'id'    => 20,
                 'title' => 'centre_edit',
             ],
             [
-                'id'    => 22,
+                'id'    => 21,
                 'title' => 'centre_show',
             ],
             [
-                'id'    => 23,
+                'id'    => 22,
                 'title' => 'centre_delete',
             ],
             [
-                'id'    => 24,
+                'id'    => 23,
                 'title' => 'centre_access',
             ],
             [
-                'id'    => 25,
+                'id'    => 24,
                 'title' => 'test_create',
             ],
             [
-                'id'    => 26,
+                'id'    => 25,
                 'title' => 'test_edit',
             ],
             [
-                'id'    => 27,
+                'id'    => 26,
                 'title' => 'test_show',
             ],
             [
-                'id'    => 28,
+                'id'    => 27,
                 'title' => 'test_delete',
             ],
             [
-                'id'    => 29,
+                'id'    => 28,
                 'title' => 'test_access',
             ],
             [
-                'id'    => 30,
+                'id'    => 29,
                 'title' => 'service_create',
             ],
             [
-                'id'    => 31,
+                'id'    => 30,
                 'title' => 'service_edit',
             ],
             [
-                'id'    => 32,
+                'id'    => 31,
                 'title' => 'service_show',
             ],
             [
-                'id'    => 33,
+                'id'    => 32,
                 'title' => 'service_delete',
             ],
             [
-                'id'    => 34,
+                'id'    => 33,
                 'title' => 'service_access',
             ],
             [
-                'id'    => 35,
+                'id'    => 34,
                 'title' => 'profile_password_edit',
             ],
         ];

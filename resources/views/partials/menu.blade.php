@@ -67,46 +67,34 @@
                 </ul>
             </li>
         @endcan
-        @can('laboratory_access')
-            <li class="c-sidebar-nav-dropdown {{ request()->is("admin/centres*") ? "c-show" : "" }} {{ request()->is("admin/tests*") ? "c-show" : "" }} {{ request()->is("admin/services*") ? "c-show" : "" }}">
-                <a class="c-sidebar-nav-dropdown-toggle" href="#">
-                    <i class="fa-fw fas fa-flask c-sidebar-nav-icon">
+        @can('centre_access')
+            <li class="c-sidebar-nav-item">
+                <a href="{{ route("admin.centres.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/centres") || request()->is("admin/centres/*") ? "c-active" : "" }}">
+                    <i class="fa-fw fas fa-briefcase-medical c-sidebar-nav-icon">
 
                     </i>
-                    {{ trans('cruds.laboratory.title') }}
+                    {{ trans('cruds.centre.title') }}
                 </a>
-                <ul class="c-sidebar-nav-dropdown-items">
-                    @can('centre_access')
-                        <li class="c-sidebar-nav-item">
-                            <a href="{{ route("admin.centres.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/centres") || request()->is("admin/centres/*") ? "c-active" : "" }}">
-                                <i class="fa-fw fas fa-briefcase-medical c-sidebar-nav-icon">
+            </li>
+        @endcan
+        @can('test_access')
+            <li class="c-sidebar-nav-item">
+                <a href="{{ route("admin.tests.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/tests") || request()->is("admin/tests/*") ? "c-active" : "" }}">
+                    <i class="fa-fw fas fa-tint c-sidebar-nav-icon">
 
-                                </i>
-                                {{ trans('cruds.centre.title') }}
-                            </a>
-                        </li>
-                    @endcan
-                    @can('test_access')
-                        <li class="c-sidebar-nav-item">
-                            <a href="{{ route("admin.tests.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/tests") || request()->is("admin/tests/*") ? "c-active" : "" }}">
-                                <i class="fa-fw fas fa-tint c-sidebar-nav-icon">
+                    </i>
+                    {{ trans('cruds.test.title') }}
+                </a>
+            </li>
+        @endcan
+        @can('service_access')
+            <li class="c-sidebar-nav-item">
+                <a href="{{ route("admin.services.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/services") || request()->is("admin/services/*") ? "c-active" : "" }}">
+                    <i class="fa-fw fas fa-hands-helping c-sidebar-nav-icon">
 
-                                </i>
-                                {{ trans('cruds.test.title') }}
-                            </a>
-                        </li>
-                    @endcan
-                    @can('service_access')
-                        <li class="c-sidebar-nav-item">
-                            <a href="{{ route("admin.services.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/services") || request()->is("admin/services/*") ? "c-active" : "" }}">
-                                <i class="fa-fw fas fa-cogs c-sidebar-nav-icon">
-
-                                </i>
-                                {{ trans('cruds.service.title') }}
-                            </a>
-                        </li>
-                    @endcan
-                </ul>
+                    </i>
+                    {{ trans('cruds.service.title') }}
+                </a>
             </li>
         @endcan
         <li class="c-sidebar-nav-item">
