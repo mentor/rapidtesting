@@ -30,11 +30,13 @@
         }
 
         h1 {
-
+            font-size: 23px;
+            line-height: 120%;
         }
 
         h3 {
-
+            font-size: 15px;
+            padding: 10px 10px 30px 10px;
         }
 
 
@@ -42,9 +44,9 @@
     </style>
 </head>
 <body style="background-color: #fff; margin: 0; padding: 0;">
-    <div class="container" style="height:106px; padding-left: 20px; padding-right: 20px;">
-        <div style="float: left; width: 25%; height:106px; vertical-align: middle">
-            <img alt="" src="{{ asset('images/testy_mom-logo.png') }}" style="height:66px; width:66px" />
+    <div class="container" style="height:106px; ">
+        <div style="float: left; width: 25%; height:106px; padding-left: 20px; padding-right: 20px;">
+            <img alt="" src="{{ asset('images/testy_mom-logo.png') }}" style="vertical-align: middle; height:66px; width:66px" />
         </div>
         <div style="width: 65%; height:106px">
             <h1 class="color-a">Testy MoM</h1>
