@@ -237,6 +237,15 @@
         <li>často vetrajte priestory, kde sa zdržiavate</li>
         <li>čo najviac obmedzte stretávanie sa s inými ľuďmi - aj v exteriéri</li>
     </ul>
+
+    <ul>
+        <li>Váš negatívny test neznamená, že nie ste infikovaný, môžete už byť v inkubačnej dobe ochordenia.</li>
+        <li>Sledujte svoj zdravotný stav a aj pri miernych klinických príznakoch (teplota, kašeľ, strata šuchu, chuti, dýchavičnosť...) bezodkladne kontaktujte telefonicky svojho príslušného všeobecného lekára, dohodnite sa sa na ďalšom postupe a dodržujte jeho pokyny.</li>
+        <li>Ak ste boli v úzkom kontakte s pozitívne testovanou osobou (2 dni pred jej pozitívnym testovaním, alebo pred začiatkom jej klinických príznakov), musíte ostať v karanténe, aj keď výsledok Vášho vyšetrenia pri aktuálne prebiehajúcom testovaní bol negatívny. </li>
+        <li>Informujte o svojom kontakte Vášho všeobecného lekára (v prípade detí všeobecného lekára pre deti a dorast) alebo lekára miestne príslušného VUC, ak Váš lekár nie je k dispozícii, dohodnite sa na ďalšom postupe a dodržujte jeho pokyny.</li>
+        <li>Riaďte sa pokynmi - Čo mám robiť, ak som bol v úzkom kontakte s Covid-19. </li>
+        <li>Viac informácií na stránke: www.korona.gov.sk, www.uvzsr.sk</li>
+    </ul>
 </div>
 </body>
 </html>
