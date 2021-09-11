@@ -169,8 +169,7 @@
         <td style="vertical-align: bottom; text-align: right;"><hr/>
             <p style=" padding-right: 80px">Pečiatka a podpis lekára<br/>
                 Doctor stamp and signature<br/>
-                Stempel un Unterschrift
-            </p></td>
+                Stempel un Unterschrift</p></td>
     </tr>
 </table>
 
