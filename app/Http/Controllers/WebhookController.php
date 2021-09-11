@@ -60,7 +60,8 @@ class WebhookController extends Controller
             $payload['pinrc'] = $this->getPlainValueFromCustomField($reservation->json('detail.customForms.0.fields'), 'QTQMVKQT');
             $payload['pinid'] = $this->getPlainValueFromCustomField($reservation->json('detail.customForms.0.fields'), 'JRHRFPDB');
             $payload['symptoms'] = $this->getGeneratedValueFromCustomField($reservation->json('detail.customForms.0.fields'), 'EAENGFYD', Test::SYMPTOMS_SELECT);
-            $payload['dob'] = Carbon::createFromFormat('m.d.Y', $this->getPlainValueFromCustomField($reservation->json('detail.customForms.0.fields'), 'DXCWCJIL'));
+            Log::info($this->getPlainValueFromCustomField($reservation->json('detail.customForms.0.fields'), 'DXCWCJIL'));
+            //$payload['dob'] = Carbon::createFromFormat('m.d.Y', $this->getPlainValueFromCustomField($reservation->json('detail.customForms.0.fields'), 'DXCWCJIL'));
             $payload['start'] = $reservation->json('detail.start');
             $payload['end'] = $reservation->json('detail.end');
             $payload['status'] = $reservation->json('detail.state');
