@@ -38,7 +38,9 @@
             clear:both;
         }
 
-
+        .row>div {
+            float:left;
+        }
 
         .col-4 {
             width: 33%;
