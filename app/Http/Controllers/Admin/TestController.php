@@ -115,6 +115,9 @@ class TestController extends Controller
             $table->editColumn('code_ref', function ($row) {
                 return $row->code_ref ? $row->code_ref : '';
             });
+            $table->editColumn('insurance_company', function ($row) {
+                return $row->insurance_company ? $row->insurance_company : '';
+            });
 
             $table->rawColumns(['actions', 'placeholder', 'service', 'centre']);
 

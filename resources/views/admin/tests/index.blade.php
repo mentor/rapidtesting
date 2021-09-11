@@ -104,6 +104,9 @@
                         {{ trans('cruds.test.fields.code_ref') }}
                     </th>
                     <th>
+                        {{ trans('cruds.test.fields.insurance_company') }}
+                    </th>
+                    <th>
                         &nbsp;
                     </th>
                 </tr>
@@ -228,6 +231,9 @@
                         <input class="search" type="text" placeholder="{{ trans('global.search') }}">
                     </td>
                     <td>
+                        <input class="search" type="text" placeholder="{{ trans('global.search') }}">
+                    </td>
+                    <td>
                     </td>
                 </tr>
             </thead>
@@ -308,6 +314,7 @@
 { data: 'note', name: 'note' },
 { data: 'reservation_id_ref', name: 'reservation_id_ref' },
 { data: 'code_ref', name: 'code_ref' },
+{ data: 'insurance_company', name: 'insurance_company' },
 { data: 'actions', name: '{{ trans('global.actions') }}' }
     ],
     orderCellsTop: true,

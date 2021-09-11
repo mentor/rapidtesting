@@ -299,6 +299,16 @@
                 <span class="help-block">{{ trans('cruds.test.fields.code_ref_helper') }}</span>
             </div>
             <div class="form-group">
+                <label class="required" for="insurance_company">{{ trans('cruds.test.fields.insurance_company') }}</label>
+                <input class="form-control {{ $errors->has('insurance_company') ? 'is-invalid' : '' }}" type="text" name="insurance_company" id="insurance_company" value="{{ old('insurance_company', $test->insurance_company) }}" required>
+                @if($errors->has('insurance_company'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('insurance_company') }}
+                    </div>
+                @endif
+                <span class="help-block">{{ trans('cruds.test.fields.insurance_company_helper') }}</span>
+            </div>
+            <div class="form-group">
                 <button class="btn btn-danger" type="submit">
                     {{ trans('global.save') }}
                 </button>

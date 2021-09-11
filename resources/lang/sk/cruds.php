@@ -187,6 +187,8 @@ return [
             'reservation_id_ref_helper'       => 'Reservation Id (REENIO)',
             'code_ref'                        => 'Reservation Code (REENIO)',
             'code_ref_helper'                 => 'Reservation Code (e.g. ABC-DEF-GHI)',
+            'insurance_company'               => 'Insurance Company',
+            'insurance_company_helper'        => 'Insurance Company',
         ],
     ],
     'service' => [

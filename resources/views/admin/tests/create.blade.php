@@ -14,7 +14,7 @@
                 <select class="form-control {{ $errors->has('status') ? 'is-invalid' : '' }}" name="status" id="status" required>
                     <option value disabled {{ old('status', null) === null ? 'selected' : '' }}>{{ trans('global.pleaseSelect') }}</option>
                     @foreach(App\Models\Test::STATUS_SELECT as $key => $label)
-                        <option value="{{ $key }}" {{ old('status', '0') === (string) $key ? 'selected' : '' }}>{{ $label }}</option>
+                        <option value="{{ $key }}" {{ old('status', 'created') === (string) $key ? 'selected' : '' }}>{{ $label }}</option>
                     @endforeach
                 </select>
                 @if($errors->has('status'))
@@ -296,6 +296,16 @@
                     </div>
                 @endif
                 <span class="help-block">{{ trans('cruds.test.fields.code_ref_helper') }}</span>
+            </div>
+            <div class="form-group">
+                <label class="required" for="insurance_company">{{ trans('cruds.test.fields.insurance_company') }}</label>
+                <input class="form-control {{ $errors->has('insurance_company') ? 'is-invalid' : '' }}" type="text" name="insurance_company" id="insurance_company" value="{{ old('insurance_company', '') }}" required>
+                @if($errors->has('insurance_company'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('insurance_company') }}
+                    </div>
+                @endif
+                <span class="help-block">{{ trans('cruds.test.fields.insurance_company_helper') }}</span>
             </div>
             <div class="form-group">
                 <button class="btn btn-danger" type="submit">

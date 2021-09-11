@@ -33,6 +33,7 @@ class CreateTestsTable extends Migration
             $table->string('note')->nullable();
             $table->integer('reservation_id_ref');
             $table->string('code_ref');
+            $table->string('insurance_company');
             $table->timestamps();
             $table->softDeletes();
         });
