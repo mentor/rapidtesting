@@ -30,7 +30,7 @@ class VerifyController extends Controller
         if (!$payload) {
             abort(404);
         }
-        $qrcode = base64_encode(QrCode::format('svg')->size(200)->errorCorrection('H')->url(route('verify', $code_ref)));
+        $qrcode = base64_encode(QrCode::format('png')->size(200)->generate(route('verify', $code_ref)));
         $pdf = PDF::loadView('verify', compact('payload', 'qrcode'));
 
         return $pdf->download($code_ref . '.pdf');
