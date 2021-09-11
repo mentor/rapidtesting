@@ -61,7 +61,7 @@
         }
 
         hr {
-            border: none;
+
             line-height: 1px;
             height: 1px;
         }
