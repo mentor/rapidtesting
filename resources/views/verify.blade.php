@@ -54,8 +54,8 @@
         .table {
 
         }
-        .table td {
-            width:50%;
+        .table td.first {
+            width:65%;
         }
 
 
@@ -78,19 +78,19 @@
 
     <table class="table" style="width:100%; border:0; padding: 10px 10px 10px 10px;">
         <tr>
-            <td>Meno / Name / Vor-und- Nachname:</td>
+            <td class="first">Meno / Name / Vor-und- Nachname:</td>
             <td>{{ $payload->firstname }} {{ $payload->lastname}}</td>
         </tr>
         <tr>
-            <td>Rodné číslo / Birth ID / Sozialversiecherungsnummer:</td>
+            <td class="first">Rodné číslo / Birth ID / Sozialversiecherungsnummer:</td>
             <td>@if($payload->pinrc) {{ $payload->pinrc }} @else &nbsp; @endif</td>
         </tr>
         <tr>
-            <td>Dátum narodenia / Date of birth / Geburtsdatum:</td>
+            <td class="first">Dátum narodenia / Date of birth / Geburtsdatum:</td>
             <td>{{ $payload->dob }}</td>
         </tr>
         <tr>
-            <td>Číslo dokladu / Person identifier / ID-Passnummer:</td>
+            <td class="first">Číslo dokladu / Person identifier / ID-Passnummer:</td>
             <td>{{ $payload->pinid }}</td>
         </tr>
     </table>
@@ -99,19 +99,19 @@
 
     <table class="table" style="width:100%; border:0; padding: 10px 10px 10px 10px;">
         <tr>
-            <td>Diagnóza / Diagnosis / Diagnose:</td>
+            <td class="first">Diagnóza / Diagnosis / Diagnose:</td>
             <td>{{ $payload->firstname }} {{ $payload->lastname}}</td>
         </tr>
         <tr>
-            <td>Type testu / Test type / Testart:</td>
+            <td class="first">Type testu / Test type / Testart:</td>
             <td>@if($payload->pinrc) {{ $payload->pinrc }} @else &nbsp; @endif</td>
         </tr>
         <tr>
-            <td>Názov testu / Test name / Testname:</td>
+            <td class="first">Názov testu / Test name / Testname:</td>
             <td>{{ $payload->dob }}</td>
         </tr>
         <tr>
-            <td>Výrobca testu / Test manufacturer / Hersteller:</td>
+            <td class="first">Výrobca testu / Test manufacturer / Hersteller:</td>
             <td>{{ $payload->pinid }}</td>
         </tr>
     </table>
