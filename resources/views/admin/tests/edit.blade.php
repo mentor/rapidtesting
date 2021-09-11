@@ -11,16 +11,6 @@
             @method('PUT')
             @csrf
             <div class="form-group">
-                <label class="required" for="code">{{ trans('cruds.test.fields.code') }}</label>
-                <input class="form-control {{ $errors->has('code') ? 'is-invalid' : '' }}" type="text" name="code" id="code" value="{{ old('code', $test->code) }}" required>
-                @if($errors->has('code'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('code') }}
-                    </div>
-                @endif
-                <span class="help-block">{{ trans('cruds.test.fields.code_helper') }}</span>
-            </div>
-            <div class="form-group">
                 <label class="required">{{ trans('cruds.test.fields.status') }}</label>
                 <select class="form-control {{ $errors->has('status') ? 'is-invalid' : '' }}" name="status" id="status" required>
                     <option value disabled {{ old('status', null) === null ? 'selected' : '' }}>{{ trans('global.pleaseSelect') }}</option>
@@ -287,6 +277,26 @@
                     </div>
                 @endif
                 <span class="help-block">{{ trans('cruds.test.fields.note_helper') }}</span>
+            </div>
+            <div class="form-group">
+                <label class="required" for="reservation_id_ref">{{ trans('cruds.test.fields.reservation_id_ref') }}</label>
+                <input class="form-control {{ $errors->has('reservation_id_ref') ? 'is-invalid' : '' }}" type="number" name="reservation_id_ref" id="reservation_id_ref" value="{{ old('reservation_id_ref', $test->reservation_id_ref) }}" step="1" required>
+                @if($errors->has('reservation_id_ref'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('reservation_id_ref') }}
+                    </div>
+                @endif
+                <span class="help-block">{{ trans('cruds.test.fields.reservation_id_ref_helper') }}</span>
+            </div>
+            <div class="form-group">
+                <label class="required" for="code_ref">{{ trans('cruds.test.fields.code_ref') }}</label>
+                <input class="form-control {{ $errors->has('code_ref') ? 'is-invalid' : '' }}" type="text" name="code_ref" id="code_ref" value="{{ old('code_ref', $test->code_ref) }}" required>
+                @if($errors->has('code_ref'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('code_ref') }}
+                    </div>
+                @endif
+                <span class="help-block">{{ trans('cruds.test.fields.code_ref_helper') }}</span>
             </div>
             <div class="form-group">
                 <button class="btn btn-danger" type="submit">

@@ -25,14 +25,6 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.test.fields.code') }}
-                        </th>
-                        <td>
-                            {{ $test->code }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
                             {{ trans('cruds.test.fields.status') }}
                         </th>
                         <td>
@@ -213,6 +205,22 @@
                         </th>
                         <td>
                             {{ $test->note }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.test.fields.reservation_id_ref') }}
+                        </th>
+                        <td>
+                            {{ $test->reservation_id_ref }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.test.fields.code_ref') }}
+                        </th>
+                        <td>
+                            {{ $test->code_ref }}
                         </td>
                     </tr>
                 </tbody>

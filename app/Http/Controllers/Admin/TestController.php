@@ -48,9 +48,6 @@ class TestController extends Controller
             $table->editColumn('id', function ($row) {
                 return $row->id ? $row->id : '';
             });
-            $table->editColumn('code', function ($row) {
-                return $row->code ? $row->code : '';
-            });
             $table->editColumn('status', function ($row) {
                 return $row->status ? Test::STATUS_SELECT[$row->status] : '';
             });
@@ -111,6 +108,12 @@ class TestController extends Controller
 
             $table->editColumn('note', function ($row) {
                 return $row->note ? $row->note : '';
+            });
+            $table->editColumn('reservation_id_ref', function ($row) {
+                return $row->reservation_id_ref ? $row->reservation_id_ref : '';
+            });
+            $table->editColumn('code_ref', function ($row) {
+                return $row->code_ref ? $row->code_ref : '';
             });
 
             $table->rawColumns(['actions', 'placeholder', 'service', 'centre']);
