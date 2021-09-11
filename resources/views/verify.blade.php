@@ -45,10 +45,10 @@
 </head>
 <body style="background-color: #fff; margin: 0; padding: 0;">
     <div class="container" style="height:106px; ">
-        <div style="float: left; width: 25%; height:106px; padding-left: 20px; padding-right: 20px;">
+        <div style="float: left; width: 106px; height:106px; padding-left: 20px; padding-right: 20px;">
             <img alt="" src="{{ asset('images/testy_mom-logo.png') }}" style="vertical-align: middle; height:66px; width:66px" />
         </div>
-        <div style="width: 65%; height:106px">
+        <div style=" height:106px">
             <h1 class="color-a">Testy MoM</h1>
             <h3 class="color-c">Rýchle a spoľahlivé antigénové a PCR testovanie</h3>
         </div>
