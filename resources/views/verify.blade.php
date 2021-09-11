@@ -167,7 +167,7 @@
     <tr>
         <td style="width:30%; vertical-align: top; padding-right:20px"><img src="data:image/png;base64, {!! $qrcode !!}"></td>
         <td style="vertical-align: bottom; text-align: right;"><hr/>
-            <p style=" padding-right: 80px">Pečiatka a podpis lekára<br/>
+            <p style="padding: 0 0 0 80px">Pečiatka a podpis lekára<br/>
                 Doctor stamp and signature<br/>
                 Stempel un Unterschrift</p></td>
     </tr>
