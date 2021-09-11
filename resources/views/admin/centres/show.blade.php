@@ -92,10 +92,18 @@
                 {{ trans('cruds.test.title') }}
             </a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#centre_users" role="tab" data-toggle="tab">
+                {{ trans('cruds.user.title') }}
+            </a>
+        </li>
     </ul>
     <div class="tab-content">
         <div class="tab-pane" role="tabpanel" id="centre_tests">
             @includeIf('admin.centres.relationships.centreTests', ['tests' => $centre->centreTests])
+        </div>
+        <div class="tab-pane" role="tabpanel" id="centre_users">
+            @includeIf('admin.centres.relationships.centreUsers', ['users' => $centre->centreUsers])
         </div>
     </div>
 </div>
