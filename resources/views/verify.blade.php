@@ -375,7 +375,7 @@
                                             <td style="padding-top:15px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
                                                 <div style="font-family: Arial, sans-serif">
                                                     <div style="font-size: 14px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #555555; line-height: 1.2;">
-                                                        <p style="margin: 0; font-size: 14px;"><span style="font-size:13px;">{{ $payload->diagnosis }} ?</span></p>
+                                                        <p style="margin: 0; font-size: 14px;"><span style="font-size:13px;">{{ $payload->result_diagnosis }}</span></p>
                                                     </div>
                                                 </div>
                                             </td>
