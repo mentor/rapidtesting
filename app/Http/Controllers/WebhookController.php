@@ -136,8 +136,8 @@ class WebhookController extends Controller
         $test->pinid = '9312098147';
         $test->symptoms = 'OVYNP';
         $test->dob = '1993-12-09';
-        $test->start = Carbon::parse('2021-09-13T07:00:00Z')->tz('GMT+1')->toDateTimeString();
-        $test->end = Carbon::parse('2021-09-13T07:10:00Z')->tz('GMT+1')->toDateTimeString();
+        $test->start = Carbon::parse('2021-09-13T07:00:00Z')->tz('Europe/Bratislava')->toDateTimeString();
+        $test->end = Carbon::parse('2021-09-13T07:10:00Z')->tz('Europe/Bratislava')->toDateTimeString();
         $test->status = '0';
         $test->save();
         //Test::create($payload);
