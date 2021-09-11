@@ -58,6 +58,7 @@
         .table td.first {
             width:65%;
             font-weight: bold;
+            vertical-align: top;
         }
 
         hr {
