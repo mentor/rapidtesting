@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Middleware\VerifyCsrfToken;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
 Route::post('webhook/created', 'WebhookController@created')->withoutMiddleware(VerifyCsrfToken::class);
 Route::post('webhook/status', 'WebhookController@status')->withoutMiddleware(VerifyCsrfToken::class);
@@ -14,7 +16,7 @@ Route::get('/home', function () {
 });
 
 Route::get('userVerification/{token}', 'UserVerificationController@approve')->name('userVerification');
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
     Route::get('/', 'HomeController@index')->name('home');
