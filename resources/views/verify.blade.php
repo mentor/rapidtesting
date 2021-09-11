@@ -185,7 +185,7 @@
             </ul>
         </div>
 
-        <div class="stripe text-center bold" style="font-size:12px;>
+        <div class="stripe text-center bold" style="font-size:12px;">
             Poučenie pre osoby s negatívnym výsledkom vyšetrenia
         </div>
 
