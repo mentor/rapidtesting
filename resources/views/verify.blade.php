@@ -36,7 +36,7 @@
             font-size: 23px;
             line-height: 120%;
             margin:0;
-            padding:5px 0 0 0;
+            padding:0px 0 0 0;
         }
 
         h3 {
