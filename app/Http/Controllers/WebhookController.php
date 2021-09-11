@@ -38,7 +38,7 @@ class WebhookController extends Controller
             $this->response();
         }
 
-        try {
+//        try {
             // build payload to store into database
             $payload = [];
 
@@ -57,7 +57,7 @@ class WebhookController extends Controller
             $payload['code_ref'] = $reservation->json('detail.code');
             $payload['service_id'] = $this->lookupServiceByServiceId($reservation->json('detail.serviceId'));
             $payload['centre_id'] = $this->lookupCentreByPlaceId($reservation->json('detail.placeId'));
-            $payload['pinrc'] = $this->getPlainValueFromCustomField($reservation->json('detail.customForms.0.fields'), 'QTQMVKQT');
+            $payload['pinrc'] = $this->getPlainValueFromCustomField($reservation->json('detail.customForms.0.fields'), 'QTQMVKQT') ?: null;
             $payload['pinid'] = $this->getPlainValueFromCustomField($reservation->json('detail.customForms.0.fields'), 'JRHRFPDB');
             $payload['symptoms'] = $this->getGeneratedValueFromCustomField($reservation->json('detail.customForms.0.fields'), 'EAENGFYD', Test::SYMPTOMS_SELECT);
             //Log::info(print_r($reservation->json('detail.customForms.0.fields'), true));
@@ -72,9 +72,10 @@ class WebhookController extends Controller
 
             Test::create($payload);
 
-        } catch (\Exception $e) {
-            Log::error($e->getMessage());
-        }
+//        } catch (\Exception $e) {
+//            Log::error($e->getMessage());
+//        }
+
 
         // return happy response back!
         $this->response();
@@ -94,6 +95,32 @@ class WebhookController extends Controller
         '10' => 'No Show',
         '11' => 'Not Arrived',
      */
+
+    public function test(Request $request) {
+        $payload = [
+            'firstname' => 'filip',
+            'lastname' => 'sersik',
+            'email' => 'filip.sersik@outlook.com',
+            'phone' => '+420 720 968 217',
+            'street' => 'vychodna 10',
+            'city' => 'martin',
+            'postal' => '03601',
+            'country' => 'CZ',
+            'reservation_id_ref' => '3326013',
+            'code_ref' => 'NT3-UEZ-OQL',
+            'service_id' => '1',
+            'centre_id' => '1',
+            'pinrc' => null,
+            'pinid' => '9312098147',
+            'symptoms' => 'OVYNP',
+            'dob' => '1993-12-09',
+            'start' => '2021-09-13T07:00:00Z',
+            'end' => '2021-09-13T07:10:00Z',
+            'status' => '0',
+        ];
+        Test::create($payload);
+        echo 'ok';
+    }
 
     public function status(Request $request) {
         // webhook synchronization request
