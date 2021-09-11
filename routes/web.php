@@ -1,10 +1,5 @@
 <?php
 
-use App\Http\Middleware\VerifyCsrfToken;
-
-Route::post('webhook/created', 'WebhookController@created')->withoutMiddleware(VerifyCsrfToken::class);
-Route::post('webhook/status', 'WebhookController@status')->withoutMiddleware(VerifyCsrfToken::class);
-Route::get('webhook/test', 'WebhookController@test');
 Route::redirect('/', '/login');
 Route::get('/home', function () {
     if (session('status')) {
@@ -49,6 +44,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     // Service
     Route::delete('services/destroy', 'ServiceController@massDestroy')->name('services.massDestroy');
     Route::resource('services', 'ServiceController');
+
+    Route::get('system-calendar', 'SystemCalendarController@index')->name('systemCalendar');
 });
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 'middleware' => ['auth']], function () {
     // Change password
