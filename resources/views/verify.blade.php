@@ -35,12 +35,12 @@
             font-size: 23px;
             line-height: 120%;
             margin:0;
-            padding:10px 0 0 0;
+            padding:5px 0 0 0;
         }
 
         h3 {
             font-size: 15px;
-            padding: 10px 10px 30px 10px;
+            padding: 10px 10px 10px 15px;
             margin:0;
         }
 
