@@ -29,6 +29,7 @@
         .stripe {
             background-color: #ceecfc;
             padding: 15px 10px;
+            font-size: 18px;
         }
 
         h1 {
@@ -39,7 +40,7 @@
         }
 
         h3 {
-            font-size: 12px;
+            font-size: 15px;
             margin:10px 0 0 10px;
         }
 
