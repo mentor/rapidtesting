@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "d76de9cbd170701b423bd51b1ea6bd2f",
+    "content-hash": "7d40db53413c6781e405c984bcfc5fec",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -6052,6 +6052,102 @@
             "time": "2020-07-13T06:12:54+00:00"
         },
         {
+            "name": "tipo94/laravel-qr-code",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tipo94/laravel-qr-code.git",
+                "reference": "29cc7517c138611ab04d4752c61a96fe2cca1f8d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tipo94/laravel-qr-code/zipball/29cc7517c138611ab04d4752c61a96fe2cca1f8d",
+                "reference": "29cc7517c138611ab04d4752c61a96fe2cca1f8d",
+                "shasum": ""
+            },
+            "require": {
+                "tipo94/qr-code": "1.0.0"
+            },
+            "default-branch": true,
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "LaravelQRCode\\Providers\\QRCodeServiceProvider"
+                    ],
+                    "aliases": {
+                        "QRCode": "LaravelQRCode\\Facades\\QRCode"
+                    }
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "LaravelQRCode\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Roman Stec",
+                    "email": "roman.stec@dragnsurvey.com"
+                }
+            ],
+            "description": "QR Code Generator for PHP wrapper for Laravel",
+            "support": {
+                "issues": "https://github.com/tipo94/laravel-qr-code/issues",
+                "source": "https://github.com/tipo94/laravel-qr-code/tree/master"
+            },
+            "time": "2019-04-22T22:59:13+00:00"
+        },
+        {
+            "name": "tipo94/qr-code",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/tipo94/qr-code.git",
+                "reference": "fa3c5384341e73c4056e0dd7033c493c0891ede9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/tipo94/qr-code/zipball/fa3c5384341e73c4056e0dd7033c493c0891ede9",
+                "reference": "fa3c5384341e73c4056e0dd7033c493c0891ede9",
+                "shasum": ""
+            },
+            "require-dev": {
+                "khanamiryan/qrcode-detector-decoder": "^1.0",
+                "phpunit/phpunit": "^6.5"
+            },
+            "type": "library",
+            "autoload": {
+                "files": [
+                    "src/helpers/constants.php",
+                    "src/helpers/functions.php"
+                ],
+                "psr-4": {
+                    "QR_Code\\": "src/QR_Code/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "STEC Roman",
+                    "email": "roman.stec@dragnsurvey.com"
+                }
+            ],
+            "description": "QR Code Generator for PHP",
+            "support": {
+                "issues": "https://github.com/tipo94/qr-code/issues",
+                "source": "https://github.com/tipo94/qr-code/tree/1.0.0"
+            },
+            "time": "2019-04-22T22:47:11+00:00"
+        },
+        {
             "name": "vlucas/phpdotenv",
             "version": "v5.3.0",
             "source": {
@@ -8675,7 +8771,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "tipo94/laravel-qr-code": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

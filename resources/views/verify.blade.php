@@ -78,7 +78,6 @@
             font-size: 10px;
         }
 
-
     </style>
 </head>
 <body style="background-color: #fff; margin: 0; padding: 0;">
@@ -162,6 +161,18 @@
             Pozitívny / Positive @else Negatívny / Negative @endif</span>
 </div>
 
+
+
+<table class="table" style="width:100%; border:0; padding: 10px 10px 10px 10px;">
+    <tr>
+        <td style="width:30%; vertical-align: top;"><img src="data:image/png;base64, {!! $qrcode !!}"></td>
+        <td style="vertical-align: bottom"><hr/>
+            <p>Pečiatka a podpis lekára<br/>
+                Doctor stamp and signature<br/>
+                Stempel un Unterschrift
+            </p></td>
+    </tr>
+</table>
 
 <div class="page-break"></div>
 
