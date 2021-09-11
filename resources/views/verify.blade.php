@@ -228,7 +228,7 @@
                                             <td>
                                                 <div style="font-family: Arial, sans-serif">
                                                     <div style="font-size: 14px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #555555; line-height: 1.2;">
-                                                        <p style="margin: 0; font-size: 14px;"><span style="font-size:13px;">@if($payload->pinrc) {{ $payload->pinrc }} @else @nbsp; @endif</span>
+                                                        <p style="margin: 0; font-size: 14px;"><span style="font-size:13px;">@if($payload->pinrc) {{ $payload->pinrc }} @else &nbsp; @endif</span>
                                                         </p>
                                                     </div>
                                                 </div>
