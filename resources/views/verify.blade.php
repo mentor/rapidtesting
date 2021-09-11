@@ -52,7 +52,7 @@
             font-weight: bold;
         }
         .table {
-            margin-bot:100px;
+            margin-top:100px;
         }
         .table td {
             width:50%;
