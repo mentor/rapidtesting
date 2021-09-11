@@ -10,10 +10,12 @@ class CreateCentresTable extends Migration
     {
         Schema::create('centres', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('street')->nullable();
-            $table->string('city')->nullable();
-            $table->string('postal')->nullable();
+            $table->string('name')->unique();
+            $table->string('street');
+            $table->string('city');
+            $table->string('postal');
+            $table->integer('place_id_ref')->unique();
+            $table->string('country');
             $table->timestamps();
             $table->softDeletes();
         });

@@ -20,18 +20,30 @@ class StoreCentreRequest extends FormRequest
             'name' => [
                 'string',
                 'required',
+                'unique:centres',
             ],
             'street' => [
                 'string',
-                'nullable',
+                'required',
             ],
             'city' => [
                 'string',
-                'nullable',
+                'required',
             ],
             'postal' => [
                 'string',
-                'nullable',
+                'required',
+            ],
+            'place_id_ref' => [
+                'required',
+                'integer',
+                'min:-2147483648',
+                'max:2147483647',
+                'unique:centres,place_id_ref',
+            ],
+            'country' => [
+                'string',
+                'required',
             ],
         ];
     }

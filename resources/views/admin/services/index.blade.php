@@ -1,50 +1,34 @@
 @extends('layouts.admin')
 @section('content')
-@can('centre_create')
+@can('service_create')
     <div style="margin-bottom: 10px;" class="row">
         <div class="col-lg-12">
-            <a class="btn btn-success" href="{{ route('admin.centres.create') }}">
-                {{ trans('global.add') }} {{ trans('cruds.centre.title_singular') }}
+            <a class="btn btn-success" href="{{ route('admin.services.create') }}">
+                {{ trans('global.add') }} {{ trans('cruds.service.title_singular') }}
             </a>
-            <button class="btn btn-warning" data-toggle="modal" data-target="#csvImportModal">
-                {{ trans('global.app_csvImport') }}
-            </button>
-            @include('csvImport.modal', ['model' => 'Centre', 'route' => 'admin.centres.parseCsvImport'])
         </div>
     </div>
 @endcan
 <div class="card">
     <div class="card-header">
-        {{ trans('cruds.centre.title_singular') }} {{ trans('global.list') }}
+        {{ trans('cruds.service.title_singular') }} {{ trans('global.list') }}
     </div>
 
     <div class="card-body">
-        <table class=" table table-bordered table-striped table-hover ajaxTable datatable datatable-Centre">
+        <table class=" table table-bordered table-striped table-hover ajaxTable datatable datatable-Service">
             <thead>
                 <tr>
                     <th width="10">
 
                     </th>
                     <th>
-                        {{ trans('cruds.centre.fields.id') }}
+                        {{ trans('cruds.service.fields.id') }}
                     </th>
                     <th>
-                        {{ trans('cruds.centre.fields.name') }}
+                        {{ trans('cruds.service.fields.name') }}
                     </th>
                     <th>
-                        {{ trans('cruds.centre.fields.street') }}
-                    </th>
-                    <th>
-                        {{ trans('cruds.centre.fields.city') }}
-                    </th>
-                    <th>
-                        {{ trans('cruds.centre.fields.postal') }}
-                    </th>
-                    <th>
-                        {{ trans('cruds.centre.fields.place_id_ref') }}
-                    </th>
-                    <th>
-                        {{ trans('cruds.centre.fields.country') }}
+                        {{ trans('cruds.service.fields.service_id_ref') }}
                     </th>
                     <th>
                         &nbsp;
@@ -52,18 +36,6 @@
                 </tr>
                 <tr>
                     <td>
-                    </td>
-                    <td>
-                        <input class="search" type="text" placeholder="{{ trans('global.search') }}">
-                    </td>
-                    <td>
-                        <input class="search" type="text" placeholder="{{ trans('global.search') }}">
-                    </td>
-                    <td>
-                        <input class="search" type="text" placeholder="{{ trans('global.search') }}">
-                    </td>
-                    <td>
-                        <input class="search" type="text" placeholder="{{ trans('global.search') }}">
                     </td>
                     <td>
                         <input class="search" type="text" placeholder="{{ trans('global.search') }}">
@@ -90,11 +62,11 @@
 <script>
     $(function () {
   let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)
-@can('centre_delete')
+@can('service_delete')
   let deleteButtonTrans = '{{ trans('global.datatables.delete') }}';
   let deleteButton = {
     text: deleteButtonTrans,
-    url: "{{ route('admin.centres.massDestroy') }}",
+    url: "{{ route('admin.services.massDestroy') }}",
     className: 'btn-danger',
     action: function (e, dt, node, config) {
       var ids = $.map(dt.rows({ selected: true }).data(), function (entry) {
@@ -126,23 +98,19 @@
     serverSide: true,
     retrieve: true,
     aaSorting: [],
-    ajax: "{{ route('admin.centres.index') }}",
+    ajax: "{{ route('admin.services.index') }}",
     columns: [
       { data: 'placeholder', name: 'placeholder' },
 { data: 'id', name: 'id' },
 { data: 'name', name: 'name' },
-{ data: 'street', name: 'street' },
-{ data: 'city', name: 'city' },
-{ data: 'postal', name: 'postal' },
-{ data: 'place_id_ref', name: 'place_id_ref' },
-{ data: 'country', name: 'country' },
+{ data: 'service_id_ref', name: 'service_id_ref' },
 { data: 'actions', name: '{{ trans('global.actions') }}' }
     ],
     orderCellsTop: true,
     order: [[ 1, 'desc' ]],
     pageLength: 100,
   };
-  let table = $('.datatable-Centre').DataTable(dtOverrideGlobals);
+  let table = $('.datatable-Service').DataTable(dtOverrideGlobals);
   $('a[data-toggle="tab"]').on('shown.bs.tab click', function(e){
       $($.fn.dataTable.tables(true)).DataTable()
           .columns.adjust();

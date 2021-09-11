@@ -17,15 +17,36 @@ class StoreTestRequest extends FormRequest
     public function rules()
     {
         return [
-            'pinid' => [
+            'code' => [
                 'string',
+                'min:11',
+                'max:11',
                 'required',
+            ],
+            'status' => [
+                'required',
+            ],
+            'service_id' => [
+                'required',
+                'integer',
+            ],
+            'start' => [
+                'date_format:' . config('panel.date_format') . ' ' . config('panel.time_format'),
+                'nullable',
+            ],
+            'end' => [
+                'date_format:' . config('panel.date_format') . ' ' . config('panel.time_format'),
+                'nullable',
             ],
             'pinrc' => [
                 'string',
                 'min:10',
                 'max:11',
                 'nullable',
+            ],
+            'pinid' => [
+                'string',
+                'required',
             ],
             'firstname' => [
                 'string',
@@ -65,9 +86,6 @@ class StoreTestRequest extends FormRequest
             'symptoms' => [
                 'required',
             ],
-            'result_type' => [
-                'required',
-            ],
             'result_date' => [
                 'date_format:' . config('panel.date_format') . ' ' . config('panel.time_format'),
                 'nullable',
@@ -75,6 +93,10 @@ class StoreTestRequest extends FormRequest
             'centre_id' => [
                 'required',
                 'integer',
+            ],
+            'note' => [
+                'string',
+                'nullable',
             ],
         ];
     }
