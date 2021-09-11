@@ -161,7 +161,7 @@
 
 <div class="page-break"></div>
 
-<div class="container" style="height:106px; ">
+<!--<div class="container" style="height:106px; ">
     <div style="float: left; width: 86px; height:106px; padding-left: 20px; padding-right: 20px;">
         <img alt="" src="{{ asset('images/testy_mom-logo.png') }}"
              style="vertical-align: middle; height:66px; width:66px"/>
@@ -170,7 +170,7 @@
         <h1 class="color-a">Testy MoM</h1>
         <h3 class="color-c">Rýchle a spoľahlivé antigénové a PCR testovanie</h3>
     </div>
-</div>
+</div>-->
 <div class="stripe text-center bold">
     Poučenie pre osoby s pozitívnym výsledkom vyšetrenia a osoby žijúce s nimi v spoločnej domácnosti
 </div>
