@@ -163,7 +163,7 @@
             <h3 class="color-c">Rýchle a spoľahlivé antigénové a PCR testovanie</h3>
         </div>
 
-        <div class="stripe text-center bold">
+        <div class="stripe text-center bold" style="font-size:12px;">
             Poučenie pre osoby s pozitívnym výsledkom vyšetrenia a osoby žijúce s nimi v spoločnej domácnosti
         </div>
 
@@ -185,7 +185,7 @@
             </ul>
         </div>
 
-        <div class="stripe text-center bold">
+        <div class="stripe text-center bold" style="font-size:12px;>
             Poučenie pre osoby s negatívnym výsledkom vyšetrenia
         </div>
 
