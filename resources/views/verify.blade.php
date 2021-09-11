@@ -61,7 +61,9 @@
         }
 
         hr {
-            border:1px solid #555555;
+            border: none;
+            border-top:1px solid #555555;
+
             line-height: 1px;
             height: 1px;
         }
