@@ -74,6 +74,10 @@
             height: 1px;
         }
 
+        ul li::marker {
+            font-size: 12px;
+        }
+
 
     </style>
 </head>
