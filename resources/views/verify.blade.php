@@ -53,7 +53,7 @@
             font-weight: bold;
         }
         .table td {
-            font-size: 14px;
+            font-size: 12px;
         }
         .table td.first {
             width:65%;
