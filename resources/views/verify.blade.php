@@ -9,7 +9,7 @@
         <div class="form-group row">
             <label for="pinrc" class="col-sm-3 col-form-label">Rodné číslo</label>
             <div class="col-sm-9">
-                <input name="Rodné číslo" type="text" class="form-control" id="pinrc" placeholder="123456/7890" required>
+                <input name="pinrc" type="text" class="form-control" id="pinrc" placeholder="123456/7890" required>
             </div>
             @error('pinrc')
                 <div class="alert alert-danger">{{ $message }}</div>
@@ -19,7 +19,7 @@
         <div class="form-group row">
             <label for="pinid" class="col-sm-3 col-form-label">Číslo dokladu</label>
             <div class="col-sm-9">
-                <input name="Rodné číslo" type="text" class="form-control" id="pinid" placeholder="123456/7890" required>
+                <input name="pinid" type="text" class="form-control" id="pinid" placeholder="123456/7890" required>
             </div>
             @error('pinid')
                 <div class="alert alert-danger">{{ $message }}</div>
