@@ -175,7 +175,7 @@
     Poučenie pre osoby s pozitívnym výsledkom vyšetrenia a osoby žijúce s nimi v spoločnej domácnosti
 </div>
 
-<div style="font-size: 12px; margin-top:10px;  line-height: 1.2;">
+<div style="font-size: 12px; margin-top:10px; padding-left:10px; padding-right:10px; line-height: 1.2;">
     <p>Musíte zostať v domácej izolácii a ostatní členovia spoločnej domácnosti v karanténe minimálne 14 dní (aj keď
         boli testovaní ako negatívni).</p>
     <ul>
@@ -228,7 +228,7 @@
     Poučenie pre osoby s negatívnym výsledkom vyšetrenia
 </div>
 
-<div style="font-size: 12px; margin-top:10px; line-height: 1.2;">
+<div style="font-size: 12px; margin-top:10px; padding-left:10px; padding-right:10px; line-height: 1.2;">
     <p>Správajte sa zodpovedne, dodržujte všetky odporúčania: </p>
     <ul>
         <li>noste rúško</li>
