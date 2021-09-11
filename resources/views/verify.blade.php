@@ -163,10 +163,10 @@
 
 
 
-<table class="table" style="width:100%; border:0; padding: 10px 10px 10px 10px;">
+<table class="table" style="width:100%; border:0; padding: 30px 0 10px 0;">
     <tr>
-        <td style="width:30%; vertical-align: top;"><img src="data:image/png;base64, {!! $qrcode !!}"></td>
-        <td style="vertical-align: bottom"><hr/>
+        <td style="width:30%; vertical-align: top; padding-right:20px"><img src="data:image/png;base64, {!! $qrcode !!}"></td>
+        <td style="vertical-align: bottom; text-align: right; padding-right: 80px"><hr/>
             <p>Pečiatka a podpis lekára<br/>
                 Doctor stamp and signature<br/>
                 Stempel un Unterschrift
