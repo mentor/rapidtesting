@@ -112,7 +112,8 @@ class Test extends Model
 
     public function setStartAttribute($value)
     {
-        $this->attributes['start'] = $value ? Carbon::createFromFormat(config('panel.date_format') . 'T' . config('panel.time_format') . 'Z', $value)->format('Y-m-d H:i:s') : null;
+        //$this->attributes['start'] = $value ? Carbon::createFromFormat(config('panel.date_format') . ' ' . config('panel.time_format'), $value)->format('Y-m-d H:i:s') : null;
+        $this->attributes['start'] = $value ? Carbon::parse($value)->format('Y-m-d H:i:s') : null;
     }
 
     public function getEndAttribute($value)
@@ -122,7 +123,8 @@ class Test extends Model
 
     public function setEndAttribute($value)
     {
-        $this->attributes['end'] = $value ? Carbon::createFromFormat(config('panel.date_format') . 'T' . config('panel.time_format').'Z', $value)->format('Y-m-d H:i:s') : null;
+        //$this->attributes['end'] = $value ? Carbon::createFromFormat(config('panel.date_format') . ' ' . config('panel.time_format'), $value)->format('Y-m-d H:i:s') : null;
+        $this->attributes['end'] = $value ? Carbon::parse($value)->format('Y-m-d H:i:s') : null;
     }
 
     public function getDobAttribute($value)
