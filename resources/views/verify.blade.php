@@ -42,6 +42,13 @@
             margin:0;
         }
 
+        .text-center {
+            text-align: center;
+        }
+
+        .bold {
+            font-weight: bold;
+        }
 
 
     </style>
@@ -56,7 +63,7 @@
             <h3 class="color-c">Rýchle a spoľahlivé antigénové a PCR testovanie</h3>
         </div>
 
-        <div class="stripe">
+        <div class="stripe text-center bold">
             Potvrdenie o vykonaní testu / Test Result Certificate / Testergebnis Bescheinigung
         </div>
     </div>
