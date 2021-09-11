@@ -11,7 +11,7 @@
     <style>
         body {
             font-family: DejaVu Sans;
-            letter-spacing: 0.2rem;
+            letter-spacing: 0.05rem;
         }
         .page-break {
             page-break-after: always;
