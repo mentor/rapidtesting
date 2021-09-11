@@ -224,11 +224,11 @@
     </ul>
 </div>
 
-<div class="stripe text-center bold" style="margin-top:10px">
+<div class="stripe text-center bold" style="margin-top:20px">
     Poučenie pre osoby s negatívnym výsledkom vyšetrenia
 </div>
 
-<div style="font-size: 12px; margin-top:15px; line-height: 1.2;">
+<div style="font-size: 12px; margin-top:10px; line-height: 1.2;">
     <p>Správajte sa zodpovedne, dodržujte všetky odporúčania: </p>
     <ul>
         <li>noste rúško</li>
