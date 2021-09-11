@@ -8,7 +8,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <!--[if mso]><xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch><o:AllowPNG/></o:OfficeDocumentSettings></xml><![endif]-->
     <!--[if !mso]><!-->
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css"/>
+<!--    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css"/>
     <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet" type="text/css"/>
     <link href="https://fonts.googleapis.com/css?family=Bitter" rel="stylesheet" type="text/css"/>
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css"/>
@@ -16,7 +16,7 @@
     <link href="https://fonts.googleapis.com/css?family=Droid+Serif" rel="stylesheet" type="text/css"/>
     <link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet" type="text/css"/>
     <link href="https://fonts.googleapis.com/css?family=Abril+Fatface" rel="stylesheet" type="text/css"/>
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css"/>
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css"/>-->
     <!--<![endif]-->
 
     <style>
