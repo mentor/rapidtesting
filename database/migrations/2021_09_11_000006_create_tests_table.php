@@ -10,8 +10,12 @@ class CreateTestsTable extends Migration
     {
         Schema::create('tests', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('pinid');
+            $table->string('code');
+            $table->string('status');
+            $table->datetime('start')->nullable();
+            $table->datetime('end')->nullable();
             $table->string('pinrc')->nullable();
+            $table->string('pinid');
             $table->string('firstname');
             $table->string('lastname');
             $table->string('email');
@@ -22,12 +26,12 @@ class CreateTestsTable extends Migration
             $table->string('postal');
             $table->string('country');
             $table->string('symptoms');
-            $table->string('result_type');
             $table->datetime('result_date')->nullable();
             $table->string('result_status')->nullable();
             $table->string('result_test_name')->nullable();
             $table->string('result_test_manufacturer')->nullable();
             $table->string('result_diagnosis')->nullable();
+            $table->string('note')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

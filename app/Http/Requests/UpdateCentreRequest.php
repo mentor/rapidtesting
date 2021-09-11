@@ -20,18 +20,30 @@ class UpdateCentreRequest extends FormRequest
             'name' => [
                 'string',
                 'required',
+                'unique:centres,name,' . request()->route('centre')->id,
             ],
             'street' => [
                 'string',
-                'nullable',
+                'required',
             ],
             'city' => [
                 'string',
-                'nullable',
+                'required',
             ],
             'postal' => [
                 'string',
-                'nullable',
+                'required',
+            ],
+            'place_id_ref' => [
+                'required',
+                'integer',
+                'min:-2147483648',
+                'max:2147483647',
+                'unique:centres,place_id_ref,' . request()->route('centre')->id,
+            ],
+            'country' => [
+                'string',
+                'required',
             ],
         ];
     }

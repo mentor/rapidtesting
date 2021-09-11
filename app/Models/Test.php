@@ -28,11 +28,6 @@ class Test extends Model
         'diagnosis-1' => 'U07.2',
     ];
 
-    public const RESULT_TYPE_SELECT = [
-        'pcr'     => 'RT-PCR',
-        'antigen' => 'Antigen',
-    ];
-
     public const RESULT_STATUS_SELECT = [
         'positive' => 'Positive',
         'negative' => 'Negative',
@@ -47,9 +42,26 @@ class Test extends Model
         'pcr01'     => 'PCR test name 01',
     ];
 
+    public const STATUS_SELECT = [
+        'created'    => 'Created',
+        'ended'      => 'Ended',
+        'finished'   => 'Finished',
+        'confirmed'  => 'Confirmed',
+        'started'    => 'Started',
+        'registered' => 'Registered',
+        'unpaid'     => 'Unpaid',
+        'paid'       => 'Paid',
+        'withdrawn'  => 'Withdrawn',
+        'cancelled'  => 'Cancelled',
+        'noshow'     => 'No Show',
+        'notarrived' => 'Not Arrived',
+    ];
+
     public $table = 'tests';
 
     protected $dates = [
+        'start',
+        'end',
         'dob',
         'result_date',
         'created_at',
@@ -58,8 +70,13 @@ class Test extends Model
     ];
 
     protected $fillable = [
-        'pinid',
+        'code',
+        'status',
+        'service_id',
+        'start',
+        'end',
         'pinrc',
+        'pinid',
         'firstname',
         'lastname',
         'email',
@@ -70,17 +87,42 @@ class Test extends Model
         'postal',
         'country',
         'symptoms',
-        'result_type',
         'result_date',
         'result_status',
         'result_test_name',
         'result_test_manufacturer',
         'result_diagnosis',
         'centre_id',
+        'note',
         'created_at',
         'updated_at',
         'deleted_at',
     ];
+
+    public function service()
+    {
+        return $this->belongsTo(Service::class, 'service_id');
+    }
+
+    public function getStartAttribute($value)
+    {
+        return $value ? Carbon::createFromFormat('Y-m-d H:i:s', $value)->format(config('panel.date_format') . ' ' . config('panel.time_format')) : null;
+    }
+
+    public function setStartAttribute($value)
+    {
+        $this->attributes['start'] = $value ? Carbon::createFromFormat(config('panel.date_format') . ' ' . config('panel.time_format'), $value)->format('Y-m-d H:i:s') : null;
+    }
+
+    public function getEndAttribute($value)
+    {
+        return $value ? Carbon::createFromFormat('Y-m-d H:i:s', $value)->format(config('panel.date_format') . ' ' . config('panel.time_format')) : null;
+    }
+
+    public function setEndAttribute($value)
+    {
+        $this->attributes['end'] = $value ? Carbon::createFromFormat(config('panel.date_format') . ' ' . config('panel.time_format'), $value)->format('Y-m-d H:i:s') : null;
+    }
 
     public function getDobAttribute($value)
     {

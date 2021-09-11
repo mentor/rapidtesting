@@ -58,6 +58,12 @@ class CentreController extends Controller
             $table->editColumn('postal', function ($row) {
                 return $row->postal ? $row->postal : '';
             });
+            $table->editColumn('place_id_ref', function ($row) {
+                return $row->place_id_ref ? $row->place_id_ref : '';
+            });
+            $table->editColumn('country', function ($row) {
+                return $row->country ? $row->country : '';
+            });
 
             $table->rawColumns(['actions', 'placeholder']);
 

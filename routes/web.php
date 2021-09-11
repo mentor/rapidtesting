@@ -1,7 +1,5 @@
 <?php
 
-use App\Http\Middleware\VerifyCsrfToken;
-
 Route::redirect('/', '/login');
 Route::get('/home', function () {
     if (session('status')) {
@@ -13,9 +11,6 @@ Route::get('/home', function () {
 
 Route::get('userVerification/{token}', 'UserVerificationController@approve')->name('userVerification');
 Auth::routes();
-
-Route::post('webhook', 'WebhookController@index')->withoutMiddleware(VerifyCsrfToken::class);
-Route::get('test', 'WebhookController@test')->withoutMiddleware(VerifyCsrfToken::class);
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
     Route::get('/', 'HomeController@index')->name('home');
@@ -45,6 +40,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::post('tests/parse-csv-import', 'TestController@parseCsvImport')->name('tests.parseCsvImport');
     Route::post('tests/process-csv-import', 'TestController@processCsvImport')->name('tests.processCsvImport');
     Route::resource('tests', 'TestController');
+
+    // Service
+    Route::delete('services/destroy', 'ServiceController@massDestroy')->name('services.massDestroy');
+    Route::resource('services', 'ServiceController');
 });
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 'middleware' => ['auth']], function () {
     // Change password

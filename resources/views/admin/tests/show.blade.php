@@ -25,10 +25,42 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.test.fields.pinid') }}
+                            {{ trans('cruds.test.fields.code') }}
                         </th>
                         <td>
-                            {{ $test->pinid }}
+                            {{ $test->code }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.test.fields.status') }}
+                        </th>
+                        <td>
+                            {{ App\Models\Test::STATUS_SELECT[$test->status] ?? '' }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.test.fields.service') }}
+                        </th>
+                        <td>
+                            {{ $test->service->name ?? '' }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.test.fields.start') }}
+                        </th>
+                        <td>
+                            {{ $test->start }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.test.fields.end') }}
+                        </th>
+                        <td>
+                            {{ $test->end }}
                         </td>
                     </tr>
                     <tr>
@@ -37,6 +69,14 @@
                         </th>
                         <td>
                             {{ $test->pinrc }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.test.fields.pinid') }}
+                        </th>
+                        <td>
+                            {{ $test->pinid }}
                         </td>
                     </tr>
                     <tr>
@@ -121,14 +161,6 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.test.fields.result_type') }}
-                        </th>
-                        <td>
-                            {{ App\Models\Test::RESULT_TYPE_SELECT[$test->result_type] ?? '' }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
                             {{ trans('cruds.test.fields.result_date') }}
                         </th>
                         <td>
@@ -173,6 +205,14 @@
                         </th>
                         <td>
                             {{ $test->centre->name ?? '' }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.test.fields.note') }}
+                        </th>
+                        <td>
+                            {{ $test->note }}
                         </td>
                     </tr>
                 </tbody>

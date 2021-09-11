@@ -8,6 +8,7 @@ use App\Http\Requests\MassDestroyTestRequest;
 use App\Http\Requests\StoreTestRequest;
 use App\Http\Requests\UpdateTestRequest;
 use App\Models\Centre;
+use App\Models\Service;
 use App\Models\Test;
 use Gate;
 use Illuminate\Http\Request;
@@ -23,7 +24,7 @@ class TestController extends Controller
         abort_if(Gate::denies('test_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         if ($request->ajax()) {
-            $query = Test::with(['centre'])->select(sprintf('%s.*', (new Test())->table));
+            $query = Test::with(['service', 'centre'])->select(sprintf('%s.*', (new Test())->table));
             $table = Datatables::of($query);
 
             $table->addColumn('placeholder', '&nbsp;');
@@ -47,11 +48,21 @@ class TestController extends Controller
             $table->editColumn('id', function ($row) {
                 return $row->id ? $row->id : '';
             });
-            $table->editColumn('pinid', function ($row) {
-                return $row->pinid ? $row->pinid : '';
+            $table->editColumn('code', function ($row) {
+                return $row->code ? $row->code : '';
             });
+            $table->editColumn('status', function ($row) {
+                return $row->status ? Test::STATUS_SELECT[$row->status] : '';
+            });
+            $table->addColumn('service_name', function ($row) {
+                return $row->service ? $row->service->name : '';
+            });
+
             $table->editColumn('pinrc', function ($row) {
                 return $row->pinrc ? $row->pinrc : '';
+            });
+            $table->editColumn('pinid', function ($row) {
+                return $row->pinid ? $row->pinid : '';
             });
             $table->editColumn('firstname', function ($row) {
                 return $row->firstname ? $row->firstname : '';
@@ -81,9 +92,6 @@ class TestController extends Controller
             $table->editColumn('symptoms', function ($row) {
                 return $row->symptoms ? Test::SYMPTOMS_SELECT[$row->symptoms] : '';
             });
-            $table->editColumn('result_type', function ($row) {
-                return $row->result_type ? Test::RESULT_TYPE_SELECT[$row->result_type] : '';
-            });
 
             $table->editColumn('result_status', function ($row) {
                 return $row->result_status ? Test::RESULT_STATUS_SELECT[$row->result_status] : '';
@@ -101,23 +109,30 @@ class TestController extends Controller
                 return $row->centre ? $row->centre->name : '';
             });
 
-            $table->rawColumns(['actions', 'placeholder', 'centre']);
+            $table->editColumn('note', function ($row) {
+                return $row->note ? $row->note : '';
+            });
+
+            $table->rawColumns(['actions', 'placeholder', 'service', 'centre']);
 
             return $table->make(true);
         }
 
-        $centres = Centre::get();
+        $services = Service::get();
+        $centres  = Centre::get();
 
-        return view('admin.tests.index', compact('centres'));
+        return view('admin.tests.index', compact('services', 'centres'));
     }
 
     public function create()
     {
         abort_if(Gate::denies('test_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
+        $services = Service::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+
         $centres = Centre::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        return view('admin.tests.create', compact('centres'));
+        return view('admin.tests.create', compact('services', 'centres'));
     }
 
     public function store(StoreTestRequest $request)
@@ -131,11 +146,13 @@ class TestController extends Controller
     {
         abort_if(Gate::denies('test_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
+        $services = Service::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+
         $centres = Centre::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        $test->load('centre');
+        $test->load('service', 'centre');
 
-        return view('admin.tests.edit', compact('centres', 'test'));
+        return view('admin.tests.edit', compact('services', 'centres', 'test'));
     }
 
     public function update(UpdateTestRequest $request, Test $test)
@@ -149,7 +166,7 @@ class TestController extends Controller
     {
         abort_if(Gate::denies('test_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $test->load('centre');
+        $test->load('service', 'centre');
 
         return view('admin.tests.show', compact('test'));
     }

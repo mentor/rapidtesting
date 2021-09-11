@@ -29,10 +29,25 @@
                         {{ trans('cruds.test.fields.id') }}
                     </th>
                     <th>
-                        {{ trans('cruds.test.fields.pinid') }}
+                        {{ trans('cruds.test.fields.code') }}
+                    </th>
+                    <th>
+                        {{ trans('cruds.test.fields.status') }}
+                    </th>
+                    <th>
+                        {{ trans('cruds.test.fields.service') }}
+                    </th>
+                    <th>
+                        {{ trans('cruds.test.fields.start') }}
+                    </th>
+                    <th>
+                        {{ trans('cruds.test.fields.end') }}
                     </th>
                     <th>
                         {{ trans('cruds.test.fields.pinrc') }}
+                    </th>
+                    <th>
+                        {{ trans('cruds.test.fields.pinid') }}
                     </th>
                     <th>
                         {{ trans('cruds.test.fields.firstname') }}
@@ -65,9 +80,6 @@
                         {{ trans('cruds.test.fields.symptoms') }}
                     </th>
                     <th>
-                        {{ trans('cruds.test.fields.result_type') }}
-                    </th>
-                    <th>
                         {{ trans('cruds.test.fields.result_date') }}
                     </th>
                     <th>
@@ -86,11 +98,39 @@
                         {{ trans('cruds.test.fields.centre') }}
                     </th>
                     <th>
+                        {{ trans('cruds.test.fields.note') }}
+                    </th>
+                    <th>
                         &nbsp;
                     </th>
                 </tr>
                 <tr>
                     <td>
+                    </td>
+                    <td>
+                        <input class="search" type="text" placeholder="{{ trans('global.search') }}">
+                    </td>
+                    <td>
+                        <input class="search" type="text" placeholder="{{ trans('global.search') }}">
+                    </td>
+                    <td>
+                        <select class="search" strict="true">
+                            <option value>{{ trans('global.all') }}</option>
+                            @foreach(App\Models\Test::STATUS_SELECT as $key => $item)
+                                <option value="{{ $key }}">{{ $item }}</option>
+                            @endforeach
+                        </select>
+                    </td>
+                    <td>
+                        <select class="search">
+                            <option value>{{ trans('global.all') }}</option>
+                            @foreach($services as $key => $item)
+                                <option value="{{ $item->name }}">{{ $item->name }}</option>
+                            @endforeach
+                        </select>
+                    </td>
+                    <td>
+                        <input class="search" type="text" placeholder="{{ trans('global.search') }}">
                     </td>
                     <td>
                         <input class="search" type="text" placeholder="{{ trans('global.search') }}">
@@ -131,14 +171,6 @@
                         <select class="search" strict="true">
                             <option value>{{ trans('global.all') }}</option>
                             @foreach(App\Models\Test::SYMPTOMS_SELECT as $key => $item)
-                                <option value="{{ $key }}">{{ $item }}</option>
-                            @endforeach
-                        </select>
-                    </td>
-                    <td>
-                        <select class="search" strict="true">
-                            <option value>{{ trans('global.all') }}</option>
-                            @foreach(App\Models\Test::RESULT_TYPE_SELECT as $key => $item)
                                 <option value="{{ $key }}">{{ $item }}</option>
                             @endforeach
                         </select>
@@ -185,6 +217,9 @@
                                 <option value="{{ $item->name }}">{{ $item->name }}</option>
                             @endforeach
                         </select>
+                    </td>
+                    <td>
+                        <input class="search" type="text" placeholder="{{ trans('global.search') }}">
                     </td>
                     <td>
                     </td>
@@ -242,8 +277,13 @@
     columns: [
       { data: 'placeholder', name: 'placeholder' },
 { data: 'id', name: 'id' },
-{ data: 'pinid', name: 'pinid' },
+{ data: 'code', name: 'code' },
+{ data: 'status', name: 'status' },
+{ data: 'service_name', name: 'service.name' },
+{ data: 'start', name: 'start' },
+{ data: 'end', name: 'end' },
 { data: 'pinrc', name: 'pinrc' },
+{ data: 'pinid', name: 'pinid' },
 { data: 'firstname', name: 'firstname' },
 { data: 'lastname', name: 'lastname' },
 { data: 'email', name: 'email' },
@@ -254,13 +294,13 @@
 { data: 'postal', name: 'postal' },
 { data: 'country', name: 'country' },
 { data: 'symptoms', name: 'symptoms' },
-{ data: 'result_type', name: 'result_type' },
 { data: 'result_date', name: 'result_date' },
 { data: 'result_status', name: 'result_status' },
 { data: 'result_test_name', name: 'result_test_name' },
 { data: 'result_test_manufacturer', name: 'result_test_manufacturer' },
 { data: 'result_diagnosis', name: 'result_diagnosis' },
 { data: 'centre_name', name: 'centre.name' },
+{ data: 'note', name: 'note' },
 { data: 'actions', name: '{{ trans('global.actions') }}' }
     ],
     orderCellsTop: true,

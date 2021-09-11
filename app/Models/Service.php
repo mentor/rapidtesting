@@ -8,13 +8,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Centre extends Model
+class Service extends Model
 {
     use SoftDeletes;
     use Auditable;
     use HasFactory;
 
-    public $table = 'centres';
+    public $table = 'services';
 
     protected $dates = [
         'created_at',
@@ -24,19 +24,15 @@ class Centre extends Model
 
     protected $fillable = [
         'name',
-        'street',
-        'city',
-        'postal',
-        'place_id_ref',
-        'country',
+        'service_id_ref',
         'created_at',
         'updated_at',
         'deleted_at',
     ];
 
-    public function centreTests()
+    public function serviceTests()
     {
-        return $this->hasMany(Test::class, 'centre_id', 'id');
+        return $this->hasMany(Test::class, 'service_id', 'id');
     }
 
     protected function serializeDate(DateTimeInterface $date)

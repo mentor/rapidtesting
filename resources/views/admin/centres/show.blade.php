@@ -55,6 +55,22 @@
                             {{ $centre->postal }}
                         </td>
                     </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.centre.fields.place_id_ref') }}
+                        </th>
+                        <td>
+                            {{ $centre->place_id_ref }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.centre.fields.country') }}
+                        </th>
+                        <td>
+                            {{ $centre->country }}
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             <div class="form-group">

@@ -15,7 +15,7 @@
 
     <div class="card-body">
         <div class="table-responsive">
-            <table class=" table table-bordered table-striped table-hover datatable datatable-centreTests">
+            <table class=" table table-bordered table-striped table-hover datatable datatable-serviceTests">
                 <thead>
                     <tr>
                         <th width="10">
@@ -253,7 +253,7 @@
     order: [[ 1, 'desc' ]],
     pageLength: 100,
   });
-  let table = $('.datatable-centreTests:not(.ajaxTable)').DataTable({ buttons: dtButtons })
+  let table = $('.datatable-serviceTests:not(.ajaxTable)').DataTable({ buttons: dtButtons })
   $('a[data-toggle="tab"]').on('shown.bs.tab click', function(e){
       $($.fn.dataTable.tables(true)).DataTable()
           .columns.adjust();
