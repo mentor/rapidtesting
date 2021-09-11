@@ -10,7 +10,6 @@ class CreateTestsTable extends Migration
     {
         Schema::create('tests', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('code');
             $table->string('status');
             $table->datetime('start')->nullable();
             $table->datetime('end')->nullable();
@@ -32,6 +31,8 @@ class CreateTestsTable extends Migration
             $table->string('result_test_manufacturer')->nullable();
             $table->string('result_diagnosis')->nullable();
             $table->string('note')->nullable();
+            $table->integer('reservation_id_ref');
+            $table->string('code_ref');
             $table->timestamps();
             $table->softDeletes();
         });

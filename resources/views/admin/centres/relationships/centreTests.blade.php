@@ -25,9 +25,6 @@
                             {{ trans('cruds.test.fields.id') }}
                         </th>
                         <th>
-                            {{ trans('cruds.test.fields.code') }}
-                        </th>
-                        <th>
                             {{ trans('cruds.test.fields.status') }}
                         </th>
                         <th>
@@ -97,6 +94,12 @@
                             {{ trans('cruds.test.fields.note') }}
                         </th>
                         <th>
+                            {{ trans('cruds.test.fields.reservation_id_ref') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.test.fields.code_ref') }}
+                        </th>
+                        <th>
                             &nbsp;
                         </th>
                     </tr>
@@ -109,9 +112,6 @@
                             </td>
                             <td>
                                 {{ $test->id ?? '' }}
-                            </td>
-                            <td>
-                                {{ $test->code ?? '' }}
                             </td>
                             <td>
                                 {{ App\Models\Test::STATUS_SELECT[$test->status] ?? '' }}
@@ -181,6 +181,12 @@
                             </td>
                             <td>
                                 {{ $test->note ?? '' }}
+                            </td>
+                            <td>
+                                {{ $test->reservation_id_ref ?? '' }}
+                            </td>
+                            <td>
+                                {{ $test->code_ref ?? '' }}
                             </td>
                             <td>
                                 @can('test_show')

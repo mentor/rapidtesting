@@ -17,12 +17,6 @@ class UpdateTestRequest extends FormRequest
     public function rules()
     {
         return [
-            'code' => [
-                'string',
-                'min:11',
-                'max:11',
-                'required',
-            ],
             'status' => [
                 'required',
             ],
@@ -97,6 +91,18 @@ class UpdateTestRequest extends FormRequest
             'note' => [
                 'string',
                 'nullable',
+            ],
+            'reservation_id_ref' => [
+                'required',
+                'integer',
+                'min:-2147483648',
+                'max:2147483647',
+            ],
+            'code_ref' => [
+                'string',
+                'min:11',
+                'max:11',
+                'required',
             ],
         ];
     }

@@ -19,13 +19,13 @@ class Test extends Model
     use Auditable;
     use HasFactory;
 
-    public const SYMPTOMS_SELECT = [
-        'yes' => 'Yes',
-        'no'  => 'No',
-    ];
-
     public const RESULT_DIAGNOSIS_SELECT = [
         'diagnosis-1' => 'U07.2',
+    ];
+
+    public const SYMPTOMS_SELECT = [
+        'GRJCO' => 'Yes',
+        'OVYNP' => 'No',
     ];
 
     public const RESULT_STATUS_SELECT = [
@@ -70,7 +70,6 @@ class Test extends Model
     ];
 
     protected $fillable = [
-        'code',
         'status',
         'service_id',
         'start',
@@ -94,6 +93,8 @@ class Test extends Model
         'result_diagnosis',
         'centre_id',
         'note',
+        'reservation_id_ref',
+        'code_ref',
         'created_at',
         'updated_at',
         'deleted_at',

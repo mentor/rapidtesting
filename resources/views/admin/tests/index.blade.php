@@ -29,9 +29,6 @@
                         {{ trans('cruds.test.fields.id') }}
                     </th>
                     <th>
-                        {{ trans('cruds.test.fields.code') }}
-                    </th>
-                    <th>
                         {{ trans('cruds.test.fields.status') }}
                     </th>
                     <th>
@@ -101,14 +98,17 @@
                         {{ trans('cruds.test.fields.note') }}
                     </th>
                     <th>
+                        {{ trans('cruds.test.fields.reservation_id_ref') }}
+                    </th>
+                    <th>
+                        {{ trans('cruds.test.fields.code_ref') }}
+                    </th>
+                    <th>
                         &nbsp;
                     </th>
                 </tr>
                 <tr>
                     <td>
-                    </td>
-                    <td>
-                        <input class="search" type="text" placeholder="{{ trans('global.search') }}">
                     </td>
                     <td>
                         <input class="search" type="text" placeholder="{{ trans('global.search') }}">
@@ -222,6 +222,12 @@
                         <input class="search" type="text" placeholder="{{ trans('global.search') }}">
                     </td>
                     <td>
+                        <input class="search" type="text" placeholder="{{ trans('global.search') }}">
+                    </td>
+                    <td>
+                        <input class="search" type="text" placeholder="{{ trans('global.search') }}">
+                    </td>
+                    <td>
                     </td>
                 </tr>
             </thead>
@@ -277,7 +283,6 @@
     columns: [
       { data: 'placeholder', name: 'placeholder' },
 { data: 'id', name: 'id' },
-{ data: 'code', name: 'code' },
 { data: 'status', name: 'status' },
 { data: 'service_name', name: 'service.name' },
 { data: 'start', name: 'start' },
@@ -301,6 +306,8 @@
 { data: 'result_diagnosis', name: 'result_diagnosis' },
 { data: 'centre_name', name: 'centre.name' },
 { data: 'note', name: 'note' },
+{ data: 'reservation_id_ref', name: 'reservation_id_ref' },
+{ data: 'code_ref', name: 'code_ref' },
 { data: 'actions', name: '{{ trans('global.actions') }}' }
     ],
     orderCellsTop: true,
