@@ -151,8 +151,6 @@
         <span>Výsledok / Result / Ergebnis:</span><span style="padding-left: 20px">@if($payload->result_status == 'positive') Pozitívny / Positive @else Negatívny / Negative @endif</span>
     </div>
 
-    <hr/>
-
 
     <div class="page-break"></div>
 
@@ -166,7 +164,40 @@
         </div>
 
         <div class="stripe text-center bold">
-            Potvrdenie o vykonaní testu / Test Result Certificate / Testergebnis Bescheinigung
+            Poučenie pre osoby s pozitívnym výsledkom vyšetrenia a osoby žijúce s nimi v spoločnej domácnosti
+        </div>
+
+        <div style="font-size: 12px; margin-top:10px;  line-height: 1.2;">
+            <p>Musíte zostať v domácej izolácii a ostatní členovia spoločnej domácnosti v karanténe minimálne 14 dní (aj keď boli testovaní ako negatívni).</p>
+            <ul>
+                <li>Informujte o pozitivite Vášho všeobecného lekára (v prípade detí všeobecného lekára pre deti a dorast), alebo lekára miestne príslušného VUC, ak Váš lekár nie je k dispozícii. </li>
+                <li>Už pri miernych klinických príznakoch bezokladne telefonicky kontaktujte svojho príslušného všeobecného lekára, dohodnite sa na ďalšom postupe a dodržujte jeho pokyny, najmä ohľadom liečby. </li>
+                <li>Ak máte závažné príznaky: opakované vzostupy teploty nad 39 °C, ťažkosti s dýchaním, tlak alebo bolesť na hrudníku, volajte záchrannú zdravotnú službu na čísle 155.</li>
+                <li>Informujte o svojej pozitivite všetky osoby, s ktorými ste boli v úzkom kontakte 2 dni pred odberom výteru z nosohltana (alebo pred začiatkom klinických príznakov, ak tieto vznikli ešte pred odberom). Všetky kontakty musia ostať v karanténe (aj v prípade negatívneho výsledku v čase práve prebiehajúceho testovania) 10 dní od kontaktu s Vami. Za úzky kontakt sa považuje kontakt dlhší ako 15 minút vo vnútornom priestore. </li>
+                <li>Vaša domáca izolácie trvá minimálne 14 dní od odberu na COVID-19, pokiaš sa v posledných troch dňoch tejto doby nevyskytol ani jeden z klinických príznakov ochorenia (teplota, kašeľ, dýchavičnosť, strata čuchu, chuti...). O konečnej dĺžke karantény rozhodne Váš všeobecný lekár.</li>
+                <li>Karanténa osôb žijúcich s Vami v spoločnej domácnosti trvá po celú dobu Vašej izolácie. (Odporúčame im prihlásiť sa na testovanie prostredníctvom webovej stránky korona.gov.sk, najskôr 8. deň od kontaktu s Vami. Aj v prípade negatívneho výsledku však ostávajú v karanténe počas celej doby Vašej izolácie).</li>
+                <li>Ak ste COVID-19 pozitívny, Vy ani osoby žijúce s Vami v spoločnej domácnosti a Vaše úzke kontakty nesmiete opustiť miesto, kde ste sa rozhodli zdržiavať počas izloácie a karantény okrem: prípadu núdze, pri potrebe základnej zdravotnej starostlivosti. Nesmiete: chodiť na verejné miesta, kultúrne spoločenské a športové udalosti, ani sa zúčastňovať súkromných akcií (rodinné oslavy, a pod. s výnimkou pohrebov), používať hromadnú dopravu alebo taxík, nikoho navštevovať, prijímať návštevy.</li>
+                <li>Vstup do domu / bytu, kde ste v izolácii, majú len: osoby, ktoré tam bývajú, poskytovateľ zdravotnej starostlivosti v prípade potreby. </li>
+                <li>Ak bývate v rodinnom dome, môžete ísť do svojej súkromnej záhrady alebo na dvor. Ak bývate v byte, môžete ísť na súkromný balkón.</li>
+                <li>V prípade, že potrebujete kúpiť potraviny, iný tovar a lieky, požiadajte inú osobu o pomoc (ktorá nie je v karanténe), aby Vám doniesla nákup k Vašim vchodovým dverám. </li>
+                <li>Nákup si môžete objednať aj telefonicky alebo e-mailom. V prípade núdze môžete opustiť izoláciu prizabezpečovaní nevyhnutných zivotných potrieb s prekrytýmí hornými dýchacími cestami respirátorom FFP2 a dodržaním hygieny rúk. </li>
+                <li>Viac informácií na stránke: www.korona.gov.sk, www.uvzsr.sk</li>
+            </ul>
+        </div>
+
+        <div class="stripe text-center bold">
+            Poučenie pre osoby s negatívnym výsledkom vyšetrenia
+        </div>
+
+        <div style="font-size: 12px; margin-top:10px; line-height: 1.2;">
+            <p>Správajte sa zodpovedne, dodržujte všetky odporúčania: </p>
+            <ul>
+                <li>noste rúško</li>
+                <li>dodržujte odstupy</li>
+                <li>poyžívajte dezinfekciu na ruky</li>
+                <li>často vetrajte priestory, kde sa zdržiavate</li>
+                <li>čo najviac obmedzte stretávanie sa s inými ľuďmi - aj v exteriéri</li>
+            </ul>
         </div>
     </div>
 </body>
