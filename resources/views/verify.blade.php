@@ -11,7 +11,6 @@
     <style>
         body {
             font-family: DejaVu Sans;
-            letter-spacing: 2px;
         }
         .page-break {
             page-break-after: always;
@@ -41,8 +40,7 @@
 
         h3 {
             font-size: 15px;
-            padding: 10px 10px 10px 15px;
-            margin:0;
+            margin:10px 0 0 10px;
         }
 
         .text-center {
