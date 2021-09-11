@@ -110,21 +110,48 @@
     <table class="table" style="width:100%; border:0; padding: 10px 10px 10px 10px;">
         <tr>
             <td class="first">Diagnóza / Diagnosis / Diagnose:</td>
-            <td>{{ $payload->firstname }} {{ $payload->lastname}}</td>
+            <td>{{ \App\Models\Test::RESULT_DIAGNOSIS_SELECT[$payload->result_diagnosis] }}</td>
         </tr>
         <tr>
             <td class="first">Type testu / Test type / Testart:</td>
-            <td>@if($payload->pinrc) {{ $payload->pinrc }} @else &nbsp; @endif</td>
+            <td>{{ $payload->service->name }}</td>
         </tr>
         <tr>
             <td class="first">Názov testu / Test name / Testname:</td>
-            <td>{{ $payload->dob }}</td>
+            <td>{{ \App\Models\Test::RESULT_TEST_NAME_SELECT[$payload->result_test_name] }}</td>
         </tr>
         <tr>
             <td class="first">Výrobca testu / Test manufacturer / Hersteller:</td>
-            <td>{{ $payload->pinid }}</td>
+            <td>{{ \App\Models\Test::RESULT_TEST_MANUFACTURER_SELECT[$payload->result_test_manufacturer] }}</td>
+        </tr>
+        <tr>
+            <td class="first">Odberové miesto / Medical Centre / Medizinisches Zentrum:</td>
+            <td>{{ $payload->centre->name }}</td>
+        </tr>
+        <tr>
+            <td class="first">Čas odberu / Date & Time / Datum und Uhrzeit der Testung:</td>
+            <td>{{ $payload->end }}</td>
         </tr>
     </table>
+
+    <hr/>
+
+    <table class="table" style="width:100%; border:0; padding: 10px 10px 10px 10px;">
+        <tr>
+            <td class="first">Vydal / Certificate issuer / Durchgeführt von:</td>
+            <td><p>Firma XXX, s.r.o.<br/>
+                Mobilné odberové stredisko<br/>
+                Ulica 01, 123 45 Martin<br/>
+                IČO: 12 345 678</p></td>
+        </tr>
+    </table>
+
+    <div class="stripe text-center bold">
+        <span>Výsledok / Result / Ergebnis:</span><span style="padding-left: 20px">@if($payload->result_status == 'positive') Pozitívny / Positive @else Negatívny / Negative @endif</span>
+    </div>
+
+    <hr/>
+
 
     <div class="page-break"></div>
 
