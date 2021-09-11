@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Test;
-use Barryvdh\DomPDF\PDF;
+use Barryvdh\DomPDF\Facade as PDF;
 use Illuminate\Http\Request;
 
 class VerifyController extends Controller
@@ -29,9 +29,9 @@ class VerifyController extends Controller
         if (!$payload) {
             abort(404);
         }
-        //$pdf = PDF::loadView('verify', compact('payload'));
+        $pdf = PDF::loadView('verify', compact('payload'));
 
-        //return $pdf->download('invoice.pdf');
+        return $pdf->download('invoice.pdf');
         return view('verify', compact('payload'));
     }
 }
