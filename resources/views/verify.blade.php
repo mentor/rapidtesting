@@ -217,7 +217,7 @@
                                             <td style="padding-top:15px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
                                                 <div style="font-family: Arial, sans-serif">
                                                     <div style="font-size: 14px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #555555; line-height: 1.2;">
-                                                        <p style="margin: 0; font-size: 14px;"><span style="font-size:13px;">{{first name}} {{last name}}</span></p>
+                                                        <p style="margin: 0; font-size: 14px;"><span style="font-size:13px;">{{ $payload->firstname }} {{ $payload->lastname}}</span></p>
                                                     </div>
                                                 </div>
                                             </td>
@@ -228,7 +228,7 @@
                                             <td>
                                                 <div style="font-family: Arial, sans-serif">
                                                     <div style="font-size: 14px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #555555; line-height: 1.2;">
-                                                        <p style="margin: 0; font-size: 14px;"><span style="font-size:13px;">{{rodne cislo}}</span></p>
+                                                        <p style="margin: 0; font-size: 14px;"><span style="font-size:13px;">{{ $payload->pinrc }}</span></p>
                                                     </div>
                                                 </div>
                                             </td>
@@ -239,7 +239,7 @@
                                             <td>
                                                 <div style="font-family: Arial, sans-serif">
                                                     <div style="font-size: 14px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #555555; line-height: 1.2;">
-                                                        <p style="margin: 0; font-size: 14px;"><span style="font-size:13px;">{{pin rc}}</span></p>
+                                                        <p style="margin: 0; font-size: 14px;"><span style="font-size:13px;">{{ $payload->dob }}</span></p>
                                                     </div>
                                                 </div>
                                             </td>
@@ -250,7 +250,7 @@
                                             <td style="padding-top:10px;padding-right:10px;padding-bottom:15px;padding-left:10px;">
                                                 <div style="font-family: Arial, sans-serif">
                                                     <div style="font-size: 14px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #555555; line-height: 1.2;">
-                                                        <p style="margin: 0; font-size: 14px;"><span style="font-size:13px;">{{pin ID}}</span></p>
+                                                        <p style="margin: 0; font-size: 14px;"><span style="font-size:13px;">{{ $payload->pinid }}</span></p>
                                                     </div>
                                                 </div>
                                             </td>
@@ -374,7 +374,7 @@
                                             <td style="padding-top:15px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
                                                 <div style="font-family: Arial, sans-serif">
                                                     <div style="font-size: 14px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #555555; line-height: 1.2;">
-                                                        <p style="margin: 0; font-size: 14px;"><span style="font-size:13px;">{{diagnosis}} ?</span></p>
+                                                        <p style="margin: 0; font-size: 14px;"><span style="font-size:13px;">{{ $payload->diagnosis }} ?</span></p>
                                                     </div>
                                                 </div>
                                             </td>
@@ -385,7 +385,7 @@
                                             <td>
                                                 <div style="font-family: Arial, sans-serif">
                                                     <div style="font-size: 14px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #555555; line-height: 1.2;">
-                                                        <p style="margin: 0; font-size: 14px;"><span style="font-size:13px;">{{testtype}}</span></p>
+                                                        <p style="margin: 0; font-size: 14px;"><span style="font-size:13px;">{{ $payload->service->name }}</span></p>
                                                     </div>
                                                 </div>
                                             </td>
@@ -396,7 +396,7 @@
                                             <td>
                                                 <div style="font-family: Arial, sans-serif">
                                                     <div style="font-size: 14px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #555555; line-height: 1.2;">
-                                                        <p style="margin: 0; font-size: 14px;"><span style="font-size:13px;">{{testname}}</span></p>
+                                                        <p style="margin: 0; font-size: 14px;"><span style="font-size:13px;">{{ $payload->result_test_name }}</span></p>
                                                     </div>
                                                 </div>
                                             </td>
@@ -407,7 +407,7 @@
                                             <td>
                                                 <div style="font-family: Arial, sans-serif">
                                                     <div style="font-size: 14px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #555555; line-height: 1.2;">
-                                                        <p style="margin: 0; font-size: 14px;"><span style="font-size:13px;">{{test manufacturer}}</span></p>
+                                                        <p style="margin: 0; font-size: 14px;"><span style="font-size:13px;">{{ $payload->result_test_manufacturer }}</span></p>
                                                     </div>
                                                 </div>
                                             </td>
@@ -418,7 +418,7 @@
                                             <td>
                                                 <div style="font-family: Arial, sans-serif">
                                                     <div style="font-size: 14px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #555555; line-height: 1.2;">
-                                                        <p style="margin: 0; font-size: 14px;"><span style="font-size:13px;">{{mom}}</span></p>
+                                                        <p style="margin: 0; font-size: 14px;"><span style="font-size:13px;">{{ $payload->centre->name }}</span></p>
                                                     </div>
                                                 </div>
                                             </td>
@@ -429,7 +429,7 @@
                                             <td style="padding-top:10px;padding-right:10px;padding-bottom:15px;padding-left:10px;">
                                                 <div style="font-family: Arial, sans-serif">
                                                     <div style="font-size: 14px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #555555; line-height: 1.2;">
-                                                        <p style="margin: 0; font-size: 14px;"><span style="font-size:13px;">{{test time}}</span></p>
+                                                        <p style="margin: 0; font-size: 14px;"><span style="font-size:13px;">{{ $payload->end }}</span></p>
                                                     </div>
                                                 </div>
                                             </td>
@@ -498,7 +498,7 @@
                                             <td style="padding-top:15px;padding-right:10px;padding-bottom:15px;padding-left:10px;">
                                                 <div style="font-family: Arial, sans-serif">
                                                     <div style="font-size: 14px; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #05223b; line-height: 1.2;">
-                                                        <p style="margin: 0; font-size: 14px; text-align: left;"><span style="font-size:15px;"><strong>Negatívny / Negative</strong></span></p>
+                                                        <p style="margin: 0; font-size: 14px; text-align: left;"><span style="font-size:15px;"><strong>@if($payload->result_status == 'positive') Pozitívny / Positive @else Negatívny / Negative @endif</strong></span></p>
                                                     </div>
                                                 </div>
                                             </td>
