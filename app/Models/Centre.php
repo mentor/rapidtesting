@@ -39,6 +39,11 @@ class Centre extends Model
         return $this->hasMany(Test::class, 'centre_id', 'id');
     }
 
+    public function centreUsers()
+    {
+        return $this->hasMany(User::class, 'centre_id', 'id');
+    }
+
     protected function serializeDate(DateTimeInterface $date)
     {
         return $date->format('Y-m-d H:i:s');

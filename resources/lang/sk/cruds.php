@@ -69,6 +69,8 @@ return [
             'verified_at_helper'        => ' ',
             'verification_token'        => 'Verification token',
             'verification_token_helper' => ' ',
+            'centre'                    => 'Centre',
+            'centre_helper'             => 'Centre',
         ],
     ],
     'auditLog' => [

@@ -59,6 +59,20 @@
                 <span class="help-block">{{ trans('cruds.user.fields.roles_helper') }}</span>
             </div>
             <div class="form-group">
+                <label class="required" for="centre_id">{{ trans('cruds.user.fields.centre') }}</label>
+                <select class="form-control select2 {{ $errors->has('centre') ? 'is-invalid' : '' }}" name="centre_id" id="centre_id" required>
+                    @foreach($centres as $id => $entry)
+                        <option value="{{ $id }}" {{ (old('centre_id') ? old('centre_id') : $user->centre->id ?? '') == $id ? 'selected' : '' }}>{{ $entry }}</option>
+                    @endforeach
+                </select>
+                @if($errors->has('centre'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('centre') }}
+                    </div>
+                @endif
+                <span class="help-block">{{ trans('cruds.user.fields.centre_helper') }}</span>
+            </div>
+            <div class="form-group">
                 <button class="btn btn-danger" type="submit">
                     {{ trans('global.save') }}
                 </button>
