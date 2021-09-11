@@ -33,7 +33,7 @@
             font-size: 23px;
             line-height: 120%;
             margin:0;
-            padding:0px 0 0 0;
+            padding:10px 0 0 0;
         }
 
         h3 {
@@ -48,7 +48,7 @@
 </head>
 <body style="background-color: #fff; margin: 0; padding: 0;">
     <div class="container" style="height:106px; ">
-        <div style="float: left; width: 66px; height:106px; padding-left: 20px; padding-right: 20px;">
+        <div style="float: left; width: 86px; height:106px; padding-left: 20px; padding-right: 20px;">
             <img alt="" src="{{ asset('images/testy_mom-logo.png') }}" style="vertical-align: middle; height:66px; width:66px" />
         </div>
         <div style=" height:106px">
