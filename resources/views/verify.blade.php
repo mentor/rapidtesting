@@ -604,7 +604,7 @@
                                 <th class="column" style="mso-table-lspace: 0; mso-table-rspace: 0; font-weight: 400; text-align: left; vertical-align: top;" width="66.66666666666667%">
                                     <table border="0" cellpadding="0" cellspacing="0" class="divider_block" role="presentation" style="mso-table-lspace: 0; mso-table-rspace: 0;" width="100%">
                                         <tr>
-                                            <td style="padding-top:65px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
+                                            <td style="padding-top:120px;padding-right:10px;padding-bottom:10px;padding-left:10px;">
                                                 <div align="center">
                                                     <table border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0; mso-table-rspace: 0;" width="100%">
                                                         <tr>
