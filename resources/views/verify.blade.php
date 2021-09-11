@@ -2,13 +2,15 @@
 <html lang="en">
 <head>
     <title></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
     <meta charset="utf-8"/>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 
     <style>
         body {
-            font-family: "Helvetica Neue", "Arial", sans-serif;
+            font-family: DejaVu Sans;
         }
         .page-break {
             page-break-after: always;
