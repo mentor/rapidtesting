@@ -11,6 +11,7 @@
     <style>
         body {
             font-family: DejaVu Sans;
+            color: #05223b;
         }
         .page-break {
             page-break-after: always;
@@ -36,7 +37,7 @@
             font-size: 23px;
             line-height: 120%;
             margin:0;
-            padding:0px 0 0 0;
+            padding:0 0 0 0;
         }
 
         h3 {
@@ -51,8 +52,8 @@
         .bold {
             font-weight: bold;
         }
-        .table {
-
+        .table td {
+            font-size: 14px;
         }
         .table td.first {
             width:65%;
