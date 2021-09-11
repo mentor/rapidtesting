@@ -13,8 +13,23 @@ use Illuminate\Support\Facades\Http;
 
 class WebhookController extends Controller
 {
-    const API_KEY = 'TkNqej2CkRjWsuAPWs15OkW4OpKIViM961Ffa4Ym6fds30C9IFckhWPYTVW9QOQ7';
-    const API_HOST = 'https://reenio.cz/sk/api/v1/admin';
+    const REENIO_API_KEY = 'TkNqej2CkRjWsuAPWs15OkW4OpKIViM961Ffa4Ym6fds30C9IFckhWPYTVW9QOQ7';
+    const REENIO_API_HOST = 'https://reenio.cz/sk/api/v1/admin';
+
+    const REENIO_RESERVATION_STATUSES = [
+        0  => 'created',
+        1  => 'ended',
+        2  => 'finished',
+        3  => 'confirmed',
+        4  => 'started',
+        5  => 'registered',
+        6  => 'unpaid',
+        7  => 'paid',
+        8  => 'withdrawn',
+        9  => 'cancelled',
+        10 => 'noshow',
+        11 => 'notarrived',
+    ];
 
     public function created(Request $request)
     {
@@ -57,95 +72,40 @@ class WebhookController extends Controller
             $payload['code_ref'] = $reservation->json('detail.code');
             $payload['service_id'] = $this->lookupServiceByServiceId($reservation->json('detail.serviceId'));
             $payload['centre_id'] = $this->lookupCentreByPlaceId($reservation->json('detail.placeId'));
-            $payload['pinrc'] = $this->getPlainValueFromCustomField($reservation->json('detail.customForms.0.fields'), 'QTQMVKQT') ?: null;
-            $payload['pinid'] = $this->getPlainValueFromCustomField($reservation->json('detail.customForms.0.fields'), 'JRHRFPDB');
-            $payload['symptoms'] = $this->getGeneratedValueFromCustomField($reservation->json('detail.customForms.0.fields'), 'EAENGFYD', Test::SYMPTOMS_SELECT);
-            //Log::info(print_r($reservation->json('detail.customForms.0.fields'), true));
-            //Log::info($this->getPlainValueFromCustomField($reservation->json('detail.customForms.0.fields'), 'DXCWCJIL'));
-            $payload['dob'] = Carbon::createFromFormat('d.m.Y', $this->getPlainValueFromCustomField($reservation->json('detail.customForms.0.fields'), 'DXCWCJIL'))->toDateString();
-            //$payload['dob'] = Carbon::createFromFormat('d.m.Y', '02.12.1984')->toDateString();
+            $payload['pinrc'] = $this->getPlainValue($reservation->json('detail.customForms.0.fields'), 'QTQMVKQT') ?: null;
+            $payload['pinid'] = $this->getPlainValue($reservation->json('detail.customForms.0.fields'), 'JRHRFPDB');
+            $payload['symptoms'] = $this->getGeneratedValue($reservation->json('detail.customForms.0.fields'), 'EAENGFYD', Test::SYMPTOMS_SELECT);
+            $payload['insurance_company'] = $this->getPlainValue($reservation->json('detail.customForms.0.fields'), 'KJEKPWCB') ?: null;
+
+            $payload['dob'] = Carbon::createFromFormat('d.m.Y', $this->getPlainValue(
+                $reservation->json('detail.customForms.0.fields'),
+                'DXCWCJIL'
+            ))->toDateString();
+
             $payload['start'] = Carbon::parse($reservation->json('detail.start'))
                 ->tz('Europe/Bratislava')
                 ->format('Y-m-d H:i:s');
+
             $payload['end'] = Carbon::parse($reservation->json('detail.end'))
                 ->tz('Europe/Bratislava')
                 ->format('Y-m-d H:i:s');
-            $payload['status'] = $reservation->json('detail.state');
 
-            Log::info(print_r($payload, true));
+            $payload['status'] = self::REENIO_RESERVATION_STATUSES[$reservation->json('detail.state')];
+
+            Log::info(sprintf('Reservation %s has been received', $reservationId), $payload);
 
             Test::create($payload);
 
+            Log::info(sprintf('Reservation %s has been successfully created', $reservationId));
+
         } catch (\Exception $e) {
-            Log::error($e->getMessage());
+            Log::error($e->getMessage(), $e->getTrace());
         }
 
         // return happy response back!
         $this->response();
     }
 
-    /*
-     *  '0'  => 'Created',
-        '1'  => 'Ended',
-        '2'  => 'Finished',
-        '3'  => 'Confirmed',
-        '4'  => 'Started',
-        '5'  => 'Registered',
-        '6'  => 'Unpaid',
-        '7'  => 'Paid',
-        '8'  => 'Withdrawn',
-        '9'  => 'Cancelled',
-        '10' => 'No Show',
-        '11' => 'Not Arrived',
-     */
-
-    public function test(Request $request) {
-        $payload = [
-            'firstname' => 'filip',
-            'lastname' => 'sersik',
-            'email' => 'filip.sersik@outlook.com',
-            'phone' => '+420 720 968 217',
-            'street' => 'vychodna 10',
-            'city' => 'martin',
-            'postal' => '03601',
-            'country' => 'CZ',
-            'reservation_id_ref' => '3326013',
-            'code_ref' => 'NT3-UEZ-OQL',
-            'service_id' => '1',
-            'centre_id' => '1',
-            'pinrc' => null,
-            'pinid' => '9312098147',
-            'symptoms' => 'OVYNP',
-            'dob' => '1993-12-09',
-            'start' => '2021-09-13T07:00:00Z',
-            'end' => '2021-09-13T07:10:00Z',
-            'status' => '0',
-        ];
-
-        $test = new Test();
-        $test->firstname = 'filip';
-        $test->lastname = 'sersik';
-        $test->email = 'filip.sersik@outlook.com';
-        $test->phone = '+420 720 968 217';
-        $test->street = 'vychodna 10';
-        $test->city = 'martin';
-        $test->postal = '03601';
-        $test->country = 'CZ';
-        $test->reservation_id_ref = '3326013';
-        $test->code_ref = 'NT3-UEZ-OQL';
-        $test->service_id = '1';
-        $test->centre_id = '1';
-        $test->pinrc = null;
-        $test->pinid = '9312098147';
-        $test->symptoms = 'OVYNP';
-        $test->dob = '1993-12-09';
-        $test->start = Carbon::parse('2021-09-13T07:00:00Z')->tz('Europe/Bratislava')->format('Y-m-d H:i:s')->toDateTimeString();
-        $test->end = Carbon::parse('2021-09-13T07:10:00Z')->tz('Europe/Bratislava')->format('Y-m-d H:i:s')->toDateTimeString();
-        $test->status = '0';
-        $test->save();
-        //Test::create($payload);
-        echo 'ok';
-    }
 
     public function status(Request $request) {
         // webhook synchronization request
@@ -153,23 +113,29 @@ class WebhookController extends Controller
             $this->response();
         }
 
-        // get reservation data
-        $reservationId = $request->input('reservationId');
-        $triggerType = $request->input('triggerType');
+        try {
+            // get reservation data
+            $reservationId = $request->input('reservationId');
+            $triggerType = $request->input('triggerType');
 
-        Test::firstWhere('reservation_id_ref', $reservationId)->update(['status' => $triggerType]);
+            Test::firstWhere('reservation_id_ref', $reservationId)->update([
+                'status' => self::REENIO_RESERVATION_STATUSES[$triggerType]
+            ]);
+        } catch (\Exception $e) {
+            Log::error($e->getMessage(), $e->getTrace());
+        }
 
         $this->response();
     }
 
     private function getReservationDetail($reservationId)
     {
-        return Http::acceptJson()->withToken(self::API_KEY)->get(self::API_HOST . '/reservation/detail/' . $reservationId);
+        return Http::acceptJson()->withToken(self::REENIO_API_KEY)->get(self::REENIO_API_HOST . '/reservation/detail/' . $reservationId);
     }
 
     private function getCustomerDetail($customerId)
     {
-        return Http::acceptJson()->withToken(self::API_KEY)->get(self::API_HOST . '/customer/detail/' . $customerId);
+        return Http::acceptJson()->withToken(self::REENIO_API_KEY)->get(self::REENIO_API_HOST . '/customer/detail/' . $customerId);
     }
 
     private function lookupCentreByPlaceId($placeId)
@@ -186,7 +152,7 @@ class WebhookController extends Controller
         return $service->id;
     }
 
-    private function getPlainValueFromCustomField($fields, string $key)
+    private function getPlainValue($fields, string $key)
     {
         foreach ($fields as $field) {
             if ($field['key'] == $key) {
@@ -196,7 +162,7 @@ class WebhookController extends Controller
         return '';
     }
 
-    private function getGeneratedValueFromCustomField($fields, string $key, array $mapper)
+    private function getGeneratedValue($fields, string $key, array $mapper)
     {
         foreach ($fields as $field) {
             if ($field['key'] == $key) {
