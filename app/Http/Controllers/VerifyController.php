@@ -31,7 +31,7 @@ class VerifyController extends Controller
         }
         $pdf = PDF::loadView('verify', compact('payload'));
 
-        return $pdf->download('invoice.pdf');
+        return $pdf->download($code_ref . '.pdf');
         return view('verify', compact('payload'));
     }
 }
