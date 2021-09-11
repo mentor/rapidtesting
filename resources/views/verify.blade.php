@@ -7,6 +7,9 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 
     <style>
+        body {
+            font-family: "Helvetica Neue", "Arial", sans-serif;
+        }
         .page-break {
             page-break-after: always;
         }
