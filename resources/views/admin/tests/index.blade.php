@@ -287,6 +287,7 @@
   let dtOverrideGlobals = {
     // buttons: dtButtons,
     buttons: [],
+    select: false,
     processing: true,
     serverSide: true,
     retrieve: true,
