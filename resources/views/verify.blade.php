@@ -43,6 +43,16 @@
             font-size: 15px;
             margin: 10px 0 0 10px;
         }
+
+        .logo {
+            width: 150px;
+            height: 150px;
+            display:inline;
+        }
+
+        .logo-sidebar {
+            display:inline;
+        }
     </style>
 </head>
 <body class="corona">
@@ -52,9 +62,9 @@
         <div class="logo-wrapper">
             <img class="logo" alt="" src="{{ asset('images/testy_mom-logo.png') }}"/>
         </div>
-        <div class="float-right">
-            <h1>Testy MoM</h1>
-            <h3>Výsledky</h3>
+        <div class="logo-sidebar">
+            <h1 class="color-a">Testy MoM</h1>
+            <h3 class="color-c">Výsledky</h3>
         </div>
         <p class="paragraph">Pre zobrazenie a stiahnutie PDF certifikátu s výsledkom Vašeho testu zadajte heslo. Prístupové heslo pre stiahnutie certifikátu je Váš rezervačný kód v tvare ABC-DEF-GHI Kód Vašej rezervácie môže obsahovať písmená aj číslice a nerozlišuje medzi malými a veľkými písmenami.</p>
 
