@@ -85,6 +85,13 @@
              font-size: 10px;
              color: red;
          }
+
+         label {
+             display: block;
+             margin-bottom: 5px;
+             padding-left: 10px;
+             font-size: 12px;
+         }
     </style>
 </head>
 <body class="corona">
