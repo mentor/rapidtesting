@@ -119,6 +119,9 @@
                         <input class="search" type="text" placeholder="{{ trans('global.search') }}">
                     </td>
                     <td>
+                        <input class="search" type="text" placeholder="{{ trans('global.search') }}">
+                    </td>
+                    <td>
                         <select class="search" strict="true">
                             <option value>{{ trans('global.all') }}</option>
                             @foreach(App\Models\Test::STATUS_SELECT as $key => $item)
@@ -232,9 +235,7 @@
                     <td>
                         <input class="search" type="text" placeholder="{{ trans('global.search') }}">
                     </td>
-                    <td>
-                        <input class="search" type="text" placeholder="{{ trans('global.search') }}">
-                    </td>
+
                 </tr>
             </thead>
         </table>
