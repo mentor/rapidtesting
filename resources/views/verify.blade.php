@@ -1,10 +1,13 @@
 <html>
 <head>
     <title>{{ env('APP_NAME') }} - Certifikát</title>
+    <style>
+
+    </style>
 </head>
 <body>
-<form method="post" action="{{ url()->current() }}" enctype="multipart/form-data">
-    {{ csrf_field() }}
+<form method="post" enctype="multipart/form-data">
+    @csrf
     @if($isPinRC)
         <div class="form-group row">
             <label for="pinrc" class="col-sm-3 col-form-label">Rodné číslo</label>
