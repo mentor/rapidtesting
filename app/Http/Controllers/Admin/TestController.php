@@ -40,7 +40,7 @@ class TestController extends Controller
                 $deleteGate = 'test_delete';
                 $crudRoutePart = 'tests';
 
-                return view('partials.datatablesActions', compact(
+                return view('admin.tests.datatablesActions', compact(
                 'viewGate',
                 'editGate',
                 'deleteGate',
