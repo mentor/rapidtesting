@@ -14,7 +14,7 @@
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-coreui-dismiss="modal">Zavrieť</button>
 {{--                    <button type="button" class="btn btn-primary">Odoslať email</button>--}}
-                    <a href="{{ route('admin.' . $crudRoutePart . '.email', $row->code_ref) }}" class="btn btn-primary" data-coreui-dismiss="modal">Odoslať email</a>
+                    <a href="{{ route('admin.tests.email', $row->code_ref) }}" class="btn btn-primary" data-coreui-dismiss="modal">Odoslať email</a>
                 </div>
             </div>
         </div>
