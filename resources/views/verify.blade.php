@@ -14,11 +14,17 @@
             background-position: 115% 210%;
             background-size: 40%;
         }
+
+        .box {
+            padding-left: 10%;
+            padding-top: 5%;
+        }
     </style>
 </head>
 <body class="corona">
 <form method="post" enctype="multipart/form-data">
     @csrf
+    <div class="box">
     @if($isPinRC)
         <div class="form-group row">
             <label for="pinrc" class="col-sm-3 col-form-label">Rodné číslo</label>
@@ -40,6 +46,7 @@
             @enderror
         </div>
     @endif
+    </div>
     <div class="form-group row">
         <button type="submit">Odoslať</button>
     </div>
