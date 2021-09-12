@@ -146,7 +146,7 @@
       selector: 'td:first-child'
     },
     order: [],
-    scrollX: false,
+    scrollX: true,
     pageLength: 100,
     dom: 'lBfrtip<"actions">',
     buttons: [
