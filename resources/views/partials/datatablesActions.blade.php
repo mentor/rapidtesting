@@ -5,12 +5,12 @@
     </a>--}}
 @endcan
 @can($editGate)
-    <a class="btn btn-info" href="{{ route('admin.' . $crudRoutePart . '.edit', $row->id) }}">
+    <a class="btn btn-info mr-2" href="{{ route('admin.' . $crudRoutePart . '.edit', $row->id) }}">
         {{ trans('global.edit') }}
     </a>
 
 
-    <a class="btn btn-danger" href="{{ route('admin.' . $crudRoutePart . '.email', $row->code_ref) }}">
+    <a class="btn btn-danger mr-2" href="{{ route('admin.' . $crudRoutePart . '.email', $row->code_ref) }}">
         {{ trans('global.email') }}
     </a>
 @endcan
