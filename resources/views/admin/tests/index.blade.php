@@ -328,7 +328,7 @@
 
     ],
     orderCellsTop: true,
-    order: [[ 2, 'desc' ]],
+    order: [[ 3, 'desc' ]],
     pageLength: 100,
   };
   let table = $('.datatable-Test').DataTable(dtOverrideGlobals);
