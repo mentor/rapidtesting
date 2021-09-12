@@ -77,6 +77,9 @@ class TestController extends Controller
             $table->editColumn('phone', function ($row) {
                 return $row->phone ? $row->phone : '';
             });
+            $table->editColumn('created_at', function ($row) {
+                return $row->created_at ? $row->created_at : '';
+            });
 
             $table->editColumn('street', function ($row) {
                 return $row->street ? $row->street : '';

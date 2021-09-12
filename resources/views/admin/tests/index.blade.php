@@ -50,6 +50,9 @@
                         {{ trans('cruds.test.fields.phone') }}
                     </th>
                     <th>
+                        {{ trans('cruds.test.fields.created_at') }}
+                    </th>
+                    <th>
                         {{ trans('cruds.test.fields.start') }}
                     </th>
                     <th>
@@ -141,6 +144,9 @@
 <!--                    <td>
                         <input class="search" type="text" placeholder="{{ trans('global.search') }}">
                     </td>-->
+                    <td>
+                        <input class="search" type="text" placeholder="{{ trans('global.search') }}">
+                    </td>
                     <td>
                         <input class="search" type="text" placeholder="{{ trans('global.search') }}">
                     </td>
@@ -304,6 +310,7 @@
 // { data: 'lastname', name: 'lastname' },
 { data: 'email', name: 'email' },
 { data: 'phone', name: 'phone' },
+{ data: 'created_at', name: 'created_at' },
 { data: 'start', name: 'start' },
 { data: 'end', name: 'end' },
 { data: 'pinrc', name: 'pinrc' },
@@ -328,7 +335,7 @@
 
     ],
     orderCellsTop: true,
-    //order: [[ 2, 'desc' ]],
+    order: [[ 9, 'desc' ]],
     pageLength: 100,
   };
   let table = $('.datatable-Test').DataTable(dtOverrideGlobals);

@@ -153,7 +153,7 @@ return [
             'postal_helper'                   => 'Postal',
             'country'                         => 'Country',
             'country_helper'                  => 'Country',
-            'created_at'                      => 'Created at',
+            'created_at'                      => 'Vytvorené',
             'created_at_helper'               => ' ',
             'updated_at'                      => 'Updated at',
             'updated_at_helper'               => ' ',
