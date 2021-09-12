@@ -1,3 +1,4 @@
+<div class="btn-group" role="group" aria-label="">
 @can($viewGate)
    {{-- <a class="btn btn-xs btn-primary" href="{{ route('admin.' . $crudRoutePart . '.show', $row->id) }}">
         {{ trans('global.view') }}
@@ -20,3 +21,4 @@
         <input type="submit" class="btn btn-danger" value="{{ trans('global.delete') }}">
     </form>
 @endcan
+</div>
