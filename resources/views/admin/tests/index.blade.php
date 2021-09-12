@@ -26,6 +26,9 @@
 
                     </th>
                     <th>
+                        &nbsp;
+                    </th>
+                    <th>
                         {{ trans('cruds.test.fields.id') }}
                     </th>
                     <th>
@@ -105,9 +108,6 @@
                     </th>
                     <th>
                         {{ trans('cruds.test.fields.insurance_company') }}
-                    </th>
-                    <th>
-                        &nbsp;
                     </th>
                 </tr>
                 <tr>
@@ -288,6 +288,7 @@
     ajax: "{{ route('admin.tests.index') }}",
     columns: [
       { data: 'placeholder', name: 'placeholder' },
+{ data: 'actions', name: '{{ trans('global.actions') }}' },
 { data: 'id', name: 'id' },
 { data: 'status', name: 'status' },
 { data: 'service_name', name: 'service.name' },
@@ -314,8 +315,8 @@
 { data: 'note', name: 'note' },
 { data: 'reservation_id_ref', name: 'reservation_id_ref' },
 { data: 'code_ref', name: 'code_ref' },
-{ data: 'insurance_company', name: 'insurance_company' },
-{ data: 'actions', name: '{{ trans('global.actions') }}' }
+{ data: 'insurance_company', name: 'insurance_company' }
+
     ],
     orderCellsTop: true,
     order: [[ 1, 'desc' ]],
@@ -326,7 +327,7 @@
       $($.fn.dataTable.tables(true)).DataTable()
           .columns.adjust();
   });
-  
+
 let visibleColumnsIndexes = null;
 $('.datatable thead').on('input', '.search', function () {
       let strict = $(this).attr('strict') || false

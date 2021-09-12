@@ -12,6 +12,7 @@ use App\Models\Service;
 use App\Models\Test;
 use Gate;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Symfony\Component\HttpFoundation\Response;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -194,5 +195,23 @@ class TestController extends Controller
         Test::whereIn('id', request('ids'))->delete();
 
         return response(null, Response::HTTP_NO_CONTENT);
+    }
+
+    public function email(Request $request, $code_ref)
+    {
+        $payload = Test::firstWhere('code_ref', $code_ref);
+
+        abort_if(!$payload, Response::HTTP_NOT_FOUND,'404 Not Found');
+        abort_if(!$payload->isTested(), Response::HTTP_FORBIDDEN,'403 Forbidden');
+
+        $to_name = $payload->firstname . ' ' . $payload->lastname;
+        $to_email = $payload->email;
+
+        Mail::send('emails.verify.plain', compact('payload'), function($message) use ($payload, $to_name, $to_email) {
+            $message->to($to_email, $to_name)
+                ->subject("Výsledok laboratórneho vyšetrenia COVID-19 ({$payload->code_ref})");
+        });
+
+        return view('admin.tests.email', compact('payload'));
     }
 }
