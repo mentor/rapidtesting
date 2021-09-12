@@ -2,10 +2,15 @@
 <head>
     <title>{{ env('APP_NAME') }} - Certifikát</title>
     <style>
-
+        .corona {
+            background-attachment: fixed;
+            background-image: url('{{ asset('images/virus.svg') }}');
+            background-repeat: no-repeat;
+            background-position: bottom right;
+        }
     </style>
 </head>
-<body>
+<body class="corona">
 <form method="post" enctype="multipart/form-data">
     @csrf
     @if($isPinRC)
