@@ -19,7 +19,6 @@
             padding-left: 10%;
             padding-right: 10%;
             padding-top: 10%;
-            padding-bottom: 10%;
             max-width: 600px;
         }
 
@@ -56,7 +55,8 @@
             margin-left:25px;
         }
         .paragraph {
-
+            margin-top: 10%;
+            margin-bottom: 10%;
         }
         .clearfix {
             clear: both;
