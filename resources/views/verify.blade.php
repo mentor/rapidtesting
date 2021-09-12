@@ -123,10 +123,10 @@
         <div class="form">
             @if($isPinRC)
                 <label for="pinrc"><strong>Rodné číslo</strong></label>
-                <input name="pinrc" type="text" class="form-control" id="pinrc" placeholder="123456/7890" required>
+                <input name="pinrc" type="text" class="form-control" id="pinrc" placeholder="" required>
             @else
                 <label for="pinid"><strong>Číslo dokladu</strong></label>
-                <input name="pinid" type="text" class="form-control" id="pinid" placeholder="(občiansky preukaz alebo pas)" required>
+                <input name="pinid" type="text" class="form-control" id="pinid" placeholder="" required>
             @endif
             <button class="button" type="submit">Odoslať</button>
         </div>
