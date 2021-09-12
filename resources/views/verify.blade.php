@@ -5,7 +5,7 @@
         body {
             font-family: DejaVu Sans;
             color: #555555;
-            font-size:14px;
+            font-size:13px;
         }
         .corona {
             background-attachment: fixed;
@@ -55,8 +55,8 @@
             margin-left:25px;
         }
         .paragraph {
-            margin-top: 15px;
-            margin-bottom: 15px;
+            margin-top: 25px;
+            margin-bottom: 25px;
         }
         .clearfix {
             clear: both;
@@ -79,6 +79,12 @@
             border: 2px solid #ff8878;
             padding: 5px 10px;
         }
+
+         .alert {
+             margin-top: 10px;
+             font-size: 10px;
+             color: red;
+         }
     </style>
 </head>
 <body class="corona">
@@ -97,8 +103,10 @@
 
         <div class="form">
             @if($isPinRC)
+                <label for="pinrc"><strong>Rodné číslo</strong></label>
                 <input name="pinrc" type="text" class="form-control" id="pinrc" placeholder="123456/7890" required>
             @else
+                <label for="pinid"><strong>Číslo dokladu</strong></label>
                 <input name="pinid" type="text" class="form-control" id="pinid" placeholder="(občiansky preukaz alebo pas)" required>
             @endif
             <button class="button" type="submit">Odoslať</button>
