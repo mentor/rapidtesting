@@ -41,7 +41,7 @@ class VerifyController extends Controller
                         'bail',
                         'required',
                         function ($attribute, $value, $fail) use ($payload) {
-                            if (trim($value) !== trim(str_replace('/','', $payload->pinrc))) {
+                            if (trim(str_replace('/','', $value)) !== trim(str_replace('/','', $payload->pinrc))) {
                                 $fail('Rodné číslo nie je platné, skontrolujte prosím jeho správnosť');
                             }
                         },
