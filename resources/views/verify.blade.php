@@ -11,7 +11,8 @@
             background-attachment: fixed;
             background-image: url('{{ asset('images/virus.svg') }}');
             background-repeat: no-repeat;
-            background-position: bottom right;
+            background-position: 115% 210%;
+            background-size: 40%;
         }
     </style>
 </head>
