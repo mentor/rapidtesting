@@ -285,7 +285,8 @@
 @endcan
 
   let dtOverrideGlobals = {
-    buttons: dtButtons,
+    // buttons: dtButtons,
+    buttons: [],
     processing: true,
     serverSide: true,
     retrieve: true,
