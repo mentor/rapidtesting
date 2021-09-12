@@ -41,7 +41,7 @@ class VerifyController extends Controller
                         'bail',
                         'required',
                         function ($attribute, $value, $fail) use ($payload) {
-                            if ($value !== $payload->pinrc) {
+                            if (trim($value) !== trim($payload->pinrc)) {
                                 $fail('Heslo nie je platné, skontrolujte prosím jeho správnosť');
                             }
                         },
@@ -53,7 +53,7 @@ class VerifyController extends Controller
                         'bail',
                         'required',
                         function ($attribute, $value, $fail) use ($payload) {
-                            if ($value !== $payload->pinid) {
+                            if (strtolower(trim($value)) !== strtolower(trim($payload->pinid))) {
                                 $fail('Heslo nie je platné, skontrolujte prosím jeho správnosť');
                             }
                         },
