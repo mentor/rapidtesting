@@ -117,7 +117,7 @@ class TestController extends Controller
                 return $row->reservation_id_ref ? $row->reservation_id_ref : '';
             });
             $table->editColumn('code_ref', function ($row) {
-                return $row->code_ref ? '<a href="'. route('admin.tests.email', $row->code_ref) . '">'.$row->code_ref.'</a>' : '';
+                return $row->code_ref ? $row->code_ref : '';
             });
             $table->editColumn('insurance_company', function ($row) {
                 return $row->insurance_company ? $row->insurance_company : '';

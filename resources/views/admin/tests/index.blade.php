@@ -314,7 +314,12 @@
 { data: 'centre_name', name: 'centre.name' },
 { data: 'note', name: 'note' },
 { data: 'reservation_id_ref', name: 'reservation_id_ref' },
-{ data: 'code_ref', name: 'code_ref' },
+// { data: 'code_ref', name: 'code_ref' },
+{ data: 'code_ref',name: 'code_ref',
+    "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
+        $(nTd).html("<a href='/admin/tests/show/"+oData.code_ref+"'>"+oData.code_ref+"</a>");
+    }
+},
 { data: 'insurance_company', name: 'insurance_company' }
 
     ],
