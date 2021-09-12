@@ -41,18 +41,6 @@
                         {{ trans('cruds.test.fields.service') }}
                     </th>
                     <th>
-                        {{ trans('cruds.test.fields.start') }}
-                    </th>
-                    <th>
-                        {{ trans('cruds.test.fields.end') }}
-                    </th>
-                    <th>
-                        {{ trans('cruds.test.fields.pinrc') }}
-                    </th>
-                    <th>
-                        {{ trans('cruds.test.fields.pinid') }}
-                    </th>
-                    <th>
                         {{ trans('cruds.test.fields.firstname') }}
                     </th>
                     <th>
@@ -64,6 +52,19 @@
                     <th>
                         {{ trans('cruds.test.fields.phone') }}
                     </th>
+                    <th>
+                        {{ trans('cruds.test.fields.start') }}
+                    </th>
+                    <th>
+                        {{ trans('cruds.test.fields.end') }}
+                    </th>
+                    <th>
+                        {{ trans('cruds.test.fields.pinrc') }}
+                    </th>
+                    <th>
+                        {{ trans('cruds.test.fields.pinid') }}
+                    </th>
+
                     <th>
                         {{ trans('cruds.test.fields.dob') }}
                     </th>
@@ -298,14 +299,14 @@
 },
 { data: 'status', name: 'status' },
 { data: 'service_name', name: 'service.name' },
-{ data: 'start', name: 'start' },
-{ data: 'end', name: 'end' },
-{ data: 'pinrc', name: 'pinrc' },
-{ data: 'pinid', name: 'pinid' },
 { data: 'firstname', name: 'firstname' },
 { data: 'lastname', name: 'lastname' },
 { data: 'email', name: 'email' },
 { data: 'phone', name: 'phone' },
+{ data: 'start', name: 'start' },
+{ data: 'end', name: 'end' },
+{ data: 'pinrc', name: 'pinrc' },
+{ data: 'pinid', name: 'pinid' },
 { data: 'dob', name: 'dob' },
 { data: 'street', name: 'street' },
 { data: 'city', name: 'city' },
