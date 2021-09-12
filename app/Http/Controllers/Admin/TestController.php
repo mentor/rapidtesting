@@ -207,7 +207,7 @@ class TestController extends Controller
         $to_name = $payload->firstname . ' ' . $payload->lastname;
         $to_email = $payload->email;
 
-        Mail::send('emails.verify.plain', compact('payload'), function($message) use ($payload, $to_name, $to_email) {
+        Mail::send('emails.verify', compact('payload'), function($message) use ($payload, $to_name, $to_email) {
             $message->to($to_email, $to_name)
                 ->subject("Výsledok laboratórneho vyšetrenia COVID-19 ({$payload->code_ref})");
         });
