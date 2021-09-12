@@ -18,6 +18,7 @@
         .box {
             padding-left: 10%;
             padding-top: 5%;
+            max-width: 600px;
         }
 
         .color-a {
@@ -58,6 +59,18 @@
         .clearfix {
             clear: both;
         }
+
+        .form-control {
+            background: #FFFFFF 0 0 no-repeat padding-box;
+            border: 2px solid #05223B;
+            border-radius: 20px;
+        }
+
+        .button {
+            background: #ff8878 0 0 no-repeat padding-box;
+            color: #FFFFFF;
+            border-radius: 20px;
+        }
     </style>
 </head>
 <body class="corona">
@@ -81,7 +94,7 @@
                 <input name="pinid" type="text" class="form-control" id="pinid" placeholder="(občiansky preukaz alebo pas)" required>
             @endif
 
-            <div class="form-group row">
+            <div class="button">
                 <button type="submit">Odoslať</button>
             </div>
         </div>
