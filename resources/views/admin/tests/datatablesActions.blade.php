@@ -9,8 +9,7 @@
         {{ trans('global.edit') }}
     </a>
 
-{{ dump($row->code_ref) }}
-    <button class="btn btn-danger mr-2" data-toggle="modal" data-target="#sendEmailModal" data-ref="" data-ref="{{ $row->code_ref }}">
+    <button class="btn btn-danger mr-2" data-toggle="modal" data-target="#sendEmailModal" data-ref="{{ $row->code_ref }}">
         {{ trans('global.email') }}
 {{--        href="{{ route('admin.' . $crudRoutePart . '.email', $row->code_ref) }}"--}}
     </button>
