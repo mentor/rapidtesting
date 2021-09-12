@@ -17,9 +17,9 @@
         </div>
     @else
         <div class="form-group row">
-            <label for="pinid" class="col-sm-3 col-form-label">Číslo dokladu</label>
+            <label for="pinid" class="col-sm-3 col-form-label">Číslo dokladu (občiansky preukaz alebo pas)</label>
             <div class="col-sm-9">
-                <input name="pinid" type="text" class="form-control" id="pinid" placeholder="123456/7890" required>
+                <input name="pinid" type="text" class="form-control" id="pinid" placeholder="(občiansky preukaz alebo pas)" required>
             </div>
             @error('pinid')
                 <div class="alert alert-danger">{{ $message }}</div>
