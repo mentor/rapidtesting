@@ -11,7 +11,7 @@
                 <p>Email s odkazom na certifikát {{ $payload->code_ref }} bol odoslaný na adresu {{ $payload->email }}.</p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
             </div>
         </div>
     </div>
