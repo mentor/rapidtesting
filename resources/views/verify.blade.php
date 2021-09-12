@@ -17,7 +17,9 @@
 
         .box {
             padding-left: 10%;
-            padding-top: 5%;
+            padding-right: 10%;
+            padding-top: 10%;
+            padding-bottom: 10%;
             max-width: 600px;
         }
 
