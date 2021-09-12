@@ -41,10 +41,7 @@
                         {{ trans('cruds.test.fields.service') }}
                     </th>
                     <th>
-                        {{ trans('cruds.test.fields.firstname') }}
-                    </th>
-                    <th>
-                        {{ trans('cruds.test.fields.lastname') }}
+                        {{ trans('cruds.test.fields.name') }}
                     </th>
                     <th>
                         {{ trans('cruds.test.fields.email') }}
@@ -139,11 +136,11 @@
                         </select>
                     </td>
                     <td>
-                        <input class="search" type="text" placeholder="{{ trans('global.search') }}">
+<!--                        <input class="search" type="text" placeholder="{{ trans('global.search') }}">-->
                     </td>
-                    <td>
+<!--                    <td>
                         <input class="search" type="text" placeholder="{{ trans('global.search') }}">
-                    </td>
+                    </td>-->
                     <td>
                         <input class="search" type="text" placeholder="{{ trans('global.search') }}">
                     </td>
@@ -299,8 +296,12 @@
 },
 { data: 'status', name: 'status' },
 { data: 'service_name', name: 'service.name' },
-{ data: 'firstname', name: 'firstname' },
-{ data: 'lastname', name: 'lastname' },
+{ data: 'firstname', name: 'firstname',
+    "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
+        $(nTd).html(+oData.firstname+"&nbsp;"+oData.lastname);
+    }
+},
+// { data: 'lastname', name: 'lastname' },
 { data: 'email', name: 'email' },
 { data: 'phone', name: 'phone' },
 { data: 'start', name: 'start' },

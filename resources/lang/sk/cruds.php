@@ -133,6 +133,8 @@ return [
             'pinid_helper'                    => 'Pin-ID',
             'pinrc'                           => 'Pin-RC',
             'pinrc_helper'                    => 'Pin-RC',
+            'name'                            => 'Meno',
+            'name_helper'                     => 'Meno',
             'firstname'                       => 'First Name',
             'firstname_helper'                => 'First Name',
             'lastname'                        => 'Last Name',
