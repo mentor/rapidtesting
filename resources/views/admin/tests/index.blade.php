@@ -283,9 +283,7 @@
     processing: true,
     serverSide: true,
     retrieve: true,
-    //aaSorting: [],
-    aaSorting: [[ 2, "desc" ]],
-
+    aaSorting: [],
       ajax: "{{ route('admin.tests.index') }}",
     columns: [
       { data: 'placeholder', name: 'placeholder' },
