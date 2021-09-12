@@ -28,9 +28,9 @@
                     <th>
                         &nbsp;
                     </th>
-                    <th>
+<!--                    <th>
                         {{ trans('cruds.test.fields.id') }}
-                    </th>
+                    </th>-->
                     <th>
                         {{ trans('cruds.test.fields.code_ref') }}
                     </th>
@@ -113,9 +113,9 @@
                     </td>
                     <td>
                     </td>
-                    <td>
+<!--                    <td>
                         <input class="search" type="text" placeholder="{{ trans('global.search') }}">
-                    </td>
+                    </td>-->
                     <td>
                         <input class="search" type="text" placeholder="{{ trans('global.search') }}">
                     </td>
@@ -288,7 +288,7 @@
     columns: [
       { data: 'placeholder', name: 'placeholder' },
 { data: 'actions', name: '{{ trans('global.actions') }}', searchable: false, orderable: false },
-{ data: 'id', name: 'id' },
+// { data: 'id', name: 'id' },
 { data: 'code_ref',name: 'code_ref',
     "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
         $(nTd).html("<a href='/admin/tests/"+oData.id+"'>"+oData.code_ref+"</a>");
@@ -328,7 +328,7 @@
 
     ],
     orderCellsTop: true,
-    order: [[ 2, 'desc' ]],
+    //order: [[ 2, 'desc' ]],
     pageLength: 100,
   };
   let table = $('.datatable-Test').DataTable(dtOverrideGlobals);
