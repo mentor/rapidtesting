@@ -317,7 +317,7 @@
 // { data: 'code_ref', name: 'code_ref' },
 { data: 'code_ref',name: 'code_ref',
     "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
-        $(nTd).html("<a href='/admin/tests/show/"+oData.code_ref+"'>"+oData.code_ref+"</a>");
+        $(nTd).html("<a href='/admin/tests/"+oData.id+"'>"+oData.code_ref+"</a>");
     }
 },
 { data: 'insurance_company', name: 'insurance_company' }
