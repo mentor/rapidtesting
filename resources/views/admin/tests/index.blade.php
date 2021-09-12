@@ -409,7 +409,7 @@ $('#sendEmailModal').on('show.bs.modal', function (event) {
     modal.find('.modal-body').text('Skutočne si prajete odoslať certifikát na email ' + email + '?');
     modal.find('.modal-footer #sendEmail').on('click', function () {
         console.log(modal);
-        modal.modal('hide');
+        modal.modal('toggle');
     });
 
 })
