@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Log;
 
 /**
  * @internal
@@ -110,7 +111,9 @@ class Test extends Model
             $this->result_test_manufacturer,
             $this->result_diagnosis
         ] as $value) {
+            Log::info('value: ' . $value);
             if (empty($value)) {
+                Log::info('empty: ' . $value);
                 return false;
             }
         }
