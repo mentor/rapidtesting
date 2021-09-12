@@ -25,30 +25,30 @@
 <form method="post" enctype="multipart/form-data">
     @csrf
     <div class="box">
-    @if($isPinRC)
-        <div class="form-group row">
-            <label for="pinrc" class="col-sm-3 col-form-label">Rodné číslo</label>
-            <div class="col-sm-9">
-                <input name="pinrc" type="text" class="form-control" id="pinrc" placeholder="123456/7890" required>
+        @if($isPinRC)
+            <div class="form-group row">
+                <label for="pinrc" class="col-sm-3 col-form-label">Rodné číslo</label>
+                <div class="col-sm-9">
+                    <input name="pinrc" type="text" class="form-control" id="pinrc" placeholder="123456/7890" required>
+                </div>
+                @error('pinrc')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
             </div>
-            @error('pinrc')
-                <div class="alert alert-danger">{{ $message }}</div>
-            @enderror
-        </div>
-    @else
-        <div class="form-group row">
-            <label for="pinid" class="col-sm-3 col-form-label">Číslo dokladu (občiansky preukaz alebo pas)</label>
-            <div class="col-sm-9">
-                <input name="pinid" type="text" class="form-control" id="pinid" placeholder="(občiansky preukaz alebo pas)" required>
+        @else
+            <div class="form-group row">
+                <label for="pinid" class="col-sm-3 col-form-label">Číslo dokladu (občiansky preukaz alebo pas)</label>
+                <div class="col-sm-9">
+                    <input name="pinid" type="text" class="form-control" id="pinid" placeholder="(občiansky preukaz alebo pas)" required>
+                </div>
+                @error('pinid')
+                    <div class="alert alert-danger">{{ $message }}</div>
+                @enderror
             </div>
-            @error('pinid')
-                <div class="alert alert-danger">{{ $message }}</div>
-            @enderror
+        @endif
+        <div class="form-group row">
+            <button type="submit">Odoslať</button>
         </div>
-    @endif
-    </div>
-    <div class="form-group row">
-        <button type="submit">Odoslať</button>
     </div>
 </form>
 </body>
