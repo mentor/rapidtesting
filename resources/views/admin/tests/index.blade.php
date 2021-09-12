@@ -32,6 +32,9 @@
                         {{ trans('cruds.test.fields.id') }}
                     </th>
                     <th>
+                        {{ trans('cruds.test.fields.code_ref') }}
+                    </th>
+                    <th>
                         {{ trans('cruds.test.fields.status') }}
                     </th>
                     <th>
@@ -102,9 +105,6 @@
                     </th>
                     <th>
                         {{ trans('cruds.test.fields.reservation_id_ref') }}
-                    </th>
-                    <th>
-                        {{ trans('cruds.test.fields.code_ref') }}
                     </th>
                     <th>
                         {{ trans('cruds.test.fields.insurance_company') }}
@@ -290,6 +290,11 @@
       { data: 'placeholder', name: 'placeholder' },
 { data: 'actions', name: '{{ trans('global.actions') }}' },
 { data: 'id', name: 'id' },
+{ data: 'code_ref',name: 'code_ref',
+    "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
+        $(nTd).html("<a href='/admin/tests/"+oData.id+"'>"+oData.code_ref+"</a>");
+    }
+},
 { data: 'status', name: 'status' },
 { data: 'service_name', name: 'service.name' },
 { data: 'start', name: 'start' },
@@ -315,11 +320,7 @@
 { data: 'note', name: 'note' },
 { data: 'reservation_id_ref', name: 'reservation_id_ref' },
 // { data: 'code_ref', name: 'code_ref' },
-{ data: 'code_ref',name: 'code_ref',
-    "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
-        $(nTd).html("<a href='/admin/tests/"+oData.id+"'>"+oData.code_ref+"</a>");
-    }
-},
+
 { data: 'insurance_company', name: 'insurance_company' }
 
     ],
