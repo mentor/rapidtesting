@@ -31,6 +31,24 @@
         </div>
     </div>
 
+    <script>
+        var exampleModal = document.getElementById('exampleModal')
+        exampleModal.addEventListener('show.coreui.modal', function (event) {
+            // Button that triggered the modal
+            var button = event.relatedTarget;
+            // Extract info from data-coreui-* attributes
+            var recipient = button.getAttribute('data-coreui-whatever');
+            // If necessary, you could initiate an AJAX request here
+            // and then do the updating in a callback.
+            //
+            // Update the modal's content.
+            var modalTitle = exampleModal.querySelector('.modal-title');
+            var modalBodyInput = exampleModal.querySelector('.modal-body input');
+
+            modalTitle.textContent = 'New message to ' + recipient;
+            modalBodyInput.value = recipient;
+        })
+    </script>
     <!-- Modal -->
     <div class="modal fade" id="sendEmailModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
