@@ -283,8 +283,10 @@
     processing: true,
     serverSide: true,
     retrieve: true,
-    aaSorting: [],
-    ajax: "{{ route('admin.tests.index') }}",
+    //aaSorting: [],
+    aaSorting: [[ 2, "desc" ]],
+
+      ajax: "{{ route('admin.tests.index') }}",
     columns: [
       { data: 'placeholder', name: 'placeholder' },
 { data: 'actions', name: '{{ trans('global.actions') }}' },
@@ -328,7 +330,7 @@
 
     ],
     orderCellsTop: true,
-    order: [[ 3, 'desc' ]],
+    order: [[ 2, 'desc' ]],
     pageLength: 100,
   };
   let table = $('.datatable-Test').DataTable(dtOverrideGlobals);
