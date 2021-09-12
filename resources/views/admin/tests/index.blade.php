@@ -408,8 +408,15 @@ $('#sendEmailModal').on('show.bs.modal', function (event) {
     modal.find('.modal-title').text('Odoslať Certifikát ' + code_ref);
     modal.find('.modal-body').text('Skutočne si prajete odoslať certifikát na email ' + email + '?');
     modal.find('.modal-footer #sendEmail').on('click', function () {
-        console.log(modal);
-        modal.modal('hide');
+
+        modal.removeData('bs.modal');
+        modal.modal({remote: '/admin/tests/email/' + code_ref });
+        modal.modal('show');
+
+        // $.ajax({
+        //
+        // });
+        // modal.modal('hide');
     });
 
 })
