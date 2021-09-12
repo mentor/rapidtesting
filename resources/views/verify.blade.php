@@ -34,10 +34,12 @@
 
         h1 {
             font-size: 23px;
+            margin-bottom: 5px;
         }
 
         h3 {
             font-size: 15px;
+            margin-top: 0px;
         }
 
         .logo {
@@ -50,7 +52,10 @@
             float:left;
         }
         .paragraph {
-            clear:left;
+
+        }
+        .clearfix {
+            clear: both;
         }
     </style>
 </head>
@@ -65,6 +70,7 @@
             <h1 class="color-a">Testy MoM</h1>
             <h3 class="color-c">Výsledky</h3>
         </div>
+        <div class="clearfix"></div>
         <p class="paragraph">Pre zobrazenie a stiahnutie PDF certifikátu s výsledkom Vašeho testu zadajte heslo. Prístupové heslo pre stiahnutie certifikátu je Váš rezervačný kód v tvare ABC-DEF-GHI Kód Vašej rezervácie môže obsahovať písmená aj číslice a nerozlišuje medzi malými a veľkými písmenami.</p>
 
         <div class="form">
