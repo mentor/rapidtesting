@@ -13,6 +13,11 @@
         </div>
     </div>
 @endcan
+<style>
+    .datatable thead th {
+        white-space: nowrap;
+    }
+</style>
 <div class="card">
     <div class="card-header">
         {{ trans('cruds.test.title_singular') }} {{ trans('global.list') }}
@@ -65,7 +70,7 @@
                         {{ trans('cruds.test.fields.pinid') }}
                     </th>
 
-                    <th style="white-space: nowrap">
+                    <th>
                         {{ trans('cruds.test.fields.dob') }}
                     </th>
                     <th>
