@@ -289,7 +289,7 @@
       ajax: "{{ route('admin.tests.index') }}",
     columns: [
       { data: 'placeholder', name: 'placeholder' },
-{ data: 'actions', name: '{{ trans('global.actions') }}' },
+{ data: 'actions', name: '{{ trans('global.actions') }}', searchable: false, orderable: false },
 { data: 'id', name: 'id' },
 { data: 'code_ref',name: 'code_ref',
     "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
@@ -340,7 +340,7 @@
   });
 
 let visibleColumnsIndexes = null;
-$('.datatable thead').on('input:gt(2)', '.search', function () {
+$('.datatable thead').on('input', '.search', function () {
       let strict = $(this).attr('strict') || false
       let value = strict && this.value ? "^" + this.value + "$" : this.value
 
