@@ -65,7 +65,7 @@
                         {{ trans('cruds.test.fields.pinid') }}
                     </th>
 
-                    <th>
+                    <th style="white-space: nowrap">
                         {{ trans('cruds.test.fields.dob') }}
                     </th>
                     <th>
