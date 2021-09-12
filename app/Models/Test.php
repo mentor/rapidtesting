@@ -101,6 +101,22 @@ class Test extends Model
         'deleted_at',
     ];
 
+    public function isTested()
+    {
+        foreach ([
+            $this->result_status,
+            $this->result_date,
+            $this->result_test_name,
+            $this->result_test_manufacturer,
+            $this->result_diagnosis
+        ] as $value) {
+            if (empty($value)) {
+                return false;
+            }
+        }
+
+        return true;
+    }
     public function service()
     {
         return $this->belongsTo(Service::class, 'service_id');

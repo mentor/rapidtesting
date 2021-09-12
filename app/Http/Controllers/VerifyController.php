@@ -27,7 +27,7 @@ class VerifyController extends Controller
     public function verify(Request $request, $code_ref)
     {
         $payload = Test::firstWhere('code_ref', $code_ref);
-        if (!$payload) {
+        if (!$payload || !$payload->isTested()) {
             abort(404);
         }
 
