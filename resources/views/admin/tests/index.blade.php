@@ -404,6 +404,7 @@ $('#sendEmailModal').on('show.bs.modal', function (event) {
     var button = $(event.relatedTarget) // Button that triggered the modal
     var code_ref = button.data('ref') // Extract info from data-* attributes
     var email = button.data('email') // Extract info from data-* attributes
+    var url = button.data('url') // Extract info from data-* attributes
     // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
     // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
     var modal = $(this);
@@ -412,10 +413,9 @@ $('#sendEmailModal').on('show.bs.modal', function (event) {
     modal.find('.modal-footer #sendEmail').off('click');
     modal.find('.modal-footer #sendEmail').on('click', function () {
 
-        $.ajax({url: "/admin/tests/email/" + code_ref, success: function(result){
+        $.ajax({url: url, success: function(result){
             $('#sendEmailResponseModal').html(result);
             $('#sendEmailResponseModal .modal').modal('show');
-
         }});
 
     });

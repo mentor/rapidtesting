@@ -9,10 +9,11 @@
         {{ trans('global.edit') }}
     </a>
 
-    <button class="btn btn-danger mr-2" data-toggle="modal" data-target="#sendEmailModal" data-email="{{ $row->email }}" data-ref="{{ $row->code_ref }}">
+    @if($row->isTested())
+        <button class="btn btn-danger mr-2" data-toggle="modal" data-target="#sendEmailModal" data-url="{{ route('admin.' . $crudRoutePart . '.email', $row->code_ref) }}" data-email="{{ $row->email }}" data-ref="{{ $row->code_ref }}">
         {{ trans('global.email') }}
-{{--        href="{{ route('admin.' . $crudRoutePart . '.email', $row->code_ref) }}"--}}
-    </button>
+        </button>
+    @endif
 @endcan
 @can($deleteGate)
     <form action="{{ route('admin.' . $crudRoutePart . '.destroy', $row->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
