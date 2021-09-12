@@ -66,7 +66,7 @@
             border-radius: 20px;
         }
 
-        .button {
+        .button button{
             background: #ff8878 0 0 no-repeat padding-box;
             color: #FFFFFF;
             border-radius: 20px;
@@ -94,7 +94,7 @@
                 <input name="pinid" type="text" class="form-control" id="pinid" placeholder="(občiansky preukaz alebo pas)" required>
             @endif
 
-            <div class="button">
+            <div class="button>
                 <button type="submit">Odoslať</button>
             </div>
         </div>
