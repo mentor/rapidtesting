@@ -13,7 +13,7 @@ return [
     'clear'                          => 'Vymaž',
     'downloadFile'                   => 'Stiahnuť súbor',
     'edit'                           => 'Upraviť',
-    'email'                          => 'Odoslať Certifikát',
+    'email'                          => 'Email',
     'emailVerificationSuccess'       => 'E-mail používateľa bol úspešne overený',
     'entries'                        => 'Záznamy',
     'filterDate'                     => 'Filtrovať podľa dátumu',
