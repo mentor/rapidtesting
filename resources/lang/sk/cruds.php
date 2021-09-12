@@ -143,7 +143,7 @@ return [
             'email_helper'                    => 'Email',
             'phone'                           => 'Phone',
             'phone_helper'                    => 'Mobile Phone Number',
-            'dob'                             => 'Date of Birth',
+            'dob'                             => 'Date&nbsp;of&nbsp;Birth',
             'dob_helper'                      => 'Date of Birth',
             'street'                          => 'Street',
             'street_helper'                   => 'Street',
