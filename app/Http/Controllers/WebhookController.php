@@ -34,18 +34,24 @@ class WebhookController extends Controller
     public function created(Request $request)
     {
 
+        Log::info('Reservation CREATED webhook: init');
+
         // webhook synchronization request
         if (!$request->input()) {
+            Log::info('Reservation CREATED webhook SYNC');
             $this->response();
         }
 
+        Log::info('Reservation CREATED webhook: phase 0', $request->input());
         // get reservation data
         $reservationId = $request->input('reservationId');
         $reservation = $this->getReservationDetail($reservationId);
+        Log::info('Reservation CREATED webhook: phase 1 - reservation API call', compact('reservation'));
 
         // get customer data
         $customerId = $request->input('customerId');
         $customer = $this->getCustomerDetail($customerId);
+        Log::info('Reservation CREATED webhook: phase 2 - customer API call', compact('customer'));
 
         // check if API calls returned HTTP 200
         if (!$reservation->ok() || !$customer->ok()) {
@@ -53,6 +59,7 @@ class WebhookController extends Controller
             $this->response();
         }
 
+        Log::info('Reservation CREATED webhook: phase 3 - data extraction');
         try {
             // build payload to store into database
             $payload = [];
@@ -92,11 +99,12 @@ class WebhookController extends Controller
 
             $payload['status'] = self::REENIO_RESERVATION_STATUSES[$reservation->json('detail.state')];
 
-            Log::info(sprintf('Reservation %s has been received', $reservationId), $payload);
+            Log::info('Reservation CREATED webhook: phase 5 - data push', compact('payload'));
 
-            Test::create($payload);
 
-            Log::info(sprintf('Reservation %s has been successfully created', $reservationId));
+            $test = Test::create($payload);
+
+            Log::info('Reservation CREATED webhook: phase 6 - DONE', ['id' => $test->id]);
 
         } catch (\Exception $e) {
             Log::error($e->getMessage(), $e->getTrace());
