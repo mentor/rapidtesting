@@ -22,9 +22,9 @@
         <table class=" table table-bordered table-striped table-hover ajaxTable datatable datatable-Test">
             <thead>
                 <tr>
-                    <th width="10">
+{{--                    <th width="10">--}}
 
-                    </th>
+{{--                    </th>--}}
                     <th>
                         &nbsp;
                     </th>
@@ -112,8 +112,8 @@
                     </th>
                 </tr>
                 <tr>
-                    <td>
-                    </td>
+{{--                    <td>--}}
+{{--                    </td>--}}
                     <td>
                     </td>
 <!--                    <td>
@@ -293,7 +293,7 @@
     aaSorting: [],
       ajax: "{{ route('admin.tests.index') }}",
     columns: [
-      { data: 'placeholder', name: 'placeholder' },
+      // { data: 'placeholder', name: 'placeholder' },
 { data: 'actions', name: '{{ trans('global.actions') }}', searchable: false, orderable: false },
 // { data: 'id', name: 'id' },
 { data: 'code_ref',name: 'code_ref',
