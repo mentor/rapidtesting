@@ -34,24 +34,23 @@
 
         h1 {
             font-size: 23px;
-            line-height: 120%;
-            margin: 0;
-            padding: 0 0 0 0;
         }
 
         h3 {
             font-size: 15px;
-            margin: 10px 0 0 10px;
         }
 
         .logo {
-            width: 150px;
-            height: 150px;
-            display:inline;
+            width: 80px;
+            height: 80px;
+            float:left;
         }
 
         .logo-sidebar {
-            display:inline;
+            float:left;
+        }
+        .paragraph {
+            clear:left;
         }
     </style>
 </head>
