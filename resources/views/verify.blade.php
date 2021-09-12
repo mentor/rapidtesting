@@ -83,6 +83,7 @@
             border-radius: 20px;
             border: 2px solid #ff8878;
             padding: 5px 10px;
+            font-size: 15px;
         }
 
          .alert {
