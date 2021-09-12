@@ -50,6 +50,7 @@
 
         .logo-sidebar {
             float:left;
+            margin-left:25px;
         }
         .paragraph {
 
