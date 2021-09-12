@@ -38,7 +38,7 @@ table.dataTable tbody th.select-checkbox::after {
 table.dataTable thead th {
     /*border-bottom: 2px solid #c8ced3;*/
     border-bottom: 0;
-    padding-left:8px;
+    padding-left:10px;
 }
 
 table.dataTable thead td {
