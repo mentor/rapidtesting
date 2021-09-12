@@ -12,6 +12,7 @@ use App\Models\Service;
 use App\Models\Test;
 use Gate;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Mail;
 use Symfony\Component\HttpFoundation\Response;
 use Yajra\DataTables\Facades\DataTables;
@@ -78,7 +79,9 @@ class TestController extends Controller
                 return $row->phone ? $row->phone : '';
             });
             $table->editColumn('created_at', function ($row) {
-                return $row->created_at ? $row->created_at : '';
+                return $row->created_at ? Carbon::createFromFormat(
+                    config('panel.date_format') . ' ' . config('panel.time_format'),
+                    $row->created_at)->tz('Europe/Bratislava')->format('m.d.Y H:i:s') : '';
             });
 
             $table->editColumn('street', function ($row) {
