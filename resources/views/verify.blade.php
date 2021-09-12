@@ -64,12 +64,17 @@
             background: #FFFFFF 0 0 no-repeat padding-box;
             border: 2px solid #05223B;
             border-radius: 20px;
+            display:inline;
+            padding: 5px 10px;
         }
 
-        .button button{
+        .button{
+            display:inline;
             background: #ff8878 0 0 no-repeat padding-box;
             color: #FFFFFF;
             border-radius: 20px;
+            border: 2px solid #ff8878;
+            padding: 5px 10px;
         }
     </style>
 </head>
@@ -93,10 +98,7 @@
             @else
                 <input name="pinid" type="text" class="form-control" id="pinid" placeholder="(občiansky preukaz alebo pas)" required>
             @endif
-
-            <div class="button">
-                <button type="submit">Odoslať</button>
-            </div>
+            <button class="button" type="submit">Odoslať</button>
         </div>
 
         @error('pinid')
