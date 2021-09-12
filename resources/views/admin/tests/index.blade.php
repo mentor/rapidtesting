@@ -298,7 +298,7 @@
 { data: 'service_name', name: 'service.name' },
 { data: 'firstname', name: 'firstname',
     "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
-        $(nTd).html(+oData.firstname+"&nbsp;"+oData.lastname);
+        $(nTd).html(oData.firstname+"&nbsp;"+oData.lastname);
     }
 },
 // { data: 'lastname', name: 'lastname' },
