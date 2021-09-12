@@ -1,5 +1,24 @@
 @extends('layouts.admin')
 @section('content')
+    <!-- Modal -->
+    <div class="modal fade" id="sendEmailModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Odoslať Certifikát</h5>
+                    <button type="button" class="btn-close" data-coreui-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Skutočne si prajete odoslať email s certifikátom?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-coreui-dismiss="modal">Zavrieť</button>
+{{--                    <button type="button" class="btn btn-primary">Odoslať email</button>--}}
+                    <a href="{{ route('admin.' . $crudRoutePart . '.email', $row->code_ref) }}" class="btn btn-primary" data-coreui-dismiss="modal">Odoslať email</a>
+                </div>
+            </div>
+        </div>
+    </div>
 @can('test_create')
     <div style="margin-bottom: 10px;" class="row">
         <div class="col-lg-12">

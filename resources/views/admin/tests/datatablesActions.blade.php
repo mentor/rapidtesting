@@ -10,9 +10,10 @@
     </a>
 
 
-    <a class="btn btn-danger mr-2" href="{{ route('admin.' . $crudRoutePart . '.email', $row->code_ref) }}">
+    <button class="btn btn-danger mr-2" data-coreui-toggle="modal" data-coreui-target="#sendEmailModal" >
         {{ trans('global.email') }}
-    </a>
+{{--        href="{{ route('admin.' . $crudRoutePart . '.email', $row->code_ref) }}"--}}
+    </button>
 @endcan
 @can($deleteGate)
     <form action="{{ route('admin.' . $crudRoutePart . '.destroy', $row->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
