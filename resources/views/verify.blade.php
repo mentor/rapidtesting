@@ -112,7 +112,13 @@
             <h3 class="color-c">Výsledky</h3>
         </div>
         <div class="clearfix"></div>
-        <p class="paragraph">Pre zobrazenie a stiahnutie PDF certifikátu s výsledkom Vašeho testu zadajte heslo. Prístupové heslo pre stiahnutie certifikátu je Váš rezervačný kód v tvare ABC-DEF-GHI Kód Vašej rezervácie môže obsahovať písmená aj číslice a nerozlišuje medzi malými a veľkými písmenami.</p>
+        @if($isPinRC)
+            <p class="paragraph">Pre zobrazenie a stiahnutie PDF certifikátu s výsledkom Vašeho testu zadajte heslo.
+                Prístupové heslo pre stiahnutie certifikátu je Vaše rodné číslo.</p>
+        @else
+            <p class="paragraph">Pre zobrazenie a stiahnutie PDF certifikátu s výsledkom Vašeho testu zadajte heslo.
+                Prístupové heslo pre stiahnutie certifikátu je číslo Vašeho dokladu, ktoré ste zadali pri registrácií.</p>
+        @endif
 
         <div class="form">
             @if($isPinRC)
