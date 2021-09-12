@@ -111,9 +111,7 @@ class Test extends Model
             $this->result_test_manufacturer,
             $this->result_diagnosis
         ] as $value) {
-            Log::info('value: ' . $value);
             if (empty($value)) {
-                Log::info('empty: ' . $value);
                 return false;
             }
         }
