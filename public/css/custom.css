@@ -141,3 +141,7 @@ table.dataTable thead .sorting_desc {
 .datatable thead th {
     white-space: nowrap;
 }
+
+.dataTable select.search {
+    height:27px;
+}
