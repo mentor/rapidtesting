@@ -417,7 +417,6 @@ $('#sendEmailModal').on('show.bs.modal', function (event) {
         // modal.modal('show');
         console.log('clicked' + code_ref);
         $.ajax({url: "/admin/tests/email/" + code_ref, success: function(result){
-            console.log(result);
             $('#sendEmailResponseModal').html(result);
             $('#sendEmailResponseModal .modal').modal('show');
 
