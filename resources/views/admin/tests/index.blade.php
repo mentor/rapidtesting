@@ -404,12 +404,12 @@ $('#sendEmailModal').on('show.bs.modal', function (event) {
     var email = button.data('email') // Extract info from data-* attributes
     // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
     // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-    var modal = $(this)
+    var modal = $(this);
     modal.find('.modal-title').text('Odoslať Certifikát ' + code_ref);
     modal.find('.modal-body').text('Skutočne si prajete odoslať certifikát na email ' + email + '?');
     modal.find('.modal-footer #sendEmail').on('click', function () {
-        console.log(this);
-        modal.close();
+        console.log(modal);
+
     });
 
 })
