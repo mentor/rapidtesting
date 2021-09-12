@@ -10,7 +10,7 @@
         body {
             font-family: DejaVu Sans;
             color: #555555;
-            font-size:13px;
+            font-size:14px;
         }
         .corona {
             background-attachment: fixed;
@@ -87,7 +87,7 @@
 
          .alert {
              margin-top: 10px;
-             font-size: 10px;
+             font-size: 12px;
              color: red;
          }
 
@@ -95,7 +95,7 @@
              display: block;
              margin-bottom: 5px;
              padding-left: 10px;
-             font-size: 12px;
+             font-size: 13px;
          }
     </style>
 </head>
