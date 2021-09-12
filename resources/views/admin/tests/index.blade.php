@@ -412,10 +412,11 @@ $('#sendEmailModal').on('show.bs.modal', function (event) {
         // modal.removeData('bs.modal');
         // modal.modal({remote: '/admin/tests/email/' + code_ref });
         // modal.modal('show');
-console.log('clicked');
-        // $.ajax({
-        //
-        // });
+        console.log('clicked' + code_ref);
+        $.ajax({url: "/admin/tests/email/" + code_ref, success: function(result){
+            console.log(result);
+            console.log('sent' + code_ref);
+        }});
         // modal.modal('hide');
     });
 
