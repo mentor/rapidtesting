@@ -2,6 +2,11 @@
 <head>
     <title>{{ env('APP_NAME') }} - Certifikát</title>
     <style>
+        body {
+            font-family: DejaVu Sans;
+            color: #555555;
+            font-size:14px;
+        }
         .corona {
             background-attachment: fixed;
             background-image: url('{{ asset('images/virus.svg') }}');
