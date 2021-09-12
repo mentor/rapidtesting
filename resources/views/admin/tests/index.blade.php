@@ -1,7 +1,6 @@
 @extends('layouts.admin')
 @section('content')
 
-    <!-- Button trigger modal -->
     <!-- Modal -->
     <div class="modal fade" id="sendEmailModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -17,30 +16,12 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Zavrieť</button>
-                    <button type="button" class="btn btn-primary">Odoslať email</button>
+                    <button type="button" class="btn btn-primary" id="sendEmail">Odoslať email</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Modal -->
-    <div class="modal fade" id="sendEmailModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Odoslať Certifikát</h5>
-                    <button type="button" class="btn-close" data-coreui-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    Skutočne si prajete odoslať email s certifikátom?
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-coreui-dismiss="modal">Zavrieť</button>
-                    <button type="button" class="btn btn-primary" >Odoslať email</button>
-                </div>
-            </div>
-        </div>
-    </div>
 @can('test_create')
     <div style="margin-bottom: 10px;" class="row">
         <div class="col-lg-12">
@@ -416,6 +397,16 @@ table.on('column-visibility.dt', function(e, settings, column, state) {
       });
   })
 });
+
+$('#sendEmailModal').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget) // Button that triggered the modal
+    var code_ref = button.data('ref') // Extract info from data-* attributes
+    // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+    var modal = $(this)
+    modal.find('.modal-title').text('Odoslať Certifikát ' + code_ref)
+    //modal.find('.modal-body input').val(recipient)
+})
 
 </script>
 @endsection
