@@ -340,7 +340,7 @@
   });
 
 let visibleColumnsIndexes = null;
-$('.datatable thead').on('input', '.search', function () {
+$('.datatable thead').on('input:gt(2)', '.search', function () {
       let strict = $(this).attr('strict') || false
       let value = strict && this.value ? "^" + this.value + "$" : this.value
 
