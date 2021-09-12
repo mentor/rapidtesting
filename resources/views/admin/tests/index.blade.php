@@ -16,7 +16,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Zavrieť</button>
-                    <button type="button" class="btn btn-primary" id="sendEmail">Odoslať email</button>
+                    <button type="button" class="btn btn-primary" id="sendEmail" data-dismiss="modal">Odoslať email</button>
                 </div>
             </div>
         </div>
@@ -409,7 +409,7 @@ $('#sendEmailModal').on('show.bs.modal', function (event) {
     modal.find('.modal-body').text('Skutočne si prajete odoslať certifikát na email ' + email + '?');
     modal.find('.modal-footer #sendEmail').on('click', function () {
         console.log(modal);
-        modal.modal('toggle');
+        modal.modal('hide');
     });
 
 })
