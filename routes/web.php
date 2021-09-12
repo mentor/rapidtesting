@@ -57,6 +57,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 
     Route::get('system-calendar', 'SystemCalendarController@index')->name('systemCalendar');
     Route::get('tests/email/{code_ref}', 'TestController@email')->name('tests.email');
+    Route::get('tests/pdf/{code_ref}', 'TestController@pdf')->name('tests.pdf');
 
 });
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 'middleware' => ['auth']], function () {
