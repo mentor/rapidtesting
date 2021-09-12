@@ -22,6 +22,8 @@
         </div>
     </div>
 
+    <div id="sendEmailResponseModal"></div>
+
 @can('test_create')
     <div style="margin-bottom: 10px;" class="row">
         <div class="col-lg-12">
@@ -416,7 +418,9 @@ $('#sendEmailModal').on('show.bs.modal', function (event) {
         console.log('clicked' + code_ref);
         $.ajax({url: "/admin/tests/email/" + code_ref, success: function(result){
             console.log(result);
-            console.log('sent' + code_ref);
+            $('#sendEmailResponseModal').html(result);
+            $('#sendEmailResponseModal .modal').modal('show');
+
         }});
         // modal.modal('hide');
     });
