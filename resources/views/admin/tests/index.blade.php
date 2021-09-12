@@ -26,7 +26,7 @@
 
 {{--                    </th>--}}
                     <th>
-                        &nbsp;
+                        &nbsp;{{ trans('global.actions') }}
                     </th>
 <!--                    <th>
                         {{ trans('cruds.test.fields.id') }}
