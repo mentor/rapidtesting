@@ -14,6 +14,7 @@ return [
     'downloadFile'                   => 'Stiahnuť súbor',
     'edit'                           => 'Upraviť',
     'email'                          => 'Email',
+    'pdf'                            => 'PDF',
     'emailVerificationSuccess'       => 'E-mail používateľa bol úspešne overený',
     'entries'                        => 'Záznamy',
     'filterDate'                     => 'Filtrovať podľa dátumu',

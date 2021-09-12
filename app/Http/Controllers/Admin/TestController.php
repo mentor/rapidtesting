@@ -10,10 +10,12 @@ use App\Http\Requests\UpdateTestRequest;
 use App\Models\Centre;
 use App\Models\Service;
 use App\Models\Test;
+use Barryvdh\DomPDF\Facade as PDF;
 use Gate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Mail;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 use Symfony\Component\HttpFoundation\Response;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -219,5 +221,17 @@ class TestController extends Controller
         });
 
         return view('admin.tests.email', compact('payload'));
+    }
+
+    public function pdf(Request $request, $code_ref)
+    {
+        $payload = Test::firstWhere('code_ref', $code_ref);
+        if (!$payload || !$payload->isTested()) {
+            abort(404);
+        }
+        $qrcode = base64_encode(QrCode::format('png')->size(200)->generate(route('verify', $code_ref)));
+        $pdf = PDF::loadView('certificate', compact('payload', 'qrcode'));
+
+        return $pdf->download($code_ref . '.pdf');
     }
 }

@@ -14,6 +14,12 @@
         {{ trans('global.email') }}
         </button>
     @endif
+
+    @if($row->isTested())
+            <a class="btn btn-danger mr-2" href="{{ route('admin.' . $crudRoutePart . '.pdf', $row->code_ref) }}">
+                {{ trans('global.pdf') }}
+            </a>
+    @endif
 @endcan
 @can($deleteGate)
     <form action="{{ route('admin.' . $crudRoutePart . '.destroy', $row->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
