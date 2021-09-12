@@ -35,7 +35,7 @@ table.dataTable tbody th.select-checkbox::after {
     border-collapse: collapse;
 }
 
-table.table.dataTable thead th {
+table.datatable thead th {
     /*border-bottom: 2px solid #c8ced3;*/
     border-bottom: 0;
     padding: 8px 10px;
