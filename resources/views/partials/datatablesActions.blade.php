@@ -9,9 +9,8 @@
     </a>
 
 
-    <a class="btn btn-info" href="{{ route('admin.' . $crudRoutePart . '.email', $row->code_ref) }}">
-{{--        {{ trans('global.email') }}--}}
-        Send
+    <a class="btn btn-danger" href="{{ route('admin.' . $crudRoutePart . '.email', $row->code_ref) }}">
+        {{ trans('global.email') }}
     </a>
 @endcan
 @can($deleteGate)
