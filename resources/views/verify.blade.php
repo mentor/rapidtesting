@@ -94,7 +94,7 @@
                 <input name="pinid" type="text" class="form-control" id="pinid" placeholder="(občiansky preukaz alebo pas)" required>
             @endif
 
-            <div class="button>
+            <div class="button">
                 <button type="submit">Odoslať</button>
             </div>
         </div>
