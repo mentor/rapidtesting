@@ -288,6 +288,13 @@
     // buttons: dtButtons,
     buttons: [],
     select: false,
+      columnDefs: [
+      //     {
+      //     orderable: false,
+      //     searchable: false,
+      //     targets: -1
+      // }
+      ],
     processing: true,
     serverSide: true,
     retrieve: true,
