@@ -55,8 +55,8 @@
             margin-left:25px;
         }
         .paragraph {
-            margin-top: 10%;
-            margin-bottom: 10%;
+            margin-top: 15px;
+            margin-bottom: 15px;
         }
         .clearfix {
             clear: both;
@@ -68,9 +68,10 @@
             border-radius: 20px;
             display:inline;
             padding: 5px 10px;
+            margin-right: 15px;
         }
 
-        .button{
+        .button {
             display:inline;
             background: #ff8878 0 0 no-repeat padding-box;
             color: #FFFFFF;
