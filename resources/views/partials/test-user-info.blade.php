@@ -1,5 +1,5 @@
 <div class="card">
-    <div class="card-header">
+    <div class="card-header font-weight-bold">
         {{ trans('cruds.test.title_edit_user') }}
     </div>
 
