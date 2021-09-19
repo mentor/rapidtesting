@@ -326,7 +326,8 @@
             $('#result_test_manufacturer').on('change', function () {
                 var val = $(this).val();
 
-                var res = Object.fromEntries(Object.entries(test_names).filter(function(key) { key.startsWith(val) }));
+                var res = Object.keys(test_names).filter(function(key) { return key.startsWith(val) });
+
                 console.log(res);
 
                 // $('#result_test_name').empty();
