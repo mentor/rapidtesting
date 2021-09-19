@@ -192,16 +192,7 @@
             @endif
 
         </div>
-        <div class="form-group">
-            <label for="note">{{ trans('cruds.test.fields.note') }}</label>
-            <input class="form-control {{ $errors->has('note') ? 'is-invalid' : '' }}" type="text" name="note" id="note" value="{{ old('note', $test->note) }}">
-            @if($errors->has('note'))
-                <div class="invalid-feedback">
-                    {{ $errors->first('note') }}
-                </div>
-            @endif
 
-        </div>
         <div class="form-group">
             <label class="required" for="reservation_id_ref">{{ trans('cruds.test.fields.reservation_id_ref') }}</label>
             <input class="form-control {{ $errors->has('reservation_id_ref') ? 'is-invalid' : '' }}" type="number" name="reservation_id_ref" id="reservation_id_ref" value="{{ old('reservation_id_ref', $test->reservation_id_ref) }}" step="1" required>
