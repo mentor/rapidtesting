@@ -6,7 +6,7 @@
     <div class="card-body">
         <div class="form-group">
             <label class="required">{{ trans('cruds.test.fields.status') }}</label>
-            <span>{{ $test->status }}</span>
+            <div>{{ $test->status }}</div>
 {{--            <select readonly class="form-control {{ $errors->has('status') ? 'is-invalid' : '' }}" name="status" id="status" required>--}}
 {{--                <option value disabled {{ old('status', null) === null ? 'selected' : '' }}>{{ trans('global.pleaseSelect') }}</option>--}}
 {{--                @foreach(App\Models\Test::STATUS_SELECT as $key => $label)--}}
@@ -36,7 +36,7 @@
         </div>
         <div class="form-group">
             <label for="start">{{ trans('cruds.test.fields.start') }}</label>
-            <span>{{ $test->start }}</span>
+            <div>{{ $test->start }}</div>
 {{--            <input readonly class="form-control datetime {{ $errors->has('start') ? 'is-invalid' : '' }}" type="text" name="start" id="start" value="{{ old('start', $test->start) }}">--}}
             @if($errors->has('start'))
                 <div class="invalid-feedback">
@@ -47,7 +47,7 @@
         </div>
         <div class="form-group">
             <label for="end">{{ trans('cruds.test.fields.end') }}</label>
-            <span>{{ $test->end }}</span>
+            <div>{{ $test->end }}</div>
 {{--            <input readonly class="form-control datetime {{ $errors->has('end') ? 'is-invalid' : '' }}" type="text" name="end" id="end" value="{{ old('end', $test->end) }}">--}}
             @if($errors->has('end'))
                 <div class="invalid-feedback">
@@ -183,7 +183,7 @@
         </div>
         <div class="form-group">
             <label class="required" for="centre_id">{{ trans('cruds.test.fields.centre') }}</label>
-            <span>{{ $test->centre->name }}</span>
+            <div>{{ $test->centre->name }}</div>
 {{--            <select readonly class="form-control select2 {{ $errors->has('centre') ? 'is-invalid' : '' }}" name="centre_id" id="centre_id" required>--}}
 {{--                @foreach($centres as $id => $entry)--}}
 {{--                    <option value="{{ $id }}" {{ (old('centre_id') ? old('centre_id') : $test->centre->id ?? '') == $id ? 'selected' : '' }}>{{ $entry }}</option>--}}
@@ -199,7 +199,7 @@
 
         <div class="form-group">
             <label class="required" for="reservation_id_ref">{{ trans('cruds.test.fields.reservation_id_ref') }}</label>
-            <span>{{ $test->reservation_id_ref }}</span>
+            <div>{{ $test->reservation_id_ref }}</div>
 {{--            <input readonly class="form-control {{ $errors->has('reservation_id_ref') ? 'is-invalid' : '' }}" type="number" name="reservation_id_ref" id="reservation_id_ref" value="{{ old('reservation_id_ref', $test->reservation_id_ref) }}" step="1" required>--}}
             @if($errors->has('reservation_id_ref'))
                 <div class="invalid-feedback">
@@ -210,7 +210,7 @@
         </div>
         <div class="form-group">
             <label class="required" for="code_ref">{{ trans('cruds.test.fields.code_ref') }}</label>
-            <span>{{ $test->code_ref }}</span>
+            <div>{{ $test->code_ref }}</div>
 {{--            <input readonly class="form-control {{ $errors->has('code_ref') ? 'is-invalid' : '' }}" type="text" name="code_ref" id="code_ref" value="{{ old('code_ref', $test->code_ref) }}" required>--}}
             @if($errors->has('code_ref'))
                 <div class="invalid-feedback">
