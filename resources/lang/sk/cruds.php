@@ -2,8 +2,8 @@
 
 return [
     'userManagement' => [
-        'title'          => 'Správa používateľov',
-        'title_singular' => 'Správa používateľov',
+        'title'          => 'Správa užívateľov',
+        'title_singular' => 'Správa užívateľov',
     ],
     'permission' => [
         'title'          => 'Povolenia',
@@ -40,8 +40,8 @@ return [
         ],
     ],
     'user' => [
-        'title'          => 'Používatelia',
-        'title_singular' => 'Používateľ',
+        'title'          => 'Užívatelia',
+        'title_singular' => 'Užívateľ',
         'fields'         => [
             'id'                        => 'ID',
             'id_helper'                 => ' ',
@@ -98,8 +98,8 @@ return [
         ],
     ],
     'centre' => [
-        'title'          => 'Centre',
-        'title_singular' => 'Centre',
+        'title'          => 'Odberové Centrum',
+        'title_singular' => 'Odberové Centrá',
         'fields'         => [
             'id'                  => 'ID',
             'id_helper'           => ' ',
@@ -124,8 +124,10 @@ return [
         ],
     ],
     'test' => [
-        'title'          => 'Tests',
-        'title_singular' => 'Test',
+        'title_edit_result'     => 'Zadanie výsledku testovania',
+        'title_edit_user'       => 'Úprava údajov pacienta',
+        'title'          => 'Testovanie',
+        'title_singular' => 'Testovanie',
         'fields'         => [
             'id'                              => 'ID',
             'id_helper'                       => ' ',
@@ -192,8 +194,8 @@ return [
         ],
     ],
     'service' => [
-        'title'          => 'Services',
-        'title_singular' => 'Service',
+        'title'          => 'Služby',
+        'title_singular' => 'Služba',
         'fields'         => [
             'id'                    => 'ID',
             'id_helper'             => ' ',

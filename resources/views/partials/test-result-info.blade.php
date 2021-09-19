@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-header">
-        {{ trans('global.edit') }} {{ trans('cruds.test.title_singular') }}
+        {{ trans('cruds.test.title_edit_result') }}
     </div>
 
     <div class="card-body">
