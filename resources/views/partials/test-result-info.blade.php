@@ -8,8 +8,8 @@
         <div class="form-group">
             <label class="required" for="service_id">{{ trans('cruds.test.fields.service') }}</label>
             <select class="form-control select2 {{ $errors->has('service') ? 'is-invalid' : '' }}" name="service_id" id="service_id" required>
+                <option value disabled {{ old('service_id', null) === null ? 'selected' : '' }}>{{ trans('global.pleaseSelect') }}</option>
                 @foreach($services as $id => $entry)
-                    <option value disabled {{ old('service_id', null) === null ? 'selected' : '' }}>{{ trans('global.pleaseSelect') }}</option>
                     <option value="{{ $id }}" {{ (old('service_id') ? old('service_id') : $test->service->id ?? '') == $id ? 'selected' : '' }}>{{ $entry }}</option>
                 @endforeach
             </select>
