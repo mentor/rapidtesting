@@ -53,18 +53,18 @@ class Test extends Model
     ];
 
     public const STATUS_SELECT = [
-        'created'    => 'Created',
-        'ended'      => 'Ended',
-        'finished'   => 'Finished',
-        'confirmed'  => 'Confirmed',
-        'started'    => 'Started',
-        'registered' => 'Registered',
-        'unpaid'     => 'Unpaid',
-        'paid'       => 'Paid',
-        'withdrawn'  => 'Withdrawn',
-        'cancelled'  => 'Cancelled',
-        'noshow'     => 'No Show',
-        'notarrived' => 'Not Arrived',
+        'created'    => 'Vytvorené',
+        'ended'      => 'Ukončené',
+        'finished'   => 'Uzavreté',
+        'confirmed'  => 'Potvrdené',
+        'started'    => 'Započaté',
+        'registered' => 'Registrovaný',
+        'unpaid'     => 'Nezaplatené',
+        'paid'       => 'Zaplatené',
+        'withdrawn'  => 'Vrátené',
+        'cancelled'  => 'Zrušené',
+        'noshow'     => 'Nedostavil sa',
+        'notarrived' => 'Neprišiel',
     ];
 
     public $table = 'tests';
