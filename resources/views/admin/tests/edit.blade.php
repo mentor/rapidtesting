@@ -38,7 +38,9 @@
                 //                   </option>`);
 
             });
-            $('#result_test_manufacturer').trigger('change').val('{{ $test->result_test_name }}');
+            $('#result_test_manufacturer').trigger('change');
+            $('#result_test_manufacturer').val('{{ $test->result_test_manufacturer }}');
+            $('#result_test_name').val('{{ $test->result_test_name }}');
             //console.log(manufacturers, test_names);
         });
     </script>
