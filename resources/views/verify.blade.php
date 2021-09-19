@@ -8,7 +8,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <style>
         body {
-            font-family: DejaVu Sans;
+            font-family: "DejaVu Sans";
             color: #555555;
             font-size:14px;
         }
