@@ -6,26 +6,16 @@
     <div class="card-body">
 
         <div class="form-group">
-            <label for="result_date">{{ trans('cruds.test.fields.result_date') }}</label>
-            <input class="form-control datetime {{ $errors->has('result_date') ? 'is-invalid' : '' }}" type="text" name="result_date" id="result_date" value="{{ old('result_date', $test->result_date) }}">
-            @if($errors->has('result_date'))
-                <div class="invalid-feedback">
-                    {{ $errors->first('result_date') }}
-                </div>
-            @endif
-
-        </div>
-        <div class="form-group">
-            <label>{{ trans('cruds.test.fields.result_status') }}</label>
-            <select class="form-control {{ $errors->has('result_status') ? 'is-invalid' : '' }}" name="result_status" id="result_status">
-                <option value disabled {{ old('result_status', null) === null ? 'selected' : '' }}>{{ trans('global.pleaseSelect') }}</option>
-                @foreach(App\Models\Test::RESULT_STATUS_SELECT as $key => $label)
-                    <option value="{{ $key }}" {{ old('result_status', $test->result_status) === (string) $key ? 'selected' : '' }}>{{ $label }}</option>
+            <label>{{ trans('cruds.test.fields.result_diagnosis') }}</label>
+            <select class="form-control {{ $errors->has('result_diagnosis') ? 'is-invalid' : '' }}" name="result_diagnosis" id="result_diagnosis">
+            <!--                    <option value disabled {{ old('result_diagnosis', null) === null ? 'selected' : '' }}>{{ trans('global.pleaseSelect') }}</option>-->
+                @foreach(App\Models\Test::RESULT_DIAGNOSIS_SELECT as $key => $label)
+                    <option value="{{ $key }}" {{ old('result_diagnosis', $test->result_diagnosis) === (string) $key ? 'selected' : '' }}>{{ $label }}</option>
                 @endforeach
             </select>
-            @if($errors->has('result_status'))
+            @if($errors->has('result_diagnosis'))
                 <div class="invalid-feedback">
-                    {{ $errors->first('result_status') }}
+                    {{ $errors->first('result_diagnosis') }}
                 </div>
             @endif
 
@@ -64,16 +54,26 @@
         </div>
 
         <div class="form-group">
-            <label>{{ trans('cruds.test.fields.result_diagnosis') }}</label>
-            <select class="form-control {{ $errors->has('result_diagnosis') ? 'is-invalid' : '' }}" name="result_diagnosis" id="result_diagnosis">
-            <!--                    <option value disabled {{ old('result_diagnosis', null) === null ? 'selected' : '' }}>{{ trans('global.pleaseSelect') }}</option>-->
-                @foreach(App\Models\Test::RESULT_DIAGNOSIS_SELECT as $key => $label)
-                    <option value="{{ $key }}" {{ old('result_diagnosis', $test->result_diagnosis) === (string) $key ? 'selected' : '' }}>{{ $label }}</option>
+            <label for="result_date">{{ trans('cruds.test.fields.result_date') }}</label>
+            <input class="form-control datetime {{ $errors->has('result_date') ? 'is-invalid' : '' }}" type="text" name="result_date" id="result_date" value="{{ old('result_date', $test->result_date) }}">
+            @if($errors->has('result_date'))
+                <div class="invalid-feedback">
+                    {{ $errors->first('result_date') }}
+                </div>
+            @endif
+
+        </div>
+        <div class="form-group">
+            <label>{{ trans('cruds.test.fields.result_status') }}</label>
+            <select class="form-control {{ $errors->has('result_status') ? 'is-invalid' : '' }}" name="result_status" id="result_status">
+                <option value disabled {{ old('result_status', null) === null ? 'selected' : '' }}>{{ trans('global.pleaseSelect') }}</option>
+                @foreach(App\Models\Test::RESULT_STATUS_SELECT as $key => $label)
+                    <option value="{{ $key }}" {{ old('result_status', $test->result_status) === (string) $key ? 'selected' : '' }}>{{ $label }}</option>
                 @endforeach
             </select>
-            @if($errors->has('result_diagnosis'))
+            @if($errors->has('result_status'))
                 <div class="invalid-feedback">
-                    {{ $errors->first('result_diagnosis') }}
+                    {{ $errors->first('result_status') }}
                 </div>
             @endif
 
