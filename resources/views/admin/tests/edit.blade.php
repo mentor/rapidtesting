@@ -3,7 +3,7 @@
 
     <script type="text/javascript">
         $(function() {
-            var manufacturers = {{ json_encode(App\Models\Test::RESULT_TEST_MANUFACTURER_SELECT) }};
+            var manufacturers = JSON.parse('{{ json_encode(App\Models\Test::RESULT_TEST_MANUFACTURER_SELECT) }}');
             console.log(manufacturers);
         });
     </script>
