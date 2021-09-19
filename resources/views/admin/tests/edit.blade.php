@@ -26,7 +26,7 @@
 
                 var $test_names_dropdown = $('#result_test_name');
                 $test_names_dropdown.empty();
-                $test_names_dropdown.append('<option value="">{{ trans('global.pleaseSelect') }}</option>');
+                $test_names_dropdown.append('<option disabled value="">{{ trans('global.pleaseSelect') }}</option>');
                 accepted_keys.forEach(function(key) {
                     $test_names_dropdown.append('<option value="'+ key + '">'+ test_names[key] +'</option>');
                 });
