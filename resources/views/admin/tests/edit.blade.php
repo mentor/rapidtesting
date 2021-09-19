@@ -1,13 +1,5 @@
 @extends('layouts.admin')
 @section('content')
-
-    <script type="text/javascript">
-        var manufacturers = {!! collect(App\Models\Test::RESULT_TEST_MANUFACTURER_SELECT)->toJson() !!};
-        var test_names = {!! collect(App\Models\Test::RESULT_TEST_NAME_SELECT)->toJson() !!};
-        console.log(manufacturers, test_names);
-    </script>
-
-
 <div class="card">
     <div class="card-header">
         {{ trans('global.edit') }} {{ trans('cruds.test.title_singular') }}
@@ -323,7 +315,14 @@
         </form>
     </div>
 </div>
-
-
-
+@endsection
+@section('scripts')
+@parent
+    <script type="text/javascript">
+        $(function () {
+            var manufacturers = {!! collect(App\Models\Test::RESULT_TEST_MANUFACTURER_SELECT)->toJson() !!};
+            var test_names = {!! collect(App\Models\Test::RESULT_TEST_NAME_SELECT)->toJson() !!};
+            console.log(manufacturers, test_names);
+        });
+    </script>
 @endsection

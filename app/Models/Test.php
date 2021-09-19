@@ -47,7 +47,7 @@ class Test extends Model
         'biosensor-1-ag-1' => 'Antigénový rýchlotest výterový STANDARD Q COVID-19 Ag SD BIOSENSOR',
         'roche-1-ag-1' => 'Test SARS-CoV-2 Rapid Antigen',
         'siemens-1-ag-1' => 'CLINITEST® Rapid COVID-19 Antigen Test',
-        'abbot-1-ag-1' => 'PANBIO™ COVID-19 Ag RAPID TEST DEVICE',
+        'abbott-1-ag-1' => 'PANBIO™ COVID-19 Ag RAPID TEST DEVICE',
         'rapigen-1-ag-1' => 'BIOCREDIT COVID-19 Ag kit (Cat.No. G61RHA20)',
         'pcr-1-pcr-1' => 'PCR',
     ];
