@@ -37,6 +37,33 @@
         </div>
 
         <div class="form-group">
+            <label class="required">{{ trans('cruds.test.fields.symptoms') }}</label>
+            <select class="form-control {{ $errors->has('symptoms') ? 'is-invalid' : '' }}" name="symptoms" id="symptoms" required>
+                <option value disabled {{ old('symptoms', null) === null ? 'selected' : '' }}>{{ trans('global.pleaseSelect') }}</option>
+                @foreach(App\Models\Test::SYMPTOMS_SELECT as $key => $label)
+                    <option value="{{ $key }}" {{ old('symptoms', $test->symptoms) === (string) $key ? 'selected' : '' }}>{{ $label }}</option>
+                @endforeach
+            </select>
+            @if($errors->has('symptoms'))
+                <div class="invalid-feedback">
+                    {{ $errors->first('symptoms') }}
+                </div>
+            @endif
+
+        </div>
+
+        <div class="form-group">
+            <label class="required" for="insurance_company">{{ trans('cruds.test.fields.insurance_company') }}</label>
+            <input class="form-control {{ $errors->has('insurance_company') ? 'is-invalid' : '' }}" type="text" name="insurance_company" id="insurance_company" value="{{ old('insurance_company', $test->insurance_company) }}" required>
+            @if($errors->has('insurance_company'))
+                <div class="invalid-feedback">
+                    {{ $errors->first('insurance_company') }}
+                </div>
+            @endif
+
+        </div>
+
+        <div class="form-group">
             <label>{{ trans('cruds.test.fields.result_test_manufacturer') }}</label>
             <select class="form-control {{ $errors->has('result_test_manufacturer') ? 'is-invalid' : '' }}" name="result_test_manufacturer" id="result_test_manufacturer">
                 <option value disabled {{ old('result_test_manufacturer', null) === null ? 'selected' : '' }}>{{ trans('global.pleaseSelect') }}</option>
