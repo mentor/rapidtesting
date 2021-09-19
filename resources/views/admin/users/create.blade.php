@@ -17,7 +17,7 @@
                         {{ $errors->first('name') }}
                     </div>
                 @endif
-                <span class="help-block">{{ trans('cruds.user.fields.name_helper') }}</span>
+
             </div>
             <div class="form-group">
                 <label class="required" for="email">{{ trans('cruds.user.fields.email') }}</label>
@@ -27,7 +27,7 @@
                         {{ $errors->first('email') }}
                     </div>
                 @endif
-                <span class="help-block">{{ trans('cruds.user.fields.email_helper') }}</span>
+
             </div>
             <div class="form-group">
                 <label class="required" for="password">{{ trans('cruds.user.fields.password') }}</label>
@@ -37,7 +37,7 @@
                         {{ $errors->first('password') }}
                     </div>
                 @endif
-                <span class="help-block">{{ trans('cruds.user.fields.password_helper') }}</span>
+
             </div>
             <div class="form-group">
                 <label class="required" for="roles">{{ trans('cruds.user.fields.roles') }}</label>
@@ -55,7 +55,7 @@
                         {{ $errors->first('roles') }}
                     </div>
                 @endif
-                <span class="help-block">{{ trans('cruds.user.fields.roles_helper') }}</span>
+
             </div>
             <div class="form-group">
                 <label class="required" for="centre_id">{{ trans('cruds.user.fields.centre') }}</label>
@@ -69,7 +69,7 @@
                         {{ $errors->first('centre') }}
                     </div>
                 @endif
-                <span class="help-block">{{ trans('cruds.user.fields.centre_helper') }}</span>
+
             </div>
             <div class="form-group">
                 <button class="btn btn-danger" type="submit">

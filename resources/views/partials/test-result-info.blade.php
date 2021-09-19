@@ -13,7 +13,7 @@
                     {{ $errors->first('result_date') }}
                 </div>
             @endif
-            <span class="help-block">{{ trans('cruds.test.fields.result_date_helper') }}</span>
+
         </div>
         <div class="form-group">
             <label>{{ trans('cruds.test.fields.result_status') }}</label>
@@ -28,7 +28,7 @@
                     {{ $errors->first('result_status') }}
                 </div>
             @endif
-            <span class="help-block">{{ trans('cruds.test.fields.result_status_helper') }}</span>
+
         </div>
 
         <div class="form-group">
@@ -44,7 +44,7 @@
                     {{ $errors->first('result_test_manufacturer') }}
                 </div>
             @endif
-            <span class="help-block">{{ trans('cruds.test.fields.result_test_manufacturer_helper') }}</span>
+
         </div>
 
         <div class="form-group">
@@ -60,7 +60,7 @@
                     {{ $errors->first('result_test_name') }}
                 </div>
             @endif
-            <span class="help-block">{{ trans('cruds.test.fields.result_test_name_helper') }}</span>
+
         </div>
 
         <div class="form-group">
@@ -76,7 +76,7 @@
                     {{ $errors->first('result_diagnosis') }}
                 </div>
             @endif
-            <span class="help-block">{{ trans('cruds.test.fields.result_diagnosis_helper') }}</span>
+
         </div>
 
         <div class="form-group">
@@ -87,7 +87,7 @@
                     {{ $errors->first('note') }}
                 </div>
             @endif
-            <span class="help-block">{{ trans('cruds.test.fields.note_helper') }}</span>
+
         </div>
 
         <div class="form-group">

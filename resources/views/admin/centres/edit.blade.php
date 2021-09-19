@@ -18,7 +18,7 @@
                         {{ $errors->first('name') }}
                     </div>
                 @endif
-                <span class="help-block">{{ trans('cruds.centre.fields.name_helper') }}</span>
+
             </div>
             <div class="form-group">
                 <label class="required" for="street">{{ trans('cruds.centre.fields.street') }}</label>
@@ -28,7 +28,7 @@
                         {{ $errors->first('street') }}
                     </div>
                 @endif
-                <span class="help-block">{{ trans('cruds.centre.fields.street_helper') }}</span>
+
             </div>
             <div class="form-group">
                 <label class="required" for="city">{{ trans('cruds.centre.fields.city') }}</label>
@@ -38,7 +38,7 @@
                         {{ $errors->first('city') }}
                     </div>
                 @endif
-                <span class="help-block">{{ trans('cruds.centre.fields.city_helper') }}</span>
+
             </div>
             <div class="form-group">
                 <label class="required" for="postal">{{ trans('cruds.centre.fields.postal') }}</label>
@@ -48,7 +48,7 @@
                         {{ $errors->first('postal') }}
                     </div>
                 @endif
-                <span class="help-block">{{ trans('cruds.centre.fields.postal_helper') }}</span>
+
             </div>
             <div class="form-group">
                 <label class="required" for="place_id_ref">{{ trans('cruds.centre.fields.place_id_ref') }}</label>
@@ -58,7 +58,7 @@
                         {{ $errors->first('place_id_ref') }}
                     </div>
                 @endif
-                <span class="help-block">{{ trans('cruds.centre.fields.place_id_ref_helper') }}</span>
+
             </div>
             <div class="form-group">
                 <label class="required" for="country">{{ trans('cruds.centre.fields.country') }}</label>
@@ -68,7 +68,7 @@
                         {{ $errors->first('country') }}
                     </div>
                 @endif
-                <span class="help-block">{{ trans('cruds.centre.fields.country_helper') }}</span>
+
             </div>
             <div class="form-group">
                 <button class="btn btn-danger" type="submit">

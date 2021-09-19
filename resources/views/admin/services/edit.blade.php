@@ -18,7 +18,7 @@
                         {{ $errors->first('name') }}
                     </div>
                 @endif
-                <span class="help-block">{{ trans('cruds.service.fields.name_helper') }}</span>
+
             </div>
             <div class="form-group">
                 <label class="required" for="service_id_ref">{{ trans('cruds.service.fields.service_id_ref') }}</label>
@@ -28,7 +28,7 @@
                         {{ $errors->first('service_id_ref') }}
                     </div>
                 @endif
-                <span class="help-block">{{ trans('cruds.service.fields.service_id_ref_helper') }}</span>
+
             </div>
             <div class="form-group">
                 <button class="btn btn-danger" type="submit">

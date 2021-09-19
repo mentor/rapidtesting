@@ -22,7 +22,7 @@
                         {{ $errors->first('status') }}
                     </div>
                 @endif
-                <span class="help-block">{{ trans('cruds.test.fields.status_helper') }}</span>
+
             </div>
             <div class="form-group">
                 <label class="required" for="service_id">{{ trans('cruds.test.fields.service') }}</label>
@@ -36,7 +36,7 @@
                         {{ $errors->first('service') }}
                     </div>
                 @endif
-                <span class="help-block">{{ trans('cruds.test.fields.service_helper') }}</span>
+
             </div>
             <div class="form-group">
                 <label for="start">{{ trans('cruds.test.fields.start') }}</label>
@@ -46,7 +46,7 @@
                         {{ $errors->first('start') }}
                     </div>
                 @endif
-                <span class="help-block">{{ trans('cruds.test.fields.start_helper') }}</span>
+
             </div>
             <div class="form-group">
                 <label for="end">{{ trans('cruds.test.fields.end') }}</label>
@@ -56,7 +56,7 @@
                         {{ $errors->first('end') }}
                     </div>
                 @endif
-                <span class="help-block">{{ trans('cruds.test.fields.end_helper') }}</span>
+
             </div>
             <div class="form-group">
                 <label for="pinrc">{{ trans('cruds.test.fields.pinrc') }}</label>
@@ -66,7 +66,7 @@
                         {{ $errors->first('pinrc') }}
                     </div>
                 @endif
-                <span class="help-block">{{ trans('cruds.test.fields.pinrc_helper') }}</span>
+
             </div>
             <div class="form-group">
                 <label class="required" for="pinid">{{ trans('cruds.test.fields.pinid') }}</label>
@@ -76,7 +76,7 @@
                         {{ $errors->first('pinid') }}
                     </div>
                 @endif
-                <span class="help-block">{{ trans('cruds.test.fields.pinid_helper') }}</span>
+
             </div>
             <div class="form-group">
                 <label class="required" for="firstname">{{ trans('cruds.test.fields.firstname') }}</label>
@@ -86,7 +86,7 @@
                         {{ $errors->first('firstname') }}
                     </div>
                 @endif
-                <span class="help-block">{{ trans('cruds.test.fields.firstname_helper') }}</span>
+
             </div>
             <div class="form-group">
                 <label class="required" for="lastname">{{ trans('cruds.test.fields.lastname') }}</label>
@@ -96,7 +96,7 @@
                         {{ $errors->first('lastname') }}
                     </div>
                 @endif
-                <span class="help-block">{{ trans('cruds.test.fields.lastname_helper') }}</span>
+
             </div>
             <div class="form-group">
                 <label class="required" for="email">{{ trans('cruds.test.fields.email') }}</label>
@@ -106,7 +106,7 @@
                         {{ $errors->first('email') }}
                     </div>
                 @endif
-                <span class="help-block">{{ trans('cruds.test.fields.email_helper') }}</span>
+
             </div>
             <div class="form-group">
                 <label class="required" for="phone">{{ trans('cruds.test.fields.phone') }}</label>
@@ -116,7 +116,7 @@
                         {{ $errors->first('phone') }}
                     </div>
                 @endif
-                <span class="help-block">{{ trans('cruds.test.fields.phone_helper') }}</span>
+
             </div>
             <div class="form-group">
                 <label class="required" for="dob">{{ trans('cruds.test.fields.dob') }}</label>
@@ -126,7 +126,7 @@
                         {{ $errors->first('dob') }}
                     </div>
                 @endif
-                <span class="help-block">{{ trans('cruds.test.fields.dob_helper') }}</span>
+
             </div>
             <div class="form-group">
                 <label class="required" for="street">{{ trans('cruds.test.fields.street') }}</label>
@@ -136,7 +136,7 @@
                         {{ $errors->first('street') }}
                     </div>
                 @endif
-                <span class="help-block">{{ trans('cruds.test.fields.street_helper') }}</span>
+
             </div>
             <div class="form-group">
                 <label class="required" for="city">{{ trans('cruds.test.fields.city') }}</label>
@@ -146,7 +146,7 @@
                         {{ $errors->first('city') }}
                     </div>
                 @endif
-                <span class="help-block">{{ trans('cruds.test.fields.city_helper') }}</span>
+
             </div>
             <div class="form-group">
                 <label class="required" for="postal">{{ trans('cruds.test.fields.postal') }}</label>
@@ -156,7 +156,7 @@
                         {{ $errors->first('postal') }}
                     </div>
                 @endif
-                <span class="help-block">{{ trans('cruds.test.fields.postal_helper') }}</span>
+
             </div>
             <div class="form-group">
                 <label class="required" for="country">{{ trans('cruds.test.fields.country') }}</label>
@@ -166,7 +166,7 @@
                         {{ $errors->first('country') }}
                     </div>
                 @endif
-                <span class="help-block">{{ trans('cruds.test.fields.country_helper') }}</span>
+
             </div>
             <div class="form-group">
                 <label class="required">{{ trans('cruds.test.fields.symptoms') }}</label>
@@ -181,7 +181,7 @@
                         {{ $errors->first('symptoms') }}
                     </div>
                 @endif
-                <span class="help-block">{{ trans('cruds.test.fields.symptoms_helper') }}</span>
+
             </div>
             <div class="form-group">
                 <label for="result_date">{{ trans('cruds.test.fields.result_date') }}</label>
@@ -191,7 +191,7 @@
                         {{ $errors->first('result_date') }}
                     </div>
                 @endif
-                <span class="help-block">{{ trans('cruds.test.fields.result_date_helper') }}</span>
+
             </div>
             <div class="form-group">
                 <label>{{ trans('cruds.test.fields.result_status') }}</label>
@@ -206,7 +206,7 @@
                         {{ $errors->first('result_status') }}
                     </div>
                 @endif
-                <span class="help-block">{{ trans('cruds.test.fields.result_status_helper') }}</span>
+
             </div>
             <div class="form-group">
                 <label>{{ trans('cruds.test.fields.result_test_name') }}</label>
@@ -221,7 +221,7 @@
                         {{ $errors->first('result_test_name') }}
                     </div>
                 @endif
-                <span class="help-block">{{ trans('cruds.test.fields.result_test_name_helper') }}</span>
+
             </div>
             <div class="form-group">
                 <label>{{ trans('cruds.test.fields.result_test_manufacturer') }}</label>
@@ -236,7 +236,7 @@
                         {{ $errors->first('result_test_manufacturer') }}
                     </div>
                 @endif
-                <span class="help-block">{{ trans('cruds.test.fields.result_test_manufacturer_helper') }}</span>
+
             </div>
             <div class="form-group">
                 <label>{{ trans('cruds.test.fields.result_diagnosis') }}</label>
@@ -251,7 +251,7 @@
                         {{ $errors->first('result_diagnosis') }}
                     </div>
                 @endif
-                <span class="help-block">{{ trans('cruds.test.fields.result_diagnosis_helper') }}</span>
+
             </div>
             <div class="form-group">
                 <label class="required" for="centre_id">{{ trans('cruds.test.fields.centre') }}</label>
@@ -265,7 +265,7 @@
                         {{ $errors->first('centre') }}
                     </div>
                 @endif
-                <span class="help-block">{{ trans('cruds.test.fields.centre_helper') }}</span>
+
             </div>
             <div class="form-group">
                 <label for="note">{{ trans('cruds.test.fields.note') }}</label>
@@ -275,7 +275,7 @@
                         {{ $errors->first('note') }}
                     </div>
                 @endif
-                <span class="help-block">{{ trans('cruds.test.fields.note_helper') }}</span>
+
             </div>
             <div class="form-group">
                 <label class="required" for="reservation_id_ref">{{ trans('cruds.test.fields.reservation_id_ref') }}</label>
@@ -285,7 +285,7 @@
                         {{ $errors->first('reservation_id_ref') }}
                     </div>
                 @endif
-                <span class="help-block">{{ trans('cruds.test.fields.reservation_id_ref_helper') }}</span>
+
             </div>
             <div class="form-group">
                 <label class="required" for="code_ref">{{ trans('cruds.test.fields.code_ref') }}</label>
@@ -295,7 +295,7 @@
                         {{ $errors->first('code_ref') }}
                     </div>
                 @endif
-                <span class="help-block">{{ trans('cruds.test.fields.code_ref_helper') }}</span>
+
             </div>
             <div class="form-group">
                 <label class="required" for="insurance_company">{{ trans('cruds.test.fields.insurance_company') }}</label>
@@ -305,7 +305,7 @@
                         {{ $errors->first('insurance_company') }}
                     </div>
                 @endif
-                <span class="help-block">{{ trans('cruds.test.fields.insurance_company_helper') }}</span>
+
             </div>
             <div class="form-group">
                 <button class="btn btn-danger" type="submit">

@@ -18,7 +18,7 @@
                         {{ $errors->first('title') }}
                     </div>
                 @endif
-                <span class="help-block">{{ trans('cruds.role.fields.title_helper') }}</span>
+
             </div>
             <div class="form-group">
                 <label class="required" for="permissions">{{ trans('cruds.role.fields.permissions') }}</label>
@@ -36,7 +36,7 @@
                         {{ $errors->first('permissions') }}
                     </div>
                 @endif
-                <span class="help-block">{{ trans('cruds.role.fields.permissions_helper') }}</span>
+
             </div>
             <div class="form-group">
                 <button class="btn btn-danger" type="submit">
