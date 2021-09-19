@@ -63,7 +63,7 @@
 
         <div class="form-group">
             <label for="start">{{ trans('cruds.test.fields.start') }}</label>
-            <div>{{ $test->start->format('d.m.Y H:i:s') }}</div>
+            <div>{{ \Carbon\Carbon::parse($test->start)->format('d.m.Y H:i:s') }}</div>
 {{--            <input readonly class="form-control datetime {{ $errors->has('start') ? 'is-invalid' : '' }}" type="text" name="start" id="start" value="{{ old('start', $test->start) }}">--}}
             @if($errors->has('start'))
                 <div class="invalid-feedback">
