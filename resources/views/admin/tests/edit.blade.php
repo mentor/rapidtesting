@@ -2,7 +2,7 @@
 @section('content')
 
     <script type="text/javascript">
-        var manufacturers = {{ collect(App\Models\Test::RESULT_TEST_MANUFACTURER_SELECT)->toJson() }};
+        var manufacturers = {!! collect(App\Models\Test::RESULT_TEST_MANUFACTURER_SELECT)->toJson() !!};
         console.log(manufacturers);
     </script>
 
