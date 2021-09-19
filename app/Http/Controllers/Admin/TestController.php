@@ -164,9 +164,9 @@ class TestController extends Controller
     {
         abort_if(Gate::denies('test_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $services = Service::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $services = Service::pluck('name', 'id')/*->prepend(trans('global.pleaseSelect'), '')*/;
 
-        $centres = Centre::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $centres = Centre::pluck('name', 'id')/*->prepend(trans('global.pleaseSelect'), '')*/;
 
         $test->load('service', 'centre');
 

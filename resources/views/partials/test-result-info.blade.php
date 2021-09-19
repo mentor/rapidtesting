@@ -23,7 +23,7 @@
 
         <div class="form-group">
             <label>{{ trans('cruds.test.fields.result_diagnosis') }}</label>
-            <select class="form-control {{ $errors->has('result_diagnosis') ? 'is-invalid' : '' }}" name="result_diagnosis" id="result_diagnosis">
+            <select class="form-control select2 {{ $errors->has('result_diagnosis') ? 'is-invalid' : '' }}" name="result_diagnosis" id="result_diagnosis">
             <!--                    <option value disabled {{ old('result_diagnosis', null) === null ? 'selected' : '' }}>{{ trans('global.pleaseSelect') }}</option>-->
                 @foreach(App\Models\Test::RESULT_DIAGNOSIS_SELECT as $key => $label)
                     <option value="{{ $key }}" {{ old('result_diagnosis', $test->result_diagnosis) === (string) $key ? 'selected' : '' }}>{{ $label }}</option>
@@ -39,7 +39,7 @@
 
         <div class="form-group">
             <label class="required">{{ trans('cruds.test.fields.symptoms') }}</label>
-            <select class="form-control {{ $errors->has('symptoms') ? 'is-invalid' : '' }}" name="symptoms" id="symptoms" required>
+            <select class="form-control select2 {{ $errors->has('symptoms') ? 'is-invalid' : '' }}" name="symptoms" id="symptoms" required>
                 <option value disabled {{ old('symptoms', null) === null ? 'selected' : '' }}>{{ trans('global.pleaseSelect') }}</option>
                 @foreach(App\Models\Test::SYMPTOMS_SELECT as $key => $label)
                     <option value="{{ $key }}" {{ old('symptoms', $test->symptoms) === (string) $key ? 'selected' : '' }}>{{ $label }}</option>
@@ -66,7 +66,7 @@
 
         <div class="form-group">
             <label>{{ trans('cruds.test.fields.result_test_manufacturer') }}</label>
-            <select class="form-control {{ $errors->has('result_test_manufacturer') ? 'is-invalid' : '' }}" name="result_test_manufacturer" id="result_test_manufacturer">
+            <select class="form-control select2 {{ $errors->has('result_test_manufacturer') ? 'is-invalid' : '' }}" name="result_test_manufacturer" id="result_test_manufacturer">
                 <option value disabled {{ old('result_test_manufacturer', null) === null ? 'selected' : '' }}>{{ trans('global.pleaseSelect') }}</option>
                 @foreach(App\Models\Test::RESULT_TEST_MANUFACTURER_SELECT as $key => $label)
                     <option value="{{ $key }}" {{ old('result_test_manufacturer', $test->result_test_manufacturer) === (string) $key ? 'selected' : '' }}>{{ $label }}</option>
@@ -82,7 +82,7 @@
 
         <div class="form-group">
             <label>{{ trans('cruds.test.fields.result_test_name') }}</label>
-            <select class="form-control {{ $errors->has('result_test_name') ? 'is-invalid' : '' }}" name="result_test_name" id="result_test_name">
+            <select class="form-control select2 {{ $errors->has('result_test_name') ? 'is-invalid' : '' }}" name="result_test_name" id="result_test_name">
                 <option value disabled {{ old('result_test_name', null) === null ? 'selected' : '' }}>{{ trans('global.pleaseSelect') }}</option>
                 @foreach(App\Models\Test::RESULT_TEST_NAME_SELECT as $key => $label)
                     <option value="{{ $key }}" {{ old('result_test_name', $test->result_test_name) === (string) $key ? 'selected' : '' }}>{{ $label }}</option>
@@ -108,7 +108,7 @@
         </div>
         <div class="form-group">
             <label>{{ trans('cruds.test.fields.result_status') }}</label>
-            <select class="form-control {{ $errors->has('result_status') ? 'is-invalid' : '' }}" name="result_status" id="result_status">
+            <select class="form-control select2 {{ $errors->has('result_status') ? 'is-invalid' : '' }}" name="result_status" id="result_status">
                 <option value disabled {{ old('result_status', null) === null ? 'selected' : '' }}>{{ trans('global.pleaseSelect') }}</option>
                 @foreach(App\Models\Test::RESULT_STATUS_SELECT as $key => $label)
                     <option value="{{ $key }}" {{ old('result_status', $test->result_status) === (string) $key ? 'selected' : '' }}>{{ $label }}</option>
