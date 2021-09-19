@@ -6,11 +6,12 @@
 
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
     <style>
         body {
-            font-family: "DejaVu Sans";
+            font-family: "Open Sans";
             color: #555555;
-            font-size:14px;
+            font-size:1em;
         }
         .corona {
             background-attachment: fixed;
@@ -40,12 +41,12 @@
         }
 
         h1 {
-            font-size: 23px;
+            font-size: 1.5em;
             margin-bottom: 5px;
         }
 
         h3 {
-            font-size: 15px;
+            font-size: 1.2em;
             margin-top: 0px;
         }
 
@@ -83,12 +84,11 @@
             border-radius: 20px;
             border: 2px solid #ff8878;
             padding: 5px 10px;
-            font-size: 15px;
         }
 
          .alert {
              margin-top: 10px;
-             font-size: 12px;
+             font-size: 0.8em;
              color: red;
          }
 
@@ -96,7 +96,6 @@
              display: block;
              margin-bottom: 5px;
              padding-left: 10px;
-             font-size: 13px;
          }
     </style>
 </head>
