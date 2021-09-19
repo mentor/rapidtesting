@@ -103,7 +103,7 @@
     </tr>
     <tr>
         <td class="first">Rodné číslo / Social Security Number / Sozialversiecherungsnummer:</td>
-        <td>@if($payload->pinrc) {{ $payload->pinrc }} @else &nbsp; @endif</td>
+        <td>@if($payload->pinrc) {{ $payload->pinrc }} @else N/A @endif</td>
     </tr>
     <tr>
         <td class="first">Dátum narodenia / Date of birth / Geburtsdatum:</td>
