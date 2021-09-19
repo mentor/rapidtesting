@@ -2,10 +2,8 @@
 @section('content')
 
     <script type="text/javascript">
-        $(function() {
-            var manufacturers = JSON.parse('{{ json_encode(App\Models\Test::RESULT_TEST_MANUFACTURER_SELECT) }}');
-            console.log(manufacturers);
-        });
+        var manufacturers = {{ collect(App\Models\Test::RESULT_TEST_MANUFACTURER_SELECT)->toJson() }};
+        console.log(manufacturers);
     </script>
 
 
