@@ -139,7 +139,7 @@
         <td>{{ $payload->centre->name }}</td>
     </tr>
     <tr>
-        <td class="first">Čas odberu / Testing Date & Time / Datum und Uhrzeit der Testung:</td>
+        <td class="first">Čas odberu / Time of Test / Datum und Uhrzeit der Testung:</td>
         <td>{{ \Carbon\Carbon::parse($payload->end)->format('d.m.Y H:i:s') }}</td>
     </tr>
 </table>
