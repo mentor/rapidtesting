@@ -320,15 +320,19 @@
 @parent
     <script type="text/javascript">
         $(function () {
-            var manufacturers = {!! collect(App\Models\Test::RESULT_TEST_MANUFACTURER_SELECT)->toJson() !!};
             var test_names = {!! collect(App\Models\Test::RESULT_TEST_NAME_SELECT)->toJson() !!};
 
             $('#result_test_manufacturer').on('change', function () {
                 var val = $(this).val();
+                var accepted_keys = Object.keys(test_names).filter(function(key) { return key.startsWith(val) });
 
-                var res = Object.keys(test_names).filter(function(key) { return key.startsWith(val) });
-
-                console.log(res);
+                var $test_names_dropdown = $('#result_test_name');
+                $test_names_dropdown.empty();
+                $test_names_dropdown.append('<option value="">{{ trans('global.pleaseSelect') }}</option>');
+                accepted_keys.forEach(function(key) {
+                    $test_names_dropdown.append('<option value="'+ key + '">'+ test_names[key] +'</option>');
+                });
+                //console.log(res);
 
                 // $('#result_test_name').empty();
                 // $('#result_test_name').append(`<option value="${optionValue}">
@@ -336,7 +340,7 @@
                 //                   </option>`);
 
             });
-            console.log(manufacturers, test_names);
+            //console.log(manufacturers, test_names);
         });
     </script>
 @endsection
