@@ -83,7 +83,7 @@
 <body style="background-color: #fff; margin: 0; padding: 0;">
 <div class="container" style="height:106px; ">
     <div style="float: left; width: 86px; height:106px; padding-left: 20px; padding-right: 20px;">
-        <img alt="" src="{{ secure_asset('images/testy_mom-logo.png') }}"
+        <img alt="" src="{{ asset('images/testy_mom-logo.png') }}"
              style="vertical-align: middle; height:66px; width:66px"/>
     </div>
     <div style=" height:106px">
@@ -102,7 +102,7 @@
         <td>{{ $payload->firstname }} {{ $payload->lastname}}</td>
     </tr>
     <tr>
-        <td class="first">Rodné číslo / Birth ID / Sozialversiecherungsnummer:</td>
+        <td class="first">Rodné číslo / Social Security Number / Sozialversiecherungsnummer:</td>
         <td>@if($payload->pinrc) {{ $payload->pinrc }} @else &nbsp; @endif</td>
     </tr>
     <tr>
@@ -110,7 +110,7 @@
         <td>{{ \Carbon\Carbon::parse($payload->dob)->format('d.m.Y') }}</td>
     </tr>
     <tr>
-        <td class="first">Číslo dokladu / Person identifier / ID-Passnummer:</td>
+        <td class="first">Číslo dokladu / ID number / ID-Passnummer:</td>
         <td>{{ $payload->pinid }}</td>
     </tr>
 </table>
@@ -139,7 +139,7 @@
         <td>{{ $payload->centre->name }}</td>
     </tr>
     <tr>
-        <td class="first">Čas odberu / Date & Time / Datum und Uhrzeit der Testung:</td>
+        <td class="first">Čas odberu / Testing Date & Time / Datum und Uhrzeit der Testung:</td>
         <td>{{ \Carbon\Carbon::parse($payload->end)->format('d.m.Y H:i:s') }}</td>
     </tr>
 </table>
@@ -148,11 +148,8 @@
 
 <table class="table" style="width:100%; border:0; padding: 10px 10px 10px 10px;">
     <tr>
-        <td class="first">Vydal / Certificate issuer / Durchgeführt von:</td>
-        <td><p>Firma XXX, s.r.o.<br/>
-                Mobilné odberové stredisko<br/>
-                Ulica 01, 123 45 Martin<br/>
-                IČO: 12 345 678</p></td>
+        <td class="first">Vydal / Issued by / Durchgeführt von:</td>
+        <td><p>PENET a.s.<br/>Hviezdoslavova 18<br/>974 01 Banská Bystrica<br/>IČO: 50328522</p></td>
     </tr>
 </table>
 
@@ -166,10 +163,7 @@
 <table class="table" style="width:100%; border:0; padding: 30px 0 0 0;">
     <tr>
         <td style="width:30%; vertical-align: top; padding-right:20px"><img src="data:image/png;base64, {!! $qrcode !!}"></td>
-        <td style="vertical-align: bottom; text-align: right;"><hr/>
-            <p style="padding: 0 80px 0 0">Pečiatka a podpis lekára<br/>
-                Doctor stamp and signature<br/>
-                Stempel un Unterschrift</p></td>
+        <td style="vertical-align: bottom; text-align: right;"><hr/><p style="padding: 0 80px 0 0">Pečiatka a podpis lekára<br/>Doctor stamp and signature<br/>Stempel und Unterschrift</p></td>
     </tr>
 </table>
 
@@ -177,7 +171,7 @@
 
 <div class="container" style="height:106px; ">
     <div style="float: left; width: 86px; height:106px; padding-left: 20px; padding-right: 20px;">
-        <img alt="" src="{{ secure_asset('images/testy_mom-logo.png') }}"
+        <img alt="" src="{{ asset('images/testy_mom-logo.png') }}"
              style="vertical-align: middle; height:66px; width:66px"/>
     </div>
     <div style=" height:106px">
@@ -243,7 +237,7 @@
 
 <div class="container" style="height:106px; ">
     <div style="float: left; width: 86px; height:106px; padding-left: 20px; padding-right: 20px;">
-        <img alt="" src="{{ secure_asset('images/testy_mom-logo.png') }}"
+        <img alt="" src="{{ asset('images/testy_mom-logo.png') }}"
              style="vertical-align: middle; height:66px; width:66px"/>
     </div>
     <div style=" height:106px">

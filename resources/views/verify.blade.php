@@ -14,7 +14,7 @@
         }
         .corona {
             background-attachment: fixed;
-            background-image: url('{{ secure_asset('images/virus.svg') }}');
+            background-image: url('{{ asset('images/virus.svg') }}');
             background-repeat: no-repeat;
             background-position: 115% 210%;
             background-size: 40%;
@@ -105,7 +105,7 @@
     @csrf
     <div class="box">
         <div class="logo-wrapper">
-            <img class="logo" alt="" src="{{ secure_asset('images/testy_mom-logo.png') }}"/>
+            <img class="logo" alt="" src="{{ asset('images/testy_mom-logo.png') }}"/>
         </div>
         <div class="logo-sidebar">
             <h1 class="color-a">Testy MoM</h1>

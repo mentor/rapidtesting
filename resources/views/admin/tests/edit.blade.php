@@ -242,7 +242,7 @@
             <div class="form-group">
                 <label>{{ trans('cruds.test.fields.result_diagnosis') }}</label>
                 <select class="form-control {{ $errors->has('result_diagnosis') ? 'is-invalid' : '' }}" name="result_diagnosis" id="result_diagnosis">
-                    <option value disabled {{ old('result_diagnosis', null) === null ? 'selected' : '' }}>{{ trans('global.pleaseSelect') }}</option>
+<!--                    <option value disabled {{ old('result_diagnosis', null) === null ? 'selected' : '' }}>{{ trans('global.pleaseSelect') }}</option>-->
                     @foreach(App\Models\Test::RESULT_DIAGNOSIS_SELECT as $key => $label)
                         <option value="{{ $key }}" {{ old('result_diagnosis', $test->result_diagnosis) === (string) $key ? 'selected' : '' }}>{{ $label }}</option>
                     @endforeach

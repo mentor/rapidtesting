@@ -35,12 +35,21 @@ class Test extends Model
     ];
 
     public const RESULT_TEST_MANUFACTURER_SELECT = [
-        'biosensor-1' => 'SD BIONSESOR, Inc.; ROCHE',
+        'biosensor-1' => 'SD BioSensor, Inc.',
+        'roche-1' => 'ROCHE s.r.o.',
+        'siemens-1' => 'Siemens Healthcare, s.r.o.',
+        'abbott-1' => 'ABBOTT Laboratories, s.r.o.',
+        'rapigen-1' => 'RapiGEN Inc.',
+        'pcr-1' => 'PCR',
     ];
 
     public const RESULT_TEST_NAME_SELECT = [
-        'antigen01' => 'SARS-COV-2 Rapid Antigen Test ref. 9901-NCOV-01G',
-        'pcr01'     => 'PCR test name 01',
+        'biosensor-1-ag-1' => 'Antigénový rýchlotest výterový STANDARD Q COVID-19 Ag SD BIOSENSOR',
+        'roche-1-ag-1' => 'Test SARS-CoV-2 Rapid Antigen',
+        'siemens-1-ag-1' => 'CLINITEST® Rapid COVID-19 Antigen Test',
+        'abbot-1-ag-1' => 'PANBIO™ COVID-19 Ag RAPID TEST DEVICE',
+        'rapigen-1-ag-1' => 'BIOCREDIT COVID-19 Ag kit (Cat.No. G61RHA20)',
+        'pcr-1-pcr-1' => 'PCR',
     ];
 
     public const STATUS_SELECT = [
