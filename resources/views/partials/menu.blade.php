@@ -7,14 +7,14 @@
     </div>
 
     <ul class="c-sidebar-nav">
-        <li class="c-sidebar-nav-item">
-            <a href="{{ route("admin.home") }}" class="c-sidebar-nav-link">
-                <i class="c-sidebar-nav-icon fas fa-fw fa-tachometer-alt">
+{{--        <li class="c-sidebar-nav-item">--}}
+{{--            <a href="{{ route("admin.home") }}" class="c-sidebar-nav-link">--}}
+{{--                <i class="c-sidebar-nav-icon fas fa-fw fa-tachometer-alt">--}}
 
-                </i>
-                {{ trans('global.dashboard') }}
-            </a>
-        </li>
+{{--                </i>--}}
+{{--                {{ trans('global.dashboard') }}--}}
+{{--            </a>--}}
+{{--        </li>--}}
         @can('user_management_access')
             <li class="c-sidebar-nav-dropdown {{ request()->is("admin/permissions*") ? "c-show" : "" }} {{ request()->is("admin/roles*") ? "c-show" : "" }} {{ request()->is("admin/users*") ? "c-show" : "" }} {{ request()->is("admin/audit-logs*") ? "c-show" : "" }}">
                 <a class="c-sidebar-nav-dropdown-toggle" href="#">

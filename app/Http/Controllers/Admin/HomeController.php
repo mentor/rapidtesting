@@ -6,6 +6,7 @@ class HomeController
 {
     public function index()
     {
-        return view('home');
+        return redirect('tests');
+        //return view('home');
     }
 }
