@@ -38,6 +38,7 @@
                 //                   </option>`);
 
             });
+            $('#result_test_manufacturer').trigger('change');
             //console.log(manufacturers, test_names);
         });
     </script>
