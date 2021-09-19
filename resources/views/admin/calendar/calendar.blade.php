@@ -28,7 +28,7 @@
             $('#calendar').fullCalendar({
                 // put your options and callbacks here
                 events: events,
-                initialView: 'dayGridDay'
+                initialView: 'dayGridWeek'
 
 
             })
