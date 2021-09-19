@@ -133,6 +133,28 @@
             @endif
 
         </div>
+
+        <div class="form-group">
+            <label for="pinrc">{{ trans('cruds.test.fields.pinrc') }}</label>
+            <input class="form-control {{ $errors->has('pinrc') ? 'is-invalid' : '' }}" type="text" name="pinrc" id="pinrc" value="{{ old('pinrc', $test->pinrc) }}">
+            @if($errors->has('pinrc'))
+                <div class="invalid-feedback">
+                    {{ $errors->first('pinrc') }}
+                </div>
+            @endif
+
+        </div>
+        <div class="form-group">
+            <label class="required" for="pinid">{{ trans('cruds.test.fields.pinid') }}</label>
+            <input class="form-control {{ $errors->has('pinid') ? 'is-invalid' : '' }}" type="text" name="pinid" id="pinid" value="{{ old('pinid', $test->pinid) }}" required>
+            @if($errors->has('pinid'))
+                <div class="invalid-feedback">
+                    {{ $errors->first('pinid') }}
+                </div>
+            @endif
+
+        </div>
+
         <div class="form-group">
             <label class="required" for="street">{{ trans('cruds.test.fields.street') }}</label>
             <input class="form-control {{ $errors->has('street') ? 'is-invalid' : '' }}" type="text" name="street" id="street" value="{{ old('street', $test->street) }}" required>
@@ -195,27 +217,6 @@
             @if($errors->has('insurance_company'))
                 <div class="invalid-feedback">
                     {{ $errors->first('insurance_company') }}
-                </div>
-            @endif
-
-        </div>
-
-        <div class="form-group">
-            <label for="pinrc">{{ trans('cruds.test.fields.pinrc') }}</label>
-            <input class="form-control {{ $errors->has('pinrc') ? 'is-invalid' : '' }}" type="text" name="pinrc" id="pinrc" value="{{ old('pinrc', $test->pinrc) }}">
-            @if($errors->has('pinrc'))
-                <div class="invalid-feedback">
-                    {{ $errors->first('pinrc') }}
-                </div>
-            @endif
-
-        </div>
-        <div class="form-group">
-            <label class="required" for="pinid">{{ trans('cruds.test.fields.pinid') }}</label>
-            <input class="form-control {{ $errors->has('pinid') ? 'is-invalid' : '' }}" type="text" name="pinid" id="pinid" value="{{ old('pinid', $test->pinid) }}" required>
-            @if($errors->has('pinid'))
-                <div class="invalid-feedback">
-                    {{ $errors->first('pinid') }}
                 </div>
             @endif
 
