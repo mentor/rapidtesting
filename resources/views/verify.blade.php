@@ -84,7 +84,7 @@
             border-radius: 20px;
             border: 2px solid #ff8878;
             padding: 5px 10px;
-            font-size: 1.2em;
+            font-size: 1em;
         }
 
          .alert {
