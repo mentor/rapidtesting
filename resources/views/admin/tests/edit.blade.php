@@ -1,6 +1,14 @@
 @extends('layouts.admin')
 @section('content')
 
+    <script type="text/javascript">
+        $(function() {
+            var manufacturers = {{ json_encode(App\Models\Test::RESULT_TEST_MANUFACTURER_SELECT) }};
+            console.log(manufacturers);
+        });
+    </script>
+
+
 <div class="card">
     <div class="card-header">
         {{ trans('global.edit') }} {{ trans('cruds.test.title_singular') }}
