@@ -4,45 +4,6 @@
     </div>
 
     <div class="card-body">
-        <div class="form-group">
-            <label class="required">{{ trans('cruds.test.fields.status') }}</label>
-            <div>{{ $test->status }}</div>
-{{--            <select readonly class="form-control {{ $errors->has('status') ? 'is-invalid' : '' }}" name="status" id="status" required>--}}
-{{--                <option value disabled {{ old('status', null) === null ? 'selected' : '' }}>{{ trans('global.pleaseSelect') }}</option>--}}
-{{--                @foreach(App\Models\Test::STATUS_SELECT as $key => $label)--}}
-{{--                    <option value="{{ $key }}" {{ old('status', $test->status) === (string) $key ? 'selected' : '' }}>{{ $label }}</option>--}}
-{{--                @endforeach--}}
-{{--            </select>--}}
-            @if($errors->has('status'))
-                <div class="invalid-feedback">
-                    {{ $errors->first('status') }}
-                </div>
-            @endif
-
-        </div>
-
-        <div class="form-group">
-            <label for="start">{{ trans('cruds.test.fields.start') }}</label>
-            <div>{{ $test->start }}</div>
-{{--            <input readonly class="form-control datetime {{ $errors->has('start') ? 'is-invalid' : '' }}" type="text" name="start" id="start" value="{{ old('start', $test->start) }}">--}}
-            @if($errors->has('start'))
-                <div class="invalid-feedback">
-                    {{ $errors->first('start') }}
-                </div>
-            @endif
-
-        </div>
-        <div class="form-group">
-            <label for="end">{{ trans('cruds.test.fields.end') }}</label>
-            <div>{{ $test->end }}</div>
-{{--            <input readonly class="form-control datetime {{ $errors->has('end') ? 'is-invalid' : '' }}" type="text" name="end" id="end" value="{{ old('end', $test->end) }}">--}}
-            @if($errors->has('end'))
-                <div class="invalid-feedback">
-                    {{ $errors->first('end') }}
-                </div>
-            @endif
-
-        </div>
 
         <div class="form-group">
             <label class="required" for="centre_id">{{ trans('cruds.test.fields.centre') }}</label>
@@ -78,6 +39,46 @@
             @if($errors->has('code_ref'))
                 <div class="invalid-feedback">
                     {{ $errors->first('code_ref') }}
+                </div>
+            @endif
+
+        </div>
+
+        <div class="form-group">
+            <label class="required">{{ trans('cruds.test.fields.status') }}</label>
+            <div>{{ $test->status }}</div>
+{{--            <select readonly class="form-control {{ $errors->has('status') ? 'is-invalid' : '' }}" name="status" id="status" required>--}}
+{{--                <option value disabled {{ old('status', null) === null ? 'selected' : '' }}>{{ trans('global.pleaseSelect') }}</option>--}}
+{{--                @foreach(App\Models\Test::STATUS_SELECT as $key => $label)--}}
+{{--                    <option value="{{ $key }}" {{ old('status', $test->status) === (string) $key ? 'selected' : '' }}>{{ $label }}</option>--}}
+{{--                @endforeach--}}
+{{--            </select>--}}
+            @if($errors->has('status'))
+                <div class="invalid-feedback">
+                    {{ $errors->first('status') }}
+                </div>
+            @endif
+
+        </div>
+
+        <div class="form-group">
+            <label for="start">{{ trans('cruds.test.fields.start') }}</label>
+            <div>{{ $test->start }}</div>
+{{--            <input readonly class="form-control datetime {{ $errors->has('start') ? 'is-invalid' : '' }}" type="text" name="start" id="start" value="{{ old('start', $test->start) }}">--}}
+            @if($errors->has('start'))
+                <div class="invalid-feedback">
+                    {{ $errors->first('start') }}
+                </div>
+            @endif
+
+        </div>
+        <div class="form-group">
+            <label for="end">{{ trans('cruds.test.fields.end') }}</label>
+            <div>{{ $test->end }}</div>
+{{--            <input readonly class="form-control datetime {{ $errors->has('end') ? 'is-invalid' : '' }}" type="text" name="end" id="end" value="{{ old('end', $test->end) }}">--}}
+            @if($errors->has('end'))
+                <div class="invalid-feedback">
+                    {{ $errors->first('end') }}
                 </div>
             @endif
 
