@@ -18,7 +18,7 @@ class StoreTestRequest extends FormRequest
     {
         return [
             'status' => [
-                'required',
+//                'required',
             ],
             'service_id' => [
                 'required',
@@ -85,7 +85,7 @@ class StoreTestRequest extends FormRequest
                 'nullable',
             ],
             'centre_id' => [
-                'required',
+//                'required',
                 'integer',
             ],
             'note' => [
@@ -93,7 +93,7 @@ class StoreTestRequest extends FormRequest
                 'nullable',
             ],
             'reservation_id_ref' => [
-                'required',
+//                'required',
                 'integer',
                 'min:-2147483648',
                 'max:2147483647',
@@ -102,7 +102,7 @@ class StoreTestRequest extends FormRequest
                 'string',
                 'min:11',
                 'max:11',
-                'required',
+//                'required',
             ],
             'insurance_company' => [
                 'string',
