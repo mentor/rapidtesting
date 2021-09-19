@@ -74,7 +74,7 @@
         </div>
         <div class="form-group">
             <label for="end">{{ trans('cruds.test.fields.end') }}</label>
-            <div>{{ $test->end }}</div>
+            <div>{{ \Carbon\Carbon::parse($test->end)->format('d.m.Y H:i:s') }}</div>
 {{--            <input readonly class="form-control datetime {{ $errors->has('end') ? 'is-invalid' : '' }}" type="text" name="end" id="end" value="{{ old('end', $test->end) }}">--}}
             @if($errors->has('end'))
                 <div class="invalid-feedback">
