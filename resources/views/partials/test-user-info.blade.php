@@ -46,7 +46,7 @@
 
         <div class="form-group">
             <label class="required">{{ trans('cruds.test.fields.status') }}</label>
-            <div class="font-weight-bold text-uppercase">{{ $test->status }}</div>
+            <div class="font-weight-bold text-uppercase">{{ App\Models\Test::STATUS_SELECT[$test->status] }}</div>
 {{--            <select readonly class="form-control {{ $errors->has('status') ? 'is-invalid' : '' }}" name="status" id="status" required>--}}
 {{--                <option value disabled {{ old('status', null) === null ? 'selected' : '' }}>{{ trans('global.pleaseSelect') }}</option>--}}
 {{--                @foreach(App\Models\Test::STATUS_SELECT as $key => $label)--}}
