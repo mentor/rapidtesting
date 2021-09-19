@@ -7,7 +7,7 @@ Váš výsledok vyšetrenia SARS-COV-2 zobrazíte na adrese: {{ url(route('verif
 
 <br/><br/>
 @if($payload->pinrc)
-Ako heslo použite číslo rodné číslo, ktorý ste zadali počas rezervácie termínu testovania.
+Ako heslo použite rodné číslo, ktoré ste zadali počas rezervácie termínu testovania.
 @else
 Ako heslo použite číslo dokladu, ktorý ste zadali počas rezervácie termínu testovania.
 @endif

@@ -34,11 +34,11 @@ class WebhookController extends Controller
     public function created(Request $request)
     {
 
-        Log::info('Reservation CREATED webhook: init');
+        Log::info('Reservation CREATED webhook: INIT');
 
         // webhook synchronization request
         if (!$request->input()) {
-            Log::info('Reservation CREATED webhook SYNC');
+            Log::info('Reservation CREATED webhook: SYNC');
             $this->response();
         }
 
@@ -99,12 +99,12 @@ class WebhookController extends Controller
 
             $payload['status'] = self::REENIO_RESERVATION_STATUSES[$reservation->json('detail.state')];
 
-            Log::info('Reservation CREATED webhook: phase 5 - data push', compact('payload'));
+            Log::info('Reservation CREATED webhook: phase 4 - data push', compact('payload'));
 
 
             $test = Test::create($payload);
 
-            Log::info('Reservation CREATED webhook: phase 6 - DONE', ['id' => $test->id]);
+            Log::info('Reservation CREATED webhook: phase 5 - DONE', ['id' => $test->id]);
 
         } catch (\Exception $e) {
             Log::error($e->getMessage(), $e->getTrace());
@@ -116,19 +116,33 @@ class WebhookController extends Controller
 
 
     public function status(Request $request) {
+
+        Log::info('Reservation UPDATED webhook: INIT');
+
         // webhook synchronization request
         if (!$request->input()) {
+            Log::info('Reservation UPDATED webhook: SYNC');
             $this->response();
         }
 
+        Log::info('Reservation UPDATED webhook: phase 0', $request->input());
         try {
             // get reservation data
             $reservationId = $request->input('reservationId');
             $triggerType = $request->input('triggerType');
 
-            Test::firstWhere('reservation_id_ref', $reservationId)->update([
-                'status' => self::REENIO_RESERVATION_STATUSES[$triggerType]
-            ]);
+            $test = Test::firstWhere('reservation_id_ref', $reservationId);
+
+            if (!$test) {
+                Log::info('Reservation UPDATED webhook: phase 1 - Test NOT FOUND!');
+            } else {
+                Log::info('Reservation UPDATED webhook: phase 1 - Test FOUND!', $test->toArray());
+                $newStatus = self::REENIO_RESERVATION_STATUSES[$triggerType];
+                $test->update([
+                    'status' => $newStatus
+                ]);
+                Log::info('Reservation UPDATED webhook: phase 2 - Test UPDATED!', [$newStatus]);
+            }
         } catch (\Exception $e) {
             Log::error($e->getMessage(), $e->getTrace());
         }

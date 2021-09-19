@@ -10,13 +10,13 @@
     </a>
 
     @if($row->isTested())
-        <button class="btn btn-danger mr-2" data-toggle="modal" data-target="#sendEmailModal" data-url="{{ route('admin.' . $crudRoutePart . '.email', $row->code_ref) }}" data-email="{{ $row->email }}" data-ref="{{ $row->code_ref }}">
+        <button class="btn btn-dark mr-2" data-toggle="modal" data-target="#sendEmailModal" data-url="{{ route('admin.' . $crudRoutePart . '.email', $row->code_ref) }}" data-email="{{ $row->email }}" data-ref="{{ $row->code_ref }}">
         {{ trans('global.email') }}
         </button>
     @endif
 
     @if($row->isTested())
-            <a class="btn btn-danger mr-2" href="{{ route('admin.' . $crudRoutePart . '.pdf', $row->code_ref) }}">
+            <a class="btn btn-dark mr-2" href="{{ route('admin.' . $crudRoutePart . '.pdf', $row->code_ref) }}">
                 {{ trans('global.pdf') }}
             </a>
     @endif
