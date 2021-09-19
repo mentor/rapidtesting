@@ -81,7 +81,8 @@
 
         <div class="form-group">
             <label for="note">{{ trans('cruds.test.fields.note') }}</label>
-            <input class="form-control {{ $errors->has('note') ? 'is-invalid' : '' }}" type="text" name="note" id="note" value="{{ old('note', $test->note) }}">
+<!--            <input class="form-control {{ $errors->has('note') ? 'is-invalid' : '' }}" type="text" name="note" id="note" value="{{ old('note', $test->note) }}">-->
+            <textarea class="form-control {{ $errors->has('note') ? 'is-invalid' : '' }}" name="note" id="note">{{ old('note', $test->note) }}</textarea>
             @if($errors->has('note'))
                 <div class="invalid-feedback">
                     {{ $errors->first('note') }}
