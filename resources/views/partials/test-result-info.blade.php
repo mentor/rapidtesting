@@ -6,6 +6,21 @@
     <div class="card-body">
 
         <div class="form-group">
+            <label class="required" for="service_id">{{ trans('cruds.test.fields.service') }}</label>
+            <select class="form-control select2 {{ $errors->has('service') ? 'is-invalid' : '' }}" name="service_id" id="service_id" required>
+                @foreach($services as $id => $entry)
+                    <option value="{{ $id }}" {{ (old('service_id') ? old('service_id') : $test->service->id ?? '') == $id ? 'selected' : '' }}>{{ $entry }}</option>
+                @endforeach
+            </select>
+            @if($errors->has('service'))
+                <div class="invalid-feedback">
+                    {{ $errors->first('service') }}
+                </div>
+            @endif
+
+        </div>
+
+        <div class="form-group">
             <label>{{ trans('cruds.test.fields.result_diagnosis') }}</label>
             <select class="form-control {{ $errors->has('result_diagnosis') ? 'is-invalid' : '' }}" name="result_diagnosis" id="result_diagnosis">
             <!--                    <option value disabled {{ old('result_diagnosis', null) === null ? 'selected' : '' }}>{{ trans('global.pleaseSelect') }}</option>-->
