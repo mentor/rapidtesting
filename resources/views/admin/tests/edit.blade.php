@@ -322,6 +322,19 @@
         $(function () {
             var manufacturers = {!! collect(App\Models\Test::RESULT_TEST_MANUFACTURER_SELECT)->toJson() !!};
             var test_names = {!! collect(App\Models\Test::RESULT_TEST_NAME_SELECT)->toJson() !!};
+
+            $('#result_test_manufacturer').on('change', function () {
+                var val = $(this).val();
+
+                var res = Object.fromEntries(Object.entries(test_names).filter(function(key) { key.startsWith(val) }));
+                console.log(res);
+
+                // $('#result_test_name').empty();
+                // $('#result_test_name').append(`<option value="${optionValue}">
+                //                        ${optionText}
+                //                   </option>`);
+
+            });
             console.log(manufacturers, test_names);
         });
     </script>
