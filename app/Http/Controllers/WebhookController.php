@@ -134,14 +134,26 @@ class WebhookController extends Controller
             $test = Test::firstWhere('reservation_id_ref', $reservationId);
 
             if (!$test) {
-                Log::info('Reservation UPDATED webhook: phase 1 - Test NOT FOUND!');
+                Log::info('Reservation UPDATED webhook: phase 1 - Test NOT FOUND! Retrying in 2 seconds');
+                sleep(2);
+                $test = Test::firstWhere('reservation_id_ref', $reservationId);
+                if (!$test) {
+                    Log::error('Reservation UPDATED webhook: phase 2 - Test NOT FOUND!');
+                } else {
+                    Log::info('Reservation UPDATED webhook: phase 3 - Test FOUND!', $test->toArray());
+                    $newStatus = self::REENIO_RESERVATION_STATUSES[$triggerType];
+                    $test->update([
+                        'status' => $newStatus
+                    ]);
+                    Log::info('Reservation UPDATED webhook: phase 4 - Test UPDATED!', [$newStatus]);
+                }
             } else {
-                Log::info('Reservation UPDATED webhook: phase 1 - Test FOUND!', $test->toArray());
+                Log::info('Reservation UPDATED webhook: phase 3 - Test FOUND!', $test->toArray());
                 $newStatus = self::REENIO_RESERVATION_STATUSES[$triggerType];
                 $test->update([
                     'status' => $newStatus
                 ]);
-                Log::info('Reservation UPDATED webhook: phase 2 - Test UPDATED!', [$newStatus]);
+                Log::info('Reservation UPDATED webhook: phase 4 - Test UPDATED!', [$newStatus]);
             }
         } catch (\Exception $e) {
             Log::error($e->getMessage(), $e->getTrace());
