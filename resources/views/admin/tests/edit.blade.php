@@ -3,7 +3,8 @@
 
     <script type="text/javascript">
         var manufacturers = {!! collect(App\Models\Test::RESULT_TEST_MANUFACTURER_SELECT)->toJson() !!};
-        console.log(manufacturers);
+        var test_names = {!! collect(App\Models\Test::RESULT_TEST_NAME_SELECT)->toJson() !!};
+        console.log(manufacturers, test_names);
     </script>
 
 
