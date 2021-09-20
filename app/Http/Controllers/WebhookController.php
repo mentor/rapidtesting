@@ -114,6 +114,68 @@ class WebhookController extends Controller
         $this->response();
     }
 
+    public function change(Request $request) {
+
+        Log::info('Reservation CHANGED webhook: INIT');
+
+        // webhook synchronization request
+        if (!$request->input()) {
+            Log::info('Reservation CHANGED webhook: SYNC');
+            $this->response();
+        }
+
+        Log::info('Reservation CHANGED webhook: phase 0', $request->input());
+
+        try {
+            // get reservation data
+            $reservationId = $request->input('reservationId');
+            $triggerType = $request->input('triggerType');
+
+            if ($triggerType != 12) {
+                Log::error('Reservation CHANGED webhook: phase 0 - INVALID STATUS, expected 12', $triggerType);
+            } else {
+                // get reservation data
+                $reservation = $this->getReservationDetail($reservationId);
+                Log::info('Reservation CHANGED webhook: phase 1 - reservation API call', compact('reservation'));
+
+                // check if API calls returned HTTP 200
+                if (!$reservation->ok()) {
+                    Log::error('Invalid response from REENIO API when retrieving reservation/customer details!');
+                    $this->response();
+                }
+
+                $payload = [];
+                $payload['start'] = Carbon::parse($reservation->json('detail.start'))
+                    ->tz('Europe/Bratislava')
+                    ->format('Y-m-d H:i:s');
+
+                $payload['end'] = Carbon::parse($reservation->json('detail.end'))
+                    ->tz('Europe/Bratislava')
+                    ->format('Y-m-d H:i:s');
+
+
+                Log::info('Reservation CHANGED webhook: phase 2 - retrieved start/end reservation payload', compact('payload'));
+
+                $test = Test::firstWhere('reservation_id_ref', $reservationId);
+
+                if (!$test) {
+                    Log::error('Reservation CHANGED webhook: phase 3 - Test NOT FOUND!');
+                } else {
+                    Log::info('Reservation CHANGED webhook: phase 3 - Test FOUND!', compact('test'));
+
+                    $test->update($payload);
+
+                    Log::info('Reservation CHANGED webhook: phase 4 - Test UPDATED!', compact('test'));
+                }
+            }
+
+        } catch (\Exception $e) {
+            Log::error($e->getMessage(), $e->getTrace());
+        }
+
+        $this->response();
+
+    }
 
     public function status(Request $request) {
 
