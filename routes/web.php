@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('webhook/created', 'WebhookController@created')->withoutMiddleware(VerifyCsrfToken::class);
 Route::post('webhook/status', 'WebhookController@status')->withoutMiddleware(VerifyCsrfToken::class);
+Route::post('webhook/change', 'WebhookController@change')->withoutMiddleware(VerifyCsrfToken::class);
 
 Route::get('verify/{code_ref}', 'VerifyController@verify')->name('verify');
 Route::post('verify/{code_ref}', 'VerifyController@verify');
