@@ -5,19 +5,22 @@
     </a>--}}
 @endcan
 @can($editGate)
-    <a class="btn btn-info mr-2" href="{{ route('admin.' . $crudRoutePart . '.edit', $row->id) }}">
-        {{ trans('global.edit') }}
+    <a class="btn btn-success" href="{{ route('admin.' . $crudRoutePart . '.edit', $row->id) }}">
+        <i class="fa fa-edit fa-lg">&nbsp;</i>
+        {{--{{ trans('global.edit') }}--}}
     </a>
 
     @if($row->isTested())
-        <button class="btn btn-dark mr-2" data-toggle="modal" data-target="#sendEmailModal" data-url="{{ route('admin.' . $crudRoutePart . '.email', $row->code_ref) }}" data-email="{{ $row->email }}" data-ref="{{ $row->code_ref }}">
-        {{ trans('global.email') }}
+        <button class="btn btn-danger" data-toggle="modal" data-target="#sendEmailModal" data-url="{{ route('admin.' . $crudRoutePart . '.email', $row->code_ref) }}" data-email="{{ $row->email }}" data-ref="{{ $row->code_ref }}">
+            <i class="fa fa-envelope fa-lg">&nbsp;</i>
+            {{--{{ trans('global.email') }}--}}
         </button>
     @endif
 
     @if($row->isTested())
-            <a class="btn btn-dark mr-2" href="{{ route('admin.' . $crudRoutePart . '.pdf', $row->code_ref) }}">
-                {{ trans('global.pdf') }}
+            <a class="btn btn-danger" href="{{ route('admin.' . $crudRoutePart . '.pdf', $row->code_ref) }}">
+                <i class="fa fa-print fa-lg">&nbsp;</i>
+                {{--{{ trans('global.pdf') }}--}}
             </a>
     @endif
 @endcan

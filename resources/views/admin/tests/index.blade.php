@@ -67,7 +67,7 @@
                     <th>
                         {{ trans('cruds.test.fields.name') }}
                     </th>
-                    <th>
+                    <th >
                         {{ trans('cruds.test.fields.email') }}
                     </th>
                     <th>
@@ -136,18 +136,14 @@
                     </th>
                 </tr>
                 <tr>
-{{--                    <td>--}}
-{{--                    </td>--}}
                     <td>
                     </td>
-<!--                    <td>
-                        <input class="search" type="text" placeholder="{{ trans('global.search') }}">
-                    </td>-->
+
                     <td>
-                        <input class="search" type="text" placeholder="{{ trans('global.search') }}">
+                        <input class="search form-control form-control-sm" type="text" placeholder="{{ trans('global.search') }}">
                     </td>
                     <td>
-                        <select class="search" strict="true">
+                        <select class="search form-control form-control-sm" strict="true">
                             <option value>{{ trans('global.all') }}</option>
                             @foreach(App\Models\Test::STATUS_SELECT as $key => $item)
                                 <option value="{{ $key }}">{{ $item }}</option>
@@ -155,7 +151,7 @@
                         </select>
                     </td>
                     <td>
-                        <select class="search">
+                        <select class="search form-control form-control-sm">
                             <option value>{{ trans('global.all') }}</option>
                             @foreach($services as $key => $item)
                                 <option value="{{ $item->name }}">{{ $item->name }}</option>
@@ -163,48 +159,45 @@
                         </select>
                     </td>
                     <td>
-<!--                        <input class="search" type="text" placeholder="{{ trans('global.search') }}">-->
                     </td>
-<!--                    <td>
-                        <input class="search" type="text" placeholder="{{ trans('global.search') }}">
-                    </td>-->
+
                     <td>
-                        <input class="search" type="text" placeholder="{{ trans('global.search') }}">
+                        <input class="search form-control form-control-sm" type="text" placeholder="{{ trans('global.search') }}">
                     </td>
                     <td>
-                        <input class="search" type="text" placeholder="{{ trans('global.search') }}">
+                        <input class="search form-control form-control-sm" type="text" placeholder="{{ trans('global.search') }}">
                     </td>
                     <td>
-                        <input class="search" type="text" placeholder="{{ trans('global.search') }}">
+                        <input class="search form-control form-control-sm" type="text" placeholder="{{ trans('global.search') }}">
                     </td>
                     <td>
-                        <input class="search" type="text" placeholder="{{ trans('global.search') }}">
+                        <input class="search form-control form-control-sm" type="text" placeholder="{{ trans('global.search') }}">
                     </td>
                     <td>
-                        <input class="search" type="text" placeholder="{{ trans('global.search') }}">
+                        <input class="search form-control form-control-sm" type="text" placeholder="{{ trans('global.search') }}">
                     </td>
                     <td>
-                        <input class="search" type="text" placeholder="{{ trans('global.search') }}">
+                        <input class="search form-control form-control-sm" type="text" placeholder="{{ trans('global.search') }}">
                     </td>
                     <td>
-                        <input class="search" type="text" placeholder="{{ trans('global.search') }}">
+                        <input class="search form-control form-control-sm " type="text" placeholder="{{ trans('global.search') }}">
                     </td>
                     <td>
                     </td>
                     <td>
-                        <input class="search" type="text" placeholder="{{ trans('global.search') }}">
+                        <input class="search form-control form-control-sm " type="text" placeholder="{{ trans('global.search') }}">
                     </td>
                     <td>
-                        <input class="search" type="text" placeholder="{{ trans('global.search') }}">
+                        <input class="search form-control form-control-sm " type="text" placeholder="{{ trans('global.search') }}">
                     </td>
                     <td>
-                        <input class="search" type="text" placeholder="{{ trans('global.search') }}">
+                        <input class="search form-control form-control-sm " type="text" placeholder="{{ trans('global.search') }}">
                     </td>
                     <td>
-                        <input class="search" type="text" placeholder="{{ trans('global.search') }}">
+                        <input class="search form-control form-control-sm " type="text" placeholder="{{ trans('global.search') }}">
                     </td>
                     <td>
-                        <select class="search" strict="true">
+                        <select class="search form-control form-control-sm" strict="true">
                             <option value>{{ trans('global.all') }}</option>
                             @foreach(App\Models\Test::SYMPTOMS_SELECT as $key => $item)
                                 <option value="{{ $key }}">{{ $item }}</option>
@@ -212,10 +205,10 @@
                         </select>
                     </td>
                     <td>
-                        <input class="search" type="text" placeholder="{{ trans('global.search') }}">
+                        <input class="search form-control form-control-sm" type="text" placeholder="{{ trans('global.search') }}">
                     </td>
                     <td>
-                        <select class="search" strict="true">
+                        <select class="search form-control form-control-sm" strict="true">
                             <option value>{{ trans('global.all') }}</option>
                             @foreach(App\Models\Test::RESULT_STATUS_SELECT as $key => $item)
                                 <option value="{{ $key }}">{{ $item }}</option>
@@ -223,7 +216,7 @@
                         </select>
                     </td>
                     <td>
-                        <select class="search" strict="true">
+                        <select class="search form-control form-control-sm" strict="true">
                             <option value>{{ trans('global.all') }}</option>
                             @foreach(App\Models\Test::RESULT_TEST_NAME_SELECT as $key => $item)
                                 <option value="{{ $key }}">{{ $item }}</option>
@@ -231,7 +224,7 @@
                         </select>
                     </td>
                     <td>
-                        <select class="search" strict="true">
+                        <select class="search form-control form-control-sm" strict="true">
                             <option value>{{ trans('global.all') }}</option>
                             @foreach(App\Models\Test::RESULT_TEST_MANUFACTURER_SELECT as $key => $item)
                                 <option value="{{ $key }}">{{ $item }}</option>
@@ -239,7 +232,7 @@
                         </select>
                     </td>
                     <td>
-                        <select class="search" strict="true">
+                        <select class="search form-control form-control-sm" strict="true">
                             <option value>{{ trans('global.all') }}</option>
                             @foreach(App\Models\Test::RESULT_DIAGNOSIS_SELECT as $key => $item)
                                 <option value="{{ $key }}">{{ $item }}</option>
@@ -247,7 +240,7 @@
                         </select>
                     </td>
                     <td>
-                        <select class="search">
+                        <select class="search form-control form-control-sm">
                             <option value>{{ trans('global.all') }}</option>
                             @foreach($centres as $key => $item)
                                 <option value="{{ $item->name }}">{{ $item->name }}</option>
@@ -255,13 +248,13 @@
                         </select>
                     </td>
                     <td>
-                        <input class="search" type="text" placeholder="{{ trans('global.search') }}">
+                        <input class="search form-control form-control-sm " type="text" placeholder="{{ trans('global.search') }}">
                     </td>
                     <td>
-                        <input class="search" type="text" placeholder="{{ trans('global.search') }}">
+                        <input class="search form-control form-control-sm " type="text" placeholder="{{ trans('global.search') }}">
                     </td>
                     <td>
-                        <input class="search" type="text" placeholder="{{ trans('global.search') }}">
+                        <input class="search form-control form-control-sm " type="text" placeholder="{{ trans('global.search') }}">
                     </td>
 
                 </tr>
@@ -309,8 +302,8 @@
 @endcan
 
   let dtOverrideGlobals = {
-    // buttons: dtButtons,
-    buttons: [],
+     buttons: dtButtons,
+    //buttons: [],
     select: false,
       columnDefs: [
       //     {
@@ -325,62 +318,70 @@
     aaSorting: [],
       ajax: "{{ route('admin.tests.index') }}",
     columns: [
-      // { data: 'placeholder', name: 'placeholder' },
-{ data: 'actions', name: '{{ trans('global.actions') }}', searchable: false, orderable: false },
-// { data: 'id', name: 'id' },
-{ data: 'code_ref',name: 'code_ref',
-    "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
-        $(nTd).html("<a href='/admin/tests/"+oData.id+"'>"+oData.code_ref+"</a>");
-    }
-},
-{ data: 'status', name: 'status' },
-{ data: 'service_name', name: 'service.name' },
-{ data: 'firstname', name: 'firstname',
-    "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) {
-        $(nTd).html(oData.firstname+"&nbsp;"+oData.lastname);
-    }
-},
-// { data: 'lastname', name: 'lastname' },
-{ data: 'email', name: 'email' },
-{ data: 'phone', name: 'phone' },
-{ data: 'created_at', name: 'created_at' },
-{ data: 'start', name: 'start' },
-{ data: 'end', name: 'end' },
-{ data: 'pinrc', name: 'pinrc' },
-{ data: 'pinid', name: 'pinid' },
-{ data: 'dob', name: 'dob' },
-{ data: 'street', name: 'street' },
-{ data: 'city', name: 'city' },
-{ data: 'postal', name: 'postal' },
-{ data: 'country', name: 'country' },
-{ data: 'symptoms', name: 'symptoms' },
-{ data: 'result_date', name: 'result_date' },
-{ data: 'result_status', name: 'result_status' },
-{ data: 'result_test_name', name: 'result_test_name' },
-{ data: 'result_test_manufacturer', name: 'result_test_manufacturer' },
-{ data: 'result_diagnosis', name: 'result_diagnosis' },
-{ data: 'centre_name', name: 'centre.name' },
-{ data: 'note', name: 'note' },
-{ data: 'reservation_id_ref', name: 'reservation_id_ref' },
-// { data: 'code_ref', name: 'code_ref' },
-
-{ data: 'insurance_company', name: 'insurance_company' }
-
+        // { data: 'placeholder', name: 'placeholder' },
+        { data: 'actions', name: '{{ trans('global.actions') }}', searchable: false, orderable: false },
+        // { data: 'id', name: 'id' },
+        { data: 'code_ref', name: 'code_ref',
+        @can('test_show')
+            "render": function ( data, type, row, meta ) {
+                return '<a href="/admin/tests/' + row.id + '">' + row.code_ref + '</a>';
+            },
+        @endcan
+        },
+        { data: 'status', name: 'status' },
+        { data: 'service_name', name: 'service.name' },
+        { data: 'firstname', name: 'firstname',
+            "render": function ( data, type, row, meta ) {
+                return row.firstname+'&nbsp;'+row.lastname;
+            }
+        },
+        // { data: 'lastname', name: 'lastname' },
+        { data: 'email', name: 'email' },
+        { data: 'phone', name: 'phone' },
+        { data: 'created_at', name: 'created_at' },
+        { data: 'start', name: 'start' },
+        { data: 'end', name: 'end' },
+        { data: 'pinrc', name: 'pinrc' },
+        { data: 'pinid', name: 'pinid' },
+        { data: 'dob', name: 'dob' },
+        { data: 'street', name: 'street' },
+        { data: 'city', name: 'city' },
+        { data: 'postal', name: 'postal' },
+        { data: 'country', name: 'country' },
+        { data: 'symptoms', name: 'symptoms' },
+        { data: 'result_date', name: 'result_date' },
+        { data: 'result_status', name: 'result_status' },
+        { data: 'result_test_name', name: 'result_test_name' },
+        { data: 'result_test_manufacturer', name: 'result_test_manufacturer' },
+        { data: 'result_diagnosis', name: 'result_diagnosis' },
+        { data: 'centre_name', name: 'centre.name' },
+        { data: 'note', name: 'note' },
+        { data: 'reservation_id_ref', name: 'reservation_id_ref' },
+        // { data: 'code_ref', name: 'code_ref' },
+        { data: 'insurance_company', name: 'insurance_company' }
     ],
     orderCellsTop: true,
     order: [[ 7, 'desc' ]],
     pageLength: 100,
+
   };
+
   let table = $('.datatable-Test').DataTable(dtOverrideGlobals);
   $('a[data-toggle="tab"]').on('shown.bs.tab click', function(e){
       $($.fn.dataTable.tables(true)).DataTable()
           .columns.adjust();
   });
 
-let visibleColumnsIndexes = null;
-$('.datatable thead').on('input', '.search', function () {
+  let visibleColumnsIndexes = null;
+
+  $('.datatable thead').on('input', '.search', function () {
       let strict = $(this).attr('strict') || false
       let value = strict && this.value ? "^" + this.value + "$" : this.value
+
+      visibleColumnsIndexes = []
+      table.columns(":visible").every(function(colIdx) {
+          visibleColumnsIndexes.push(colIdx);
+      });
 
       let index = $(this).parent().index()
       if (visibleColumnsIndexes !== null) {
@@ -392,12 +393,14 @@ $('.datatable thead').on('input', '.search', function () {
         .search(value, strict)
         .draw()
   });
-table.on('column-visibility.dt', function(e, settings, column, state) {
+
+  table.on('column-visibility.dt', function(e, settings, column, state) {
       visibleColumnsIndexes = []
       table.columns(":visible").every(function(colIdx) {
           visibleColumnsIndexes.push(colIdx);
       });
   })
+
 });
 
 $('#sendEmailModal').on('show.bs.modal', function (event) {
