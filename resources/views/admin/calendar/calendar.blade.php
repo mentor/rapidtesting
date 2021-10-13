@@ -29,6 +29,7 @@
         events={!! json_encode($events) !!};
         var calendar = new FullCalendar.Calendar(document.getElementById('calendar'),{
             locale: 'sk',
+            noEventsContent: 'Neboli nájdené žiadne udalosti pre zvolené obdobie!',
             initialView: 'listDay',
             headerToolbar: {
                 left: 'prev,next today',
@@ -54,7 +55,6 @@
             events: events,
 
         });
-        console.log(calendar);
         calendar.render();
     });
 </script>
