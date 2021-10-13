@@ -4,12 +4,28 @@
 <form method="POST" action="{{ route("admin.tests.update", [$test->id]) }}" enctype="multipart/form-data">
 @method('PUT')
 @csrf
+
+    <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <button class="nav-link active" id="nav-test-result-tab"
+                    data-toggle="tab" data-target="#nav-test-result" type="button"
+                    role="tab" aria-controls="nav-test-result" aria-selected="true">{{ trans('cruds.test.title_edit_result') }}</button>
+            <button class="nav-link" id="nav-test-user-tab"
+                    data-toggle="tab" data-target="#nav-test-user" type="button"
+                    role="tab" aria-controls="nav-test-user" aria-selected="false">{{ trans('cruds.test.title_edit_user') }}</button>
+        </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-test-result" role="tabpanel" aria-labelledby="nav-test-result-tab">@include('partials.test-result-info')</div>
+        <div class="tab-pane fade" id="nav-test-user" role="tabpanel" aria-labelledby="nav-test-user-tab">@include('partials.test-user-info')</div>
+    </div>
+
     <div class="row">
         <div class="col-md-6">
-            @include('partials.test-result-info')
+
         </div>
         <div class="col-md-6">
-            @include('partials.test-user-info')
+
         </div>
     </div>
 </form>
@@ -30,18 +46,11 @@
                 accepted_keys.forEach(function(key) {
                     $test_names_dropdown.append('<option value="'+ key + '">'+ test_names[key] +'</option>');
                 });
-                //console.log(res);
-
-                // $('#result_test_name').empty();
-                // $('#result_test_name').append(`<option value="${optionValue}">
-                //                        ${optionText}
-                //                   </option>`);
 
             });
             $('#result_test_manufacturer').trigger('change');
             $('#result_test_manufacturer').val('{{ $test->result_test_manufacturer }}');
             $('#result_test_name').val('{{ $test->result_test_name }}');
-            //console.log(manufacturers, test_names);
         });
     </script>
 @endsection

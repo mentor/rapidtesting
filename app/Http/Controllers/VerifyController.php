@@ -26,22 +26,22 @@ class VerifyController extends Controller
      */
     public function verify(Request $request, $code_ref)
     {
-        $payload = Test::firstWhere('code_ref', $code_ref);
-        if (!$payload || !$payload->isTested()) {
+        $test = Test::firstWhere('code_ref', $code_ref);
+        if (!$test || !$test->isTested()) {
             abort(404);
         }
 
-        $isPinRC = !empty($payload->pinrc);
+        $isPinRC = !empty($test->pinrc);
 
         if ($request->isMethod('post')) {
 
-            if ($payload->pinrc) {
+            if ($test->pinrc) {
                 $validationArray = [
                     'pinrc' => [
                         'bail',
                         'required',
-                        function ($attribute, $value, $fail) use ($payload) {
-                            if (trim(str_replace('/','', $value)) !== trim(str_replace('/','', $payload->pinrc))) {
+                        function ($attribute, $value, $fail) use ($test) {
+                            if (trim(str_replace('/','', $value)) !== trim(str_replace('/','', $test->pinrc))) {
                                 $fail('Rodné číslo nie je platné, skontrolujte prosím jeho správnosť');
                             }
                         },
@@ -52,8 +52,8 @@ class VerifyController extends Controller
                     'pinid' => [
                         'bail',
                         'required',
-                        function ($attribute, $value, $fail) use ($payload) {
-                            if (strtolower(trim($value)) !== strtolower(trim($payload->pinid))) {
+                        function ($attribute, $value, $fail) use ($test) {
+                            if (strtolower(trim($value)) !== strtolower(trim($test->pinid))) {
                                 $fail('Heslo nie je platné, skontrolujte prosím jeho správnosť');
                             }
                         },
@@ -63,15 +63,15 @@ class VerifyController extends Controller
 
             $request->validate($validationArray);
 
-            return $this->certificate($payload, $code_ref);
+            return $this->certificate($test, $code_ref);
         }
 
         return view('verify', compact('code_ref', 'isPinRC'));
     }
 
-    private function certificate($payload, $code_ref) {
+    private function certificate($test, $code_ref) {
         $qrcode = base64_encode(QrCode::format('png')->size(200)->generate(route('verify', $code_ref)));
-        $pdf = PDF::loadView('certificate', compact('payload', 'qrcode'));
+        $pdf = PDF::loadView('certificate', compact('test', 'qrcode'));
 
         return $pdf->download($code_ref . '.pdf');
     }

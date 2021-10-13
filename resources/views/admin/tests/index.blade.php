@@ -65,7 +65,10 @@
                         {{ trans('cruds.test.fields.service') }}
                     </th>
                     <th>
-                        {{ trans('cruds.test.fields.name') }}
+                        {{ trans('cruds.test.fields.firstname') }}
+                    </th>
+                    <th>
+                        {{ trans('cruds.test.fields.lastname') }}
                     </th>
                     <th >
                         {{ trans('cruds.test.fields.email') }}
@@ -137,13 +140,14 @@
                 </tr>
                 <tr>
                     <td>
+
                     </td>
 
                     <td>
-                        <input class="search form-control form-control-sm" type="text" placeholder="{{ trans('global.search') }}">
+                        <input class="search form-control  form-control-sm" type="text" placeholder="{{ trans('global.search') }}">
                     </td>
                     <td>
-                        <select class="search form-control form-control-sm" strict="true">
+                        <select class="search form-control  form-control-sm" strict="true">
                             <option value>{{ trans('global.all') }}</option>
                             @foreach(App\Models\Test::STATUS_SELECT as $key => $item)
                                 <option value="{{ $key }}">{{ $item }}</option>
@@ -151,53 +155,57 @@
                         </select>
                     </td>
                     <td>
-                        <select class="search form-control form-control-sm">
+                        <select class="search form-control  form-control-sm">
                             <option value>{{ trans('global.all') }}</option>
                             @foreach($services as $key => $item)
                                 <option value="{{ $item->name }}">{{ $item->name }}</option>
                             @endforeach
                         </select>
                     </td>
-                    <td>
-                    </td>
 
                     <td>
-                        <input class="search form-control form-control-sm" type="text" placeholder="{{ trans('global.search') }}">
+                        <input class="search form-control  form-control-sm" type="text" placeholder="{{ trans('global.search') }}">
                     </td>
                     <td>
-                        <input class="search form-control form-control-sm" type="text" placeholder="{{ trans('global.search') }}">
+                        <input class="search form-control  form-control-sm" type="text" placeholder="{{ trans('global.search') }}">
                     </td>
                     <td>
-                        <input class="search form-control form-control-sm" type="text" placeholder="{{ trans('global.search') }}">
+                        <input class="search form-control  form-control-sm" type="text" placeholder="{{ trans('global.search') }}">
                     </td>
                     <td>
-                        <input class="search form-control form-control-sm" type="text" placeholder="{{ trans('global.search') }}">
+                        <input class="search form-control  form-control-sm" type="text" placeholder="{{ trans('global.search') }}">
                     </td>
                     <td>
-                        <input class="search form-control form-control-sm" type="text" placeholder="{{ trans('global.search') }}">
+{{--                        <input class="search form-control  form-control-sm" type="text" placeholder="{{ trans('global.search') }}">--}}
                     </td>
                     <td>
-                        <input class="search form-control form-control-sm" type="text" placeholder="{{ trans('global.search') }}">
+{{--                        <input class="search form-control  form-control-sm" type="text" placeholder="{{ trans('global.search') }}">--}}
                     </td>
                     <td>
-                        <input class="search form-control form-control-sm " type="text" placeholder="{{ trans('global.search') }}">
+{{--                        <input class="search form-control  form-control-sm" type="text" placeholder="{{ trans('global.search') }}">--}}
+                    </td>
+                    <td>
+                        <input class="search form-control  form-control-sm" type="text" placeholder="{{ trans('global.search') }}">
+                    </td>
+                    <td>
+                        <input class="search form-control  form-control-sm " type="text" placeholder="{{ trans('global.search') }}">
                     </td>
                     <td>
                     </td>
                     <td>
-                        <input class="search form-control form-control-sm " type="text" placeholder="{{ trans('global.search') }}">
+                        <input class="search form-control  form-control-sm " type="text" placeholder="{{ trans('global.search') }}">
                     </td>
                     <td>
-                        <input class="search form-control form-control-sm " type="text" placeholder="{{ trans('global.search') }}">
+                        <input class="search form-control  form-control-sm " type="text" placeholder="{{ trans('global.search') }}">
                     </td>
                     <td>
-                        <input class="search form-control form-control-sm " type="text" placeholder="{{ trans('global.search') }}">
+                        <input class="search form-control  form-control-sm " type="text" placeholder="{{ trans('global.search') }}">
                     </td>
                     <td>
-                        <input class="search form-control form-control-sm " type="text" placeholder="{{ trans('global.search') }}">
+                        <input class="search form-control  form-control-sm " type="text" placeholder="{{ trans('global.search') }}">
                     </td>
                     <td>
-                        <select class="search form-control form-control-sm" strict="true">
+                        <select class="search form-control  form-control-sm" strict="true">
                             <option value>{{ trans('global.all') }}</option>
                             @foreach(App\Models\Test::SYMPTOMS_SELECT as $key => $item)
                                 <option value="{{ $key }}">{{ $item }}</option>
@@ -205,10 +213,10 @@
                         </select>
                     </td>
                     <td>
-                        <input class="search form-control form-control-sm" type="text" placeholder="{{ trans('global.search') }}">
+{{--                        <input class="search form-control  form-control-sm" type="text" placeholder="{{ trans('global.search') }}">--}}
                     </td>
                     <td>
-                        <select class="search form-control form-control-sm" strict="true">
+                        <select class="search form-control  form-control-sm" strict="true">
                             <option value>{{ trans('global.all') }}</option>
                             @foreach(App\Models\Test::RESULT_STATUS_SELECT as $key => $item)
                                 <option value="{{ $key }}">{{ $item }}</option>
@@ -216,7 +224,7 @@
                         </select>
                     </td>
                     <td>
-                        <select class="search form-control form-control-sm" strict="true">
+                        <select class="search form-control  form-control-sm" strict="true">
                             <option value>{{ trans('global.all') }}</option>
                             @foreach(App\Models\Test::RESULT_TEST_NAME_SELECT as $key => $item)
                                 <option value="{{ $key }}">{{ $item }}</option>
@@ -224,7 +232,7 @@
                         </select>
                     </td>
                     <td>
-                        <select class="search form-control form-control-sm" strict="true">
+                        <select class="search form-control  form-control-sm" strict="true">
                             <option value>{{ trans('global.all') }}</option>
                             @foreach(App\Models\Test::RESULT_TEST_MANUFACTURER_SELECT as $key => $item)
                                 <option value="{{ $key }}">{{ $item }}</option>
@@ -232,7 +240,7 @@
                         </select>
                     </td>
                     <td>
-                        <select class="search form-control form-control-sm" strict="true">
+                        <select class="search form-control  form-control-sm" strict="true">
                             <option value>{{ trans('global.all') }}</option>
                             @foreach(App\Models\Test::RESULT_DIAGNOSIS_SELECT as $key => $item)
                                 <option value="{{ $key }}">{{ $item }}</option>
@@ -240,7 +248,7 @@
                         </select>
                     </td>
                     <td>
-                        <select class="search form-control form-control-sm">
+                        <select class="search form-control  form-control-sm">
                             <option value>{{ trans('global.all') }}</option>
                             @foreach($centres as $key => $item)
                                 <option value="{{ $item->name }}">{{ $item->name }}</option>
@@ -248,13 +256,13 @@
                         </select>
                     </td>
                     <td>
-                        <input class="search form-control form-control-sm " type="text" placeholder="{{ trans('global.search') }}">
+                        <input class="search form-control  form-control-sm " type="text" placeholder="{{ trans('global.search') }}">
                     </td>
                     <td>
-                        <input class="search form-control form-control-sm " type="text" placeholder="{{ trans('global.search') }}">
+                        <input class="search form-control  form-control-sm " type="text" placeholder="{{ trans('global.search') }}">
                     </td>
                     <td>
-                        <input class="search form-control form-control-sm " type="text" placeholder="{{ trans('global.search') }}">
+                        <input class="search form-control  form-control-sm " type="text" placeholder="{{ trans('global.search') }}">
                     </td>
 
                 </tr>
@@ -331,19 +339,19 @@
         { data: 'status', name: 'status' },
         { data: 'service_name', name: 'service.name' },
         { data: 'firstname', name: 'firstname',
-            "render": function ( data, type, row, meta ) {
+            /*"render": function ( data, type, row, meta ) {
                 return row.firstname+'&nbsp;'+row.lastname;
-            }
+            }*/
         },
-        // { data: 'lastname', name: 'lastname' },
+        { data: 'lastname', name: 'lastname' },
         { data: 'email', name: 'email' },
         { data: 'phone', name: 'phone' },
-        { data: 'created_at', name: 'created_at' },
-        { data: 'start', name: 'start' },
-        { data: 'end', name: 'end' },
+        { data: 'created_at', name: 'created_at', searchable: false },
+        { data: 'start', name: 'start', searchable: false },
+        { data: 'end', name: 'end', searchable: false },
         { data: 'pinrc', name: 'pinrc' },
         { data: 'pinid', name: 'pinid' },
-        { data: 'dob', name: 'dob' },
+        { data: 'dob', name: 'dob', searchable: false },
         { data: 'street', name: 'street' },
         { data: 'city', name: 'city' },
         { data: 'postal', name: 'postal' },

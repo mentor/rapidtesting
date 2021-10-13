@@ -228,10 +228,10 @@
                 @endcan
                 {
                     className: 'btn-default',
-                    text: 'Zrušiť Filtre',
+                    text: 'Zrušiť filtrovanie',
                     action: function ( e, dt, node, config ) {
                         dt.search("").columns().search("").draw();
-                        $("thead select").val("");
+                        $("thead .search").val("");
                     }
                 },
                 {
@@ -344,7 +344,7 @@
     ]
   });
 
-  $.fn.dataTable.ext.classes.sPageButton = '';
+  //$.fn.dataTable.ext.classes.sPageButton = '';
 });
 
     </script>

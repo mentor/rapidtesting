@@ -1,7 +1,7 @@
 <div class="card">
-    <div class="card-header font-weight-bold">
+<!--    <div class="card-header font-weight-bold">
         {{ trans('cruds.test.title_edit_result') }}
-    </div>
+    </div>-->
 
     <div class="card-body">
 

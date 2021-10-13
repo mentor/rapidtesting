@@ -7,6 +7,7 @@ use App\Http\Controllers\Traits\CsvImportTrait;
 use App\Http\Requests\MassDestroyTestRequest;
 use App\Http\Requests\StoreTestRequest;
 use App\Http\Requests\UpdateTestRequest;
+use App\Mail\TestCompleted;
 use App\Models\Centre;
 use App\Models\Service;
 use App\Models\Test;
@@ -80,10 +81,29 @@ class TestController extends Controller
             $table->editColumn('phone', function ($row) {
                 return $row->phone ? $row->phone : '';
             });
+
+            $table->editColumn('dob', function ($row) {
+                return $row->dob ? Carbon::createFromFormat(
+                    config('panel.date_format'),
+                    $row->dob)->tz('Europe/Bratislava')->format('d/m/Y') : '';
+            });
+
             $table->editColumn('created_at', function ($row) {
                 return $row->created_at ? Carbon::createFromFormat(
                     config('panel.date_format') . ' ' . config('panel.time_format'),
-                    $row->created_at)->tz('Europe/Bratislava')->format('m.d.Y H:i:s') : '';
+                    $row->created_at)->tz('Europe/Bratislava')->format('d/m/Y H:i:s') : '';
+            });
+
+            $table->editColumn('start', function ($row) {
+                return $row->start ? Carbon::createFromFormat(
+                    config('panel.date_format') . ' ' . config('panel.time_format'),
+                    $row->start)->tz('Europe/Bratislava')->format('d/m/Y H:i:s') : '';
+            });
+
+            $table->editColumn('end', function ($row) {
+                return $row->end ? Carbon::createFromFormat(
+                    config('panel.date_format') . ' ' . config('panel.time_format'),
+                    $row->end)->tz('Europe/Bratislava')->format('d/m/Y H:i:s') : '';
             });
 
             $table->editColumn('street', function ($row) {
@@ -114,6 +134,13 @@ class TestController extends Controller
             $table->editColumn('result_diagnosis', function ($row) {
                 return $row->result_diagnosis ? Test::RESULT_DIAGNOSIS_SELECT[$row->result_diagnosis] : '';
             });
+
+            $table->editColumn('result_date', function ($row) {
+                return $row->result_date ? Carbon::createFromFormat(
+                    config('panel.date_format') . ' ' . config('panel.time_format'),
+                    $row->result_date)->tz('Europe/Bratislava')->format('d/m/Y H:i:s') : '';
+            });
+
             $table->addColumn('centre_name', function ($row) {
                 return $row->centre ? $row->centre->name : '';
             });
@@ -207,30 +234,21 @@ class TestController extends Controller
 
     public function email(Request $request, $code_ref)
     {
-        $payload = Test::firstWhere('code_ref', $code_ref);
+        $test = Test::where('code_ref', $code_ref)->firstOrFail();
+        abort_if(!$test->isTested(), Response::HTTP_FORBIDDEN,'403 Forbidden');
 
-        abort_if(!$payload, Response::HTTP_NOT_FOUND,'404 Not Found');
-        abort_if(!$payload->isTested(), Response::HTTP_FORBIDDEN,'403 Forbidden');
+        Mail::to($test)->send(new TestCompleted($test));
 
-        $to_name = $payload->firstname . ' ' . $payload->lastname;
-        $to_email = $payload->email;
-
-        Mail::send('emails.verify', compact('payload'), function($message) use ($payload, $to_name, $to_email) {
-            $message->to($to_email, $to_name)
-                ->subject("Výsledok laboratórneho vyšetrenia COVID-19 ({$payload->code_ref})");
-        });
-
-        return view('admin.tests.email', compact('payload'));
+        return view('admin.tests.email', compact('test'));
     }
 
     public function pdf(Request $request, $code_ref)
     {
-        $payload = Test::firstWhere('code_ref', $code_ref);
-        if (!$payload || !$payload->isTested()) {
-            abort(404);
-        }
+        $test = Test::where('code_ref', $code_ref)->firstOrFail();
+        abort_if(!$test->isTested(), Response::HTTP_FORBIDDEN,'403 Forbidden');
+
         $qrcode = base64_encode(QrCode::format('png')->size(200)->generate(route('verify', $code_ref)));
-        $pdf = PDF::loadView('certificate', compact('payload', 'qrcode'));
+        $pdf = PDF::loadView('certificate', compact('test', 'qrcode'));
 
         return $pdf->download($code_ref . '.pdf');
     }

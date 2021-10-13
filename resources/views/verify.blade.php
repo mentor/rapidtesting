@@ -114,10 +114,10 @@
         <div class="clearfix"></div>
         @if($isPinRC)
             <p class="paragraph">Pre zobrazenie a stiahnutie PDF certifikátu s výsledkom Vašeho testu zadajte heslo.
-                Prístupové heslo pre stiahnutie certifikátu je Vaše rodné číslo.</p>
+                Prístupové heslo pre stiahnutie certifikátu je Vaše <b>rodné číslo.</b></p>
         @else
             <p class="paragraph">Pre zobrazenie a stiahnutie PDF certifikátu s výsledkom Vašeho testu zadajte heslo.
-                Prístupové heslo pre stiahnutie certifikátu je číslo Vašeho dokladu, ktoré ste zadali pri registrácií.</p>
+                Prístupové heslo pre stiahnutie certifikátu je <b>číslo Vašeho dokladu</b>, ktoré ste zadali pri registrácií.</p>
         @endif
 
         <div class="form">

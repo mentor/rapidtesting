@@ -99,19 +99,19 @@
 <table class="table" style="width:100%; border:0; padding: 10px 10px 10px 10px;">
     <tr>
         <td class="first">Meno / Name / Vor-und- Nachname:</td>
-        <td>{{ $payload->firstname }} {{ $payload->lastname}}</td>
+        <td>{{ $test->firstname }} {{ $test->lastname}}</td>
     </tr>
     <tr>
         <td class="first">Rodné číslo / Social Security Number / Sozialversiecherungsnummer:</td>
-        <td>@if($payload->pinrc) {{ $payload->pinrc }} @else N/A @endif</td>
+        <td>@if($test->pinrc) {{ $test->pinrc }} @else N/A @endif</td>
     </tr>
     <tr>
         <td class="first">Dátum narodenia / Date of birth / Geburtsdatum:</td>
-        <td>{{ \Carbon\Carbon::parse($payload->dob)->format('d.m.Y') }}</td>
+        <td>{{ \Carbon\Carbon::parse($test->dob)->format('d/m/Y') }}</td>
     </tr>
     <tr>
         <td class="first">Číslo dokladu / ID number / ID-Passnummer:</td>
-        <td>{{ $payload->pinid }}</td>
+        <td>{{ $test->pinid }}</td>
     </tr>
 </table>
 
@@ -120,27 +120,27 @@
 <table class="table" style="width:100%; border:0; padding: 10px 10px 10px 10px;">
     <tr>
         <td class="first">Diagnóza / Diagnosis / Diagnose:</td>
-        <td>{{ \App\Models\Test::RESULT_DIAGNOSIS_SELECT[$payload->result_diagnosis] }}</td>
+        <td>{{ \App\Models\Test::RESULT_DIAGNOSIS_SELECT[$test->result_diagnosis] }}</td>
     </tr>
     <tr>
         <td class="first">Type testu / Test type / Testart:</td>
-        <td>{{ $payload->service->name }}</td>
+        <td>{{ $test->service->name }}</td>
     </tr>
     <tr>
         <td class="first">Názov testu / Test name / Testname:</td>
-        <td>{{ \App\Models\Test::RESULT_TEST_NAME_SELECT[$payload->result_test_name] }}</td>
+        <td>{{ \App\Models\Test::RESULT_TEST_NAME_SELECT[$test->result_test_name] }}</td>
     </tr>
     <tr>
         <td class="first">Výrobca testu / Test manufacturer / Hersteller:</td>
-        <td>{{ \App\Models\Test::RESULT_TEST_MANUFACTURER_SELECT[$payload->result_test_manufacturer] }}</td>
+        <td>{{ \App\Models\Test::RESULT_TEST_MANUFACTURER_SELECT[$test->result_test_manufacturer] }}</td>
     </tr>
     <tr>
         <td class="first">Odberové miesto / Medical Centre / Medizinisches Zentrum:</td>
-        <td>{{ $payload->centre->name }}</td>
+        <td>{{ $test->centre->name }}</td>
     </tr>
     <tr>
         <td class="first">Čas odberu / Time of Test / Datum und Uhrzeit der Testung:</td>
-        <td>{{ \Carbon\Carbon::parse($payload->end)->format('d.m.Y H:i:s') }}</td>
+        <td>{{ \Carbon\Carbon::parse($test->end)->format('d/m/Y H:i:s') }}</td>
     </tr>
 </table>
 
@@ -154,7 +154,7 @@
 </table>
 
 <div class="stripe text-center bold">
-    <span>Výsledok / Result / Ergebnis:</span><span style="padding-left: 20px">@if($payload->result_status == 'positive')
+    <span>Výsledok / Result / Ergebnis:</span><span style="padding-left: 20px">@if($test->result_status == 'positive')
             Pozitívny / Positive @else Negatívny / Negative @endif</span>
 </div>
 

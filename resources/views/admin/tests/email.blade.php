@@ -8,7 +8,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <p>Email s odkazom na certifikát {{ $payload->code_ref }} bol odoslaný na adresu {{ $payload->email }}.</p>
+                <p>Email s odkazom na certifikát {{ $test->code_ref }} bol odoslaný na adresu {{ $test->email }}.</p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
