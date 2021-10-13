@@ -2,9 +2,9 @@
 @section('content')
 <h3 class="page-title">{{ trans('global.systemCalendar') }}</h3>
 <div class="card">
-    <div class="card-header">
+<!--    <div class="card-header">
         {{ trans('global.systemCalendar') }}
-    </div>
+    </div>-->
 
     <div class="card-body">
 {{--        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.css' />--}}
@@ -29,7 +29,7 @@
         events={!! json_encode($events) !!};
         var calendar = new FullCalendar.Calendar(document.getElementById('calendar'),{
             locale: 'sk',
-            initialView: 'listWeek',
+            initialView: 'listDay',
             headerToolbar: {
                 left: 'prev,next today',
                 center: 'title',

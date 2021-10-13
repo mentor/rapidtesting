@@ -15,14 +15,25 @@ class SystemCalendarController extends Controller
             'prefix'     => '',
             'suffix'     => '',
             'route'      => 'admin.tests.edit',
+            'scope'      => 'centre'
         ],
     ];
 
     public function index()
     {
+
         $events = [];
         foreach ($this->sources as $source) {
-            foreach ($source['model']::all() as $model) {
+            $scoped = false;
+            if (!empty($source['scope']) && (request()->user()->{$source['scope']})) {
+                $scoped = true;
+                $list = $source['model']
+                    ::where($source['scope'].'_id', request()->user()->{$source['scope']}->id)
+                    ->get();
+            } else {
+                $list = $source['model']::all();
+            }
+            foreach ($list as $model) {
                 $crudFieldValue = $model->getAttributes()[$source['date_field']];
 
                 if (!$crudFieldValue) {
@@ -30,7 +41,11 @@ class SystemCalendarController extends Controller
                 }
 
                 $events[] = [
-                    'title' => trim($source['prefix'] . ' ' . $model->{$source['field']} . ' | ' . $model->firstname . ' ' . $model->lastname . ' ' . $source['suffix']),
+                    'title' => trim($source['prefix']
+                        . ' ' . $model->{$source['field']}
+                        . ' | ' . $model->name
+                        . ($scoped ?  '' : ' | ' . $model->centre->name)
+                        . $source['suffix']),
                     'start' => $crudFieldValue,
                     'url'   => route($source['route'], $model->id),
                 ];

@@ -37,10 +37,11 @@
         </div>
     </div>
 @endcan
+<h3 class="page-title">{{ trans('cruds.test.title_singular') }}</h3>
 <div class="card">
-    <div class="card-header">
+<!--    <div class="card-header">
         {{ trans('cruds.test.title_singular') }} {{ trans('global.list') }}
-    </div>
+    </div>-->
 
     <div class="card-body">
         <table class=" table table-striped table-hover ajaxTable datatable datatable-Test">
