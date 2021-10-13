@@ -9,18 +9,23 @@
 
         <div class="form-group">
             <label class="required" for="centre_id">{{ trans('cruds.test.fields.centre') }}</label>
-            <div>{{ $test->centre->name }}</div>
-            {{--            <select readonly class="form-control select2 {{ $errors->has('centre') ? 'is-invalid' : '' }}" name="centre_id" id="centre_id" required>--}}
-            {{--                @foreach($centres as $id => $entry)--}}
-            {{--                    <option value="{{ $id }}" {{ (old('centre_id') ? old('centre_id') : $test->centre->id ?? '') == $id ? 'selected' : '' }}>{{ $entry }}</option>--}}
-            {{--                @endforeach--}}
-            {{--            </select>--}}
+        @can('centre_edit')
+            <select name="centre_id" id="centre_id" required class="form-control select2 {{ $errors->has('centre') ? 'is-invalid' : '' }}" >
+                @foreach($centres as $id => $entry)
+                    <option value="{{ $id }}" {{ old('centre_id', $test->centre_id) == $id ? 'selected' : '' }}>{{ $entry }}</option>
+                @endforeach
+            </select>
             @if($errors->has('centre'))
                 <div class="invalid-feedback">
                     {{ $errors->first('centre') }}
                 </div>
             @endif
+        @else
+            <div>{{ $test->centre->name }}</div>
+<!--            <span class="fa fa-question" data-toggle="tooltip" data-placement="top" title="{{ trans('cruds.test.fields.centre_tooltip') }}"></span>-->
+                <em class="small">{{ trans('cruds.test.fields.centre_tooltip') }}</em>
 
+        @endcan
         </div>
 
         <div class="form-group">

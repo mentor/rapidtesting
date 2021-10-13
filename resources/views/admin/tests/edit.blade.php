@@ -16,8 +16,8 @@
         </div>
     </nav>
     <div class="tab-content" id="nav-tabContent">
-        <div class="tab-pane fade show active" id="nav-test-result" role="tabpanel" aria-labelledby="nav-test-result-tab">@include('partials.test-result-info')</div>
-        <div class="tab-pane fade" id="nav-test-user" role="tabpanel" aria-labelledby="nav-test-user-tab">@include('partials.test-user-info')</div>
+        <div class="tab-pane fade show active" id="nav-test-result" role="tabpanel" aria-labelledby="nav-test-result-tab">@include('admin.tests.partials.test-result-info')</div>
+        <div class="tab-pane fade" id="nav-test-user" role="tabpanel" aria-labelledby="nav-test-user-tab">@include('admin.tests.partials.test-user-info')</div>
     </div>
 
     <div class="row">

@@ -174,6 +174,7 @@ return [
             'result_diagnosis'                => 'Diagnóza',
             'result_diagnosis_helper'         => 'Diagnosis',
             'centre'                          => 'Odberové stredisko',
+            'centre_tooltip'                  => 'V pripade požiadavku na zmenu odberového strediska kontaktujte prosim Administratora',
             'centre_helper'                   => 'Centre',
             'start'                           => 'Začiatok',
             'start_helper'                    => 'Start Date of Test',
