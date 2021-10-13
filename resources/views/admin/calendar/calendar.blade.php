@@ -7,7 +7,8 @@
     </div>
 
     <div class="card-body">
-        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.css' />
+{{--        <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.css' />--}}
+        <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/main.min.css' />
 
         <div id='calendar'></div>
     </div>
@@ -20,16 +21,41 @@
 @section('scripts')
 @parent
 <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.js'></script>
+{{--<script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.js'></script>--}}
+<script src='https://cdn.jsdelivr.net/npm/fullcalendar@5.9.0/main.min.js'></script>
 <script>
     $(document).ready(function () {
-            // page is now ready, initialize the calendar...
-            events={!! json_encode($events) !!};
-            $('#calendar').fullCalendar({
-                // put your options and callbacks here
-                events: events,
+        // page is now ready, initialize the calendar...
+        events={!! json_encode($events) !!};
+        var calendar = new FullCalendar.Calendar(document.getElementById('calendar'),{
+            locale: 'sk',
+            initialView: 'listWeek',
+            headerToolbar: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'listDay,listWeek,dayGridMonth'
+            },
+            buttonText: {
+                today:    'dnes',
+            },
+            views: {
 
-            })
+                listDay: {
+                    buttonText: 'deň'
+                },
+                listWeek: {
+                    buttonText: 'týždeň'
+                },
+                dayGridMonth: {
+                    buttonText: 'mesiac'
+                },
+            },
+            // put your options and callbacks here
+            events: events,
+
         });
+        console.log(calendar);
+        calendar.render();
+    });
 </script>
 @stop
