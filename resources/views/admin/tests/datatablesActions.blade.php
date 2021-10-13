@@ -1,5 +1,4 @@
-
-    <div class="btn-group" role="group" aria-label="Toolbar with buttons">
+<div class="btn-group" role="group" aria-label="Toolbar with buttons">
     @can($viewGate)
        {{-- <a class="btn btn-xs btn-primary" href="{{ route('admin.' . $crudRoutePart . '.show', $row->id) }}">
             {{ trans('global.view') }}
@@ -31,5 +30,5 @@
             </button>
         </form>
     @endcan
-    </div>
+</div>
 
