@@ -16,7 +16,7 @@
     @endif
 
     @if($row->isTested())
-            <a title="{{ trans('global.pdf') }}" class="btn btn-ghost-dark" href="{{ route('admin.' . $crudRoutePart . '.pdf', $row->code_ref) }}">
+            <a title="{{ trans('global.pdf') }}" target="_blank" class="btn btn-ghost-dark" href="{{ route('admin.' . $crudRoutePart . '.pdf', $row->code_ref) }}">
                 <span class="btn-icon fa fa-print fa-lg"></span>
             </a>
     @endif

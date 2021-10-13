@@ -73,6 +73,6 @@ class VerifyController extends Controller
         $qrcode = base64_encode(QrCode::format('png')->size(200)->generate(route('verify', $code_ref)));
         $pdf = PDF::loadView('certificate', compact('test', 'qrcode'));
 
-        return $pdf->download($code_ref . '.pdf');
+        return $pdf->stream($code_ref . '.pdf');
     }
 }
