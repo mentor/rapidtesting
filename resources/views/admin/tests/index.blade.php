@@ -1,59 +1,36 @@
 @extends('layouts.admin')
+
+@include('admin.tests.partials.email-send-modal')
+
 @section('content')
 
-    <!-- Modal -->
-    <div class="modal fade" id="sendEmailModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Odoslať Certifikát</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    Skutočne si prajete odoslať email s certifikátom?
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Zavrieť</button>
-                    <button type="button" class="btn btn-primary" id="sendEmail" data-dismiss="modal">Odoslať email</button>
+    <h3 class="page-title">{{ trans('cruds.test.title_singular') }}</h3>
+    <div class="card">
+        @can('test_create')
+            <div class="card-header">
+                <div class="text-right">
+                        <a class="btn btn-success" href="{{ route('admin.tests.create') }}">
+                            {{ trans('global.add') }} {{ trans('cruds.test.title_singular') }}
+                        </a>
+                        <button class="btn btn-warning" data-toggle="modal" data-target="#csvImportModal">
+                            {{ trans('global.app_csvImport') }}
+                        </button>
+                        @include('csvImport.modal', ['model' => 'Test', 'route' => 'admin.tests.parseCsvImport'])
                 </div>
             </div>
-        </div>
-    </div>
+        @endcan
 
-    <div id="sendEmailResponseModal"></div>
+        <div class="card-body">
+            <table class=" table table-striped table-hover ajaxTable datatable datatable-Test">
+                <thead>
+                <tr class="header-row">
+                    {{--                    <th width="10">--}}
 
-@can('test_create')
-    <div style="margin-bottom: 10px;" class="row">
-        <div class="col-lg-12">
-            <a class="btn btn-success" href="{{ route('admin.tests.create') }}">
-                {{ trans('global.add') }} {{ trans('cruds.test.title_singular') }}
-            </a>
-            <button class="btn btn-warning" data-toggle="modal" data-target="#csvImportModal">
-                {{ trans('global.app_csvImport') }}
-            </button>
-            @include('csvImport.modal', ['model' => 'Test', 'route' => 'admin.tests.parseCsvImport'])
-        </div>
-    </div>
-@endcan
-<h3 class="page-title">{{ trans('cruds.test.title_singular') }}</h3>
-<div class="card">
-<!--    <div class="card-header">
-        {{ trans('cruds.test.title_singular') }} {{ trans('global.list') }}
-    </div>-->
-
-    <div class="card-body">
-        <table class=" table table-striped table-hover ajaxTable datatable datatable-Test">
-            <thead>
-                <tr>
-{{--                    <th width="10">--}}
-
-{{--                    </th>--}}
+                    {{--                    </th>--}}
                     <th>
                         &nbsp;{{ trans('global.actions') }}
                     </th>
-<!--                    <th>
+                <!--                    <th>
                         {{ trans('cruds.test.fields.id') }}
                     </th>-->
                     <th>
@@ -71,7 +48,7 @@
                     <th>
                         {{ trans('cruds.test.fields.lastname') }}
                     </th>
-                    <th >
+                    <th>
                         {{ trans('cruds.test.fields.email') }}
                     </th>
                     <th>
@@ -139,16 +116,19 @@
                         {{ trans('cruds.test.fields.insurance_company') }}
                     </th>
                 </tr>
-                <tr>
+                <tr class="filter-row">
                     <td>
-
+                        <button title="Zrušiť filtrovanie" class="btn btn-ghost-dark js-reset-filters" >
+                        <svg aria-hidden="true" focusable="false" height="18px" data-icon="filter-circle-xmark" class="svg-inline--fa fa-filter-circle-xmark" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M382.8 199.1l121.9-146.1C521.1 31.28 506.8 0 479.3 0H32.7C5.213 0-9.965 31.28 7.375 52.19L192 274.8V368c0 7.828 3.812 15.17 10.25 19.66l66.88 46.8C260.7 413.9 256 391.5 256 368C256 288.1 309.6 220.5 382.8 199.1zM432 224C352.5 224 288 288.5 288 368s64.47 144 144 144s144-64.47 144-144S511.5 224 432 224zM488.5 401.9c6.242 6.242 6.252 16.37 .0098 22.62c-6.24 6.242-16.37 6.231-22.62-.0113l-33.91-33.91l-33.91 33.91c-6.242 6.242-16.37 6.253-22.62 .0106s-6.232-16.37 .0098-22.62l33.91-33.91l-33.91-33.91c-6.242-6.242-6.251-16.37-.009-22.62s16.37-6.232 22.62 .0106l33.91 33.91l33.91-33.91c6.242-6.242 16.37-6.254 22.61-.0113s6.233 16.37-.009 22.62l-33.91 33.91L488.5 401.9z"></path></svg>
+                        </button>
                     </td>
 
                     <td>
-                        <input class="search form-control  form-control-sm" type="text" placeholder="{{ trans('global.search') }}">
+                        <input class="search form-control  form-control-sm" type="text"
+                               placeholder="{{ trans('global.search') }}">
                     </td>
                     <td>
-                        <select class="search form-control  form-control-sm" strict="true">
+                        <select class="search form-control  form-control-sm">
                             <option value>{{ trans('global.all') }}</option>
                             @foreach(App\Models\Test::STATUS_SELECT as $key => $item)
                                 <option value="{{ $key }}">{{ $item }}</option>
@@ -165,48 +145,58 @@
                     </td>
 
                     <td>
-                        <input class="search form-control  form-control-sm" type="text" placeholder="{{ trans('global.search') }}">
+                        <input class="search form-control  form-control-sm" type="text"
+                               placeholder="{{ trans('global.search') }}">
                     </td>
                     <td>
-                        <input class="search form-control  form-control-sm" type="text" placeholder="{{ trans('global.search') }}">
+                        <input class="search form-control  form-control-sm" type="text"
+                               placeholder="{{ trans('global.search') }}">
                     </td>
                     <td>
-                        <input class="search form-control  form-control-sm" type="text" placeholder="{{ trans('global.search') }}">
+                        <input class="search form-control  form-control-sm" type="text"
+                               placeholder="{{ trans('global.search') }}">
                     </td>
                     <td>
-                        <input class="search form-control  form-control-sm" type="text" placeholder="{{ trans('global.search') }}">
+                        <input class="search form-control  form-control-sm" type="text"
+                               placeholder="{{ trans('global.search') }}">
                     </td>
                     <td>
-{{--                        <input class="search form-control  form-control-sm" type="text" placeholder="{{ trans('global.search') }}">--}}
+                        {{--                        <input class="search form-control  form-control-sm" type="text" placeholder="{{ trans('global.search') }}">--}}
                     </td>
                     <td>
-{{--                        <input class="search form-control  form-control-sm" type="text" placeholder="{{ trans('global.search') }}">--}}
+                        {{--                        <input class="search form-control  form-control-sm" type="text" placeholder="{{ trans('global.search') }}">--}}
                     </td>
                     <td>
-{{--                        <input class="search form-control  form-control-sm" type="text" placeholder="{{ trans('global.search') }}">--}}
+                        {{--                        <input class="search form-control  form-control-sm" type="text" placeholder="{{ trans('global.search') }}">--}}
                     </td>
                     <td>
-                        <input class="search form-control  form-control-sm" type="text" placeholder="{{ trans('global.search') }}">
+                        <input class="search form-control  form-control-sm" type="text"
+                               placeholder="{{ trans('global.search') }}">
                     </td>
                     <td>
-                        <input class="search form-control  form-control-sm " type="text" placeholder="{{ trans('global.search') }}">
+                        <input class="search form-control  form-control-sm " type="text"
+                               placeholder="{{ trans('global.search') }}">
                     </td>
                     <td>
                     </td>
                     <td>
-                        <input class="search form-control  form-control-sm " type="text" placeholder="{{ trans('global.search') }}">
+                        <input class="search form-control  form-control-sm " type="text"
+                               placeholder="{{ trans('global.search') }}">
                     </td>
                     <td>
-                        <input class="search form-control  form-control-sm " type="text" placeholder="{{ trans('global.search') }}">
+                        <input class="search form-control  form-control-sm " type="text"
+                               placeholder="{{ trans('global.search') }}">
                     </td>
                     <td>
-                        <input class="search form-control  form-control-sm " type="text" placeholder="{{ trans('global.search') }}">
+                        <input class="search form-control  form-control-sm " type="text"
+                               placeholder="{{ trans('global.search') }}">
                     </td>
                     <td>
-                        <input class="search form-control  form-control-sm " type="text" placeholder="{{ trans('global.search') }}">
+                        <input class="search form-control  form-control-sm " type="text"
+                               placeholder="{{ trans('global.search') }}">
                     </td>
                     <td>
-                        <select class="search form-control  form-control-sm" strict="true">
+                        <select class="search form-control  form-control-sm">
                             <option value>{{ trans('global.all') }}</option>
                             @foreach(App\Models\Test::SYMPTOMS_SELECT as $key => $item)
                                 <option value="{{ $key }}">{{ $item }}</option>
@@ -214,10 +204,10 @@
                         </select>
                     </td>
                     <td>
-{{--                        <input class="search form-control  form-control-sm" type="text" placeholder="{{ trans('global.search') }}">--}}
+                        {{--                        <input class="search form-control  form-control-sm" type="text" placeholder="{{ trans('global.search') }}">--}}
                     </td>
                     <td>
-                        <select class="search form-control  form-control-sm" strict="true">
+                        <select class="search form-control  form-control-sm">
                             <option value>{{ trans('global.all') }}</option>
                             @foreach(App\Models\Test::RESULT_STATUS_SELECT as $key => $item)
                                 <option value="{{ $key }}">{{ $item }}</option>
@@ -225,7 +215,7 @@
                         </select>
                     </td>
                     <td>
-                        <select class="search form-control  form-control-sm" strict="true">
+                        <select class="search form-control  form-control-sm">
                             <option value>{{ trans('global.all') }}</option>
                             @foreach(App\Models\Test::RESULT_TEST_NAME_SELECT as $key => $item)
                                 <option value="{{ $key }}">{{ $item }}</option>
@@ -233,7 +223,7 @@
                         </select>
                     </td>
                     <td>
-                        <select class="search form-control  form-control-sm" strict="true">
+                        <select class="search form-control  form-control-sm">
                             <option value>{{ trans('global.all') }}</option>
                             @foreach(App\Models\Test::RESULT_TEST_MANUFACTURER_SELECT as $key => $item)
                                 <option value="{{ $key }}">{{ $item }}</option>
@@ -241,7 +231,7 @@
                         </select>
                     </td>
                     <td>
-                        <select class="search form-control  form-control-sm" strict="true">
+                        <select class="search form-control  form-control-sm">
                             <option value>{{ trans('global.all') }}</option>
                             @foreach(App\Models\Test::RESULT_DIAGNOSIS_SELECT as $key => $item)
                                 <option value="{{ $key }}">{{ $item }}</option>
@@ -257,182 +247,205 @@
                         </select>
                     </td>
                     <td>
-                        <input class="search form-control  form-control-sm " type="text" placeholder="{{ trans('global.search') }}">
+                        <input class="search form-control  form-control-sm " type="text"
+                               placeholder="{{ trans('global.search') }}">
                     </td>
                     <td>
-                        <input class="search form-control  form-control-sm " type="text" placeholder="{{ trans('global.search') }}">
+                        <input class="search form-control  form-control-sm " type="text"
+                               placeholder="{{ trans('global.search') }}">
                     </td>
                     <td>
-                        <input class="search form-control  form-control-sm " type="text" placeholder="{{ trans('global.search') }}">
+                        <input class="search form-control  form-control-sm " type="text"
+                               placeholder="{{ trans('global.search') }}">
                     </td>
 
                 </tr>
-            </thead>
-        </table>
+                </thead>
+            </table>
+        </div>
     </div>
-</div>
 
 
 
 @endsection
 @section('scripts')
-@parent
-<script>
-    $(function () {
-  let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)
-@can('test_delete')
-  let deleteButtonTrans = '{{ trans('global.datatables.delete') }}';
-  let deleteButton = {
-    text: deleteButtonTrans,
-    url: "{{ route('admin.tests.massDestroy') }}",
-    className: 'btn-danger',
-    action: function (e, dt, node, config) {
-      var ids = $.map(dt.rows({ selected: true }).data(), function (entry) {
-          return entry.id
-      });
+    @parent
+    <script>
+        $(function () {
+            let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)
+            @can('test_delete')
+                let deleteButton = {
+                    text: '{{ trans('global.datatables.delete') }}',
+                    url: "{{ route('admin.tests.massDestroy') }}",
+                    className: 'btn-danger',
+                    action: function (e, dt, node, config) {
+                        let ids = $.map(dt.rows({selected: true}).data(), function (entry) {
+                            return entry.id
+                        });
 
-      if (ids.length === 0) {
-        alert('{{ trans('global.datatables.zero_selected') }}')
+                        if (ids.length === 0) {
+                            alert('{{ trans('global.datatables.zero_selected') }}')
 
-        return
-      }
+                            return
+                        }
 
-      if (confirm('{{ trans('global.areYouSure') }}')) {
-        $.ajax({
-          headers: {'x-csrf-token': _token},
-          method: 'POST',
-          url: config.url,
-          data: { ids: ids, _method: 'DELETE' }})
-          .done(function () { location.reload() })
-      }
-    }
-  }
-  dtButtons.push(deleteButton)
-@endcan
+                        if (confirm('{{ trans('global.areYouSure') }}')) {
+                            $.ajax({
+                                headers: {'x-csrf-token': _token},
+                                method: 'POST',
+                                url: config.url,
+                                data: {ids: ids, _method: 'DELETE'}
+                            })
+                                .done(function () {
+                                    location.reload()
+                                })
+                        }
+                    }
+                }
+                dtButtons.push(deleteButton)
+            @endcan
 
-  let dtOverrideGlobals = {
-     buttons: dtButtons,
-    //buttons: [],
-    select: false,
-      columnDefs: [
-      //     {
-      //     orderable: false,
-      //     searchable: false,
-      //     targets: -1
-      // }
-      ],
-    processing: true,
-    serverSide: true,
-    retrieve: true,
-    aaSorting: [],
-      ajax: "{{ route('admin.tests.index') }}",
-    columns: [
-        // { data: 'placeholder', name: 'placeholder' },
-        { data: 'actions', name: '{{ trans('global.actions') }}', searchable: false, orderable: false },
-        // { data: 'id', name: 'id' },
-        { data: 'code_ref', name: 'code_ref',
-        @can('test_show')
-            "render": function ( data, type, row, meta ) {
-                return '<a href="/admin/tests/' + row.id + '">' + row.code_ref + '</a>';
-            },
-        @endcan
-        },
-        { data: 'status', name: 'status' },
-        { data: 'service_name', name: 'service.name' },
-        { data: 'firstname', name: 'firstname',
-            /*"render": function ( data, type, row, meta ) {
-                return row.firstname+'&nbsp;'+row.lastname;
-            }*/
-        },
-        { data: 'lastname', name: 'lastname' },
-        { data: 'email', name: 'email' },
-        { data: 'phone', name: 'phone' },
-        { data: 'created_at', name: 'created_at', searchable: false },
-        { data: 'start', name: 'start', searchable: false },
-        { data: 'end', name: 'end', searchable: false },
-        { data: 'pinrc', name: 'pinrc' },
-        { data: 'pinid', name: 'pinid' },
-        { data: 'dob', name: 'dob', searchable: false },
-        { data: 'street', name: 'street' },
-        { data: 'city', name: 'city' },
-        { data: 'postal', name: 'postal' },
-        { data: 'country', name: 'country' },
-        { data: 'symptoms', name: 'symptoms' },
-        { data: 'result_date', name: 'result_date' },
-        { data: 'result_status', name: 'result_status' },
-        { data: 'result_test_name', name: 'result_test_name' },
-        { data: 'result_test_manufacturer', name: 'result_test_manufacturer' },
-        { data: 'result_diagnosis', name: 'result_diagnosis' },
-        { data: 'centre_name', name: 'centre.name' },
-        { data: 'note', name: 'note' },
-        { data: 'reservation_id_ref', name: 'reservation_id_ref' },
-        // { data: 'code_ref', name: 'code_ref' },
-        { data: 'insurance_company', name: 'insurance_company' }
-    ],
-    orderCellsTop: true,
-    order: [[ 7, 'desc' ]],
-    pageLength: 100,
+            let dtOverrideGlobals = {
+                buttons: dtButtons,
+                select: false,
+                columnDefs: [],
+                processing: true,
+                serverSide: true,
+                retrieve: true,
+                aaSorting: [],
+                ajax: "{{ route('admin.tests.index') }}",
+                columns: [
+                    // { data: 'placeholder', name: 'placeholder' },
+                    {data: 'actions', name: '{{ trans('global.actions') }}', searchable: false, orderable: false},
+                    // { data: 'id', name: 'id' },
+                    {
+                        data: 'code_ref', name: 'code_ref',
+                        @can('test_edit')
+                        "render": function (data, type, row, meta) {
+                            return '<a class="btn btn-outline-dark" href="/admin/tests/' + row.id + '/edit">' + row.code_ref + '</a>';
+                        },
+                        @endcan
+                    },
+                    {data: 'status', name: 'status'},
+                    {data: 'service_name', name: 'service.name'},
+                    {data: 'firstname', name: 'firstname'},
+                    {data: 'lastname', name: 'lastname'},
+                    {data: 'email', name: 'email'},
+                    {data: 'phone', name: 'phone'},
+                    {data: 'created_at', name: 'created_at', searchable: false},
+                    {data: 'start', name: 'start', searchable: false},
+                    {data: 'end', name: 'end', searchable: false},
+                    {data: 'pinrc', name: 'pinrc'},
+                    {data: 'pinid', name: 'pinid'},
+                    {data: 'dob', name: 'dob', searchable: false},
+                    {data: 'street', name: 'street'},
+                    {data: 'city', name: 'city'},
+                    {data: 'postal', name: 'postal'},
+                    {data: 'country', name: 'country'},
+                    {data: 'symptoms', name: 'symptoms'},
+                    {data: 'result_date', name: 'result_date'},
+                    {data: 'result_status', name: 'result_status'},
+                    {data: 'result_test_name', name: 'result_test_name'},
+                    {data: 'result_test_manufacturer', name: 'result_test_manufacturer'},
+                    {data: 'result_diagnosis', name: 'result_diagnosis'},
+                    {data: 'centre_name', name: 'centre.name'},
+                    {data: 'note', name: 'note'},
+                    {data: 'reservation_id_ref', name: 'reservation_id_ref'},
+                    {data: 'insurance_company', name: 'insurance_company'}
+                ],
+                orderCellsTop: true,
+                order: [[8, 'desc']],
+                pageLength: 100,
 
-  };
+                "initComplete": function(settings, json) {
 
-  let table = $('.datatable-Test').DataTable(dtOverrideGlobals);
-  $('a[data-toggle="tab"]').on('shown.bs.tab click', function(e){
-      $($.fn.dataTable.tables(true)).DataTable()
-          .columns.adjust();
-  });
+                    let table = settings.oInstance.api();
+                    // let tableId = settings.sTableId;
 
-  let visibleColumnsIndexes = null;
+                    $('a[data-toggle="tab"]').on('shown.bs.tab click', function (e) {
+                        $($.fn.dataTable.tables(true)).DataTable()
+                            .columns.adjust();
+                    });
 
-  $('.datatable thead').on('input', '.search', function () {
-      let strict = $(this).attr('strict') || false
-      let value = strict && this.value ? "^" + this.value + "$" : this.value
+                    let visibleColumnsIndexes = null;
+                    table.on('column-visibility.dt', function (e, settings, column, state) {
+                        visibleColumnsIndexes = []
+                        table.columns(":visible").every(function (colIdx) {
+                            visibleColumnsIndexes.push(colIdx);
+                        });
+                    })
 
-      visibleColumnsIndexes = []
-      table.columns(":visible").every(function(colIdx) {
-          visibleColumnsIndexes.push(colIdx);
-      });
+                    $('.js-reset-filters').click(function () {
+                        table.search("").columns().search("").draw();
+                        $("thead .search").val("");
+                    });
 
-      let index = $(this).parent().index()
-      if (visibleColumnsIndexes !== null) {
-        index = visibleColumnsIndexes[index]
-      }
+                    $('.datatable thead').on('input', '.search', function () {
+                        let strict = $(this).get(0).tagName === 'SELECT' || $(this).attr('strict') || false
+                        let value = strict && this.value ? "^" + this.value + "$" : this.value
 
-      table
-        .column(index)
-        .search(value, strict)
-        .draw()
-  });
+                        visibleColumnsIndexes = []
+                        table.columns(":visible").every(function (colIdx) {
+                            visibleColumnsIndexes.push(colIdx);
+                        });
 
-  table.on('column-visibility.dt', function(e, settings, column, state) {
-      visibleColumnsIndexes = []
-      table.columns(":visible").every(function(colIdx) {
-          visibleColumnsIndexes.push(colIdx);
-      });
-  })
+                        let index = $(this).parent().index()
+                        if (visibleColumnsIndexes !== null) {
+                            index = visibleColumnsIndexes[index]
+                        }
 
-});
+                        table
+                            .column(index)
+                            .search(value, strict)
+                            .draw()
+                    });
 
-$('#sendEmailModal').on('show.bs.modal', function (event) {
-    var button = $(event.relatedTarget) // Button that triggered the modal
-    var code_ref = button.data('ref') // Extract info from data-* attributes
-    var email = button.data('email') // Extract info from data-* attributes
-    var url = button.data('url') // Extract info from data-* attributes
-    // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-    // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-    var modal = $(this);
-    modal.find('.modal-title').text('Odoslať Certifikát ' + code_ref);
-    modal.find('.modal-body').text('Skutočne si prajete odoslať certifikát na email ' + email + '?');
-    modal.find('.modal-footer #sendEmail').off('click');
-    modal.find('.modal-footer #sendEmail').on('click', function () {
 
-        $.ajax({url: url, success: function(result){
-            $('#sendEmailResponseModal').html(result);
-            $('#sendEmailResponseModal .modal').modal('show');
-        }});
 
-    });
+                    // Restore state
+                    let state = table.state.loaded();
+                    if ( state ) {
+                        table.columns().every( function (idx) {
+                            // search term
+                            let colSearch = state.columns[idx].search;
 
-})
+                            visibleColumnsIndexes = []
+                            table.columns(":visible").every(function (colIdx) {
+                                visibleColumnsIndexes.push(colIdx);
+                            });
 
-</script>
+                            // reverse index lookup based on ColReorder and ColVisibility
+                            let inputIndex = state.ColReorder.findIndex(function(val) {return val === idx });
+                            inputIndex = visibleColumnsIndexes.findIndex(function(val) {return val === inputIndex });
+
+                            // search input/select
+                            let searchElm = $('thead tr.filter-row td:eq(' + inputIndex + ') .search', $(table.table().container()));
+                            if (searchElm.length) {
+                                if (searchElm.get(0).tagName === 'SELECT') {
+                                    searchElm.val(colSearch.search.slice(1, -1));
+                                } else {
+                                    searchElm.val(colSearch.search);
+                                }
+                            }
+
+                            /*searchElm.each(function() {
+                                if (this.tagName === 'SELECT') {
+                                    this.value = colSearch.search.slice(1,-1);
+                                } else {
+                                    this.value = colSearch.search;
+                                }
+                            });*/
+
+                        });
+                    }
+
+                }
+
+            };
+
+            // attach DataTable
+            $('.datatable-Test').DataTable(dtOverrideGlobals);
+
+        });
+    </script>
 @endsection

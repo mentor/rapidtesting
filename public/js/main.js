@@ -49,7 +49,7 @@ $(document).ready(function () {
     $select2.trigger('change')
   })
 
-  $('.select2').select2()
+  $('.select2').select2({dropdownAutoWidth : true})
 
   $('.treeview').each(function () {
     var shouldExpand = false

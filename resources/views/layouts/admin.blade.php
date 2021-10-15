@@ -185,6 +185,7 @@
         header: true,
         headerOffset: $('header').outerHeight()
     },
+    scrollX: true,
     columnDefs: [{
         orderable: false,
         className: 'select-checkbox',
@@ -199,11 +200,10 @@
       selector: 'td:first-child'
     },
     order: [],
-    scrollX: true,
     pageLength: 100,
      //dom: 'lBfrtip<"actions">',
      //dom: 'flBrtip<"actions">',
-    dom: "<'row'<'col-sm-8'f><'col-sm-4 text-right'Bl>><'row'<'col-sm-12'tr>><'row'<'col-sm-12'ip>>",
+    dom: "<'row'<'col-sm-8'f><'col-sm-4 text-right'Bl>>trip",
 
     buttons: [
         {
@@ -216,7 +216,7 @@
                 @can('test_delete')
                 {
                     extend: 'selectAll',
-                    className: 'btn-primary',
+                    className: 'btn-default',
                     text: selectAllButtonTrans,
                     exportOptions: {
                         columns: ':visible'
@@ -229,21 +229,21 @@
                 },
                 {
                     extend: 'selectNone',
-                    className: 'btn-primary',
+                    className: 'btn-default',
                     text: selectNoneButtonTrans,
                     exportOptions: {
                         columns: ':visible'
                     }
                 },
                 @endcan
-                {
+                /*{
                     className: 'btn-default',
                     text: 'Zrušiť filtrovanie',
                     action: function ( e, dt, node, config ) {
                         dt.search("").columns().search("").draw();
                         $("thead .search").val("");
                     }
-                },
+                },*/
                 {
                     extend: 'colvis',
                     className: 'btn-default',

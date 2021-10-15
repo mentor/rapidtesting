@@ -12,7 +12,7 @@ use App\Models\Centre;
 use App\Models\Service;
 use App\Models\Test;
 use Barryvdh\DomPDF\Facade as PDF;
-use Gate;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Mail;
@@ -30,9 +30,11 @@ class TestController extends Controller
 
         if ($request->ajax()) {
             $query = Test::with(['service', 'centre'])->select(sprintf('%s.*', (new Test())->table));
+
             if ($request->user()->centre_id) {
                 $query = $query->where('centre_id', $request->user()->centre_id);
             }
+
             $table = Datatables::of($query);
 
             $table->addColumn('placeholder', '&nbsp;');
@@ -54,7 +56,7 @@ class TestController extends Controller
             });
 
             $table->editColumn('id', function ($row) {
-                return $row->id ? $row->id : '';
+                return $row->id ?: '';
             });
             $table->editColumn('status', function ($row) {
                 return $row->status ? Test::STATUS_SELECT[$row->status] : '';
@@ -64,22 +66,22 @@ class TestController extends Controller
             });
 
             $table->editColumn('pinrc', function ($row) {
-                return $row->pinrc ? $row->pinrc : '';
+                return $row->pinrc ?: '';
             });
             $table->editColumn('pinid', function ($row) {
-                return $row->pinid ? $row->pinid : '';
+                return $row->pinid ?: '';
             });
             $table->editColumn('firstname', function ($row) {
-                return $row->firstname ? $row->firstname : '';
+                return $row->firstname ?: '';
             });
             $table->editColumn('lastname', function ($row) {
-                return $row->lastname ? $row->lastname : '';
+                return $row->lastname ?: '';
             });
             $table->editColumn('email', function ($row) {
-                return $row->email ? $row->email : '';
+                return $row->email ?: '';
             });
             $table->editColumn('phone', function ($row) {
-                return $row->phone ? $row->phone : '';
+                return $row->phone ?: '';
             });
 
             $table->editColumn('dob', function ($row) {
@@ -107,16 +109,16 @@ class TestController extends Controller
             });
 
             $table->editColumn('street', function ($row) {
-                return $row->street ? $row->street : '';
+                return $row->street ?: '';
             });
             $table->editColumn('city', function ($row) {
-                return $row->city ? $row->city : '';
+                return $row->city ?: '';
             });
             $table->editColumn('postal', function ($row) {
-                return $row->postal ? $row->postal : '';
+                return $row->postal ?: '';
             });
             $table->editColumn('country', function ($row) {
-                return $row->country ? $row->country : '';
+                return $row->country ?: '';
             });
             $table->editColumn('symptoms', function ($row) {
                 return $row->symptoms ? Test::SYMPTOMS_SELECT[$row->symptoms] : '';
@@ -146,16 +148,16 @@ class TestController extends Controller
             });
 
             $table->editColumn('note', function ($row) {
-                return $row->note ? $row->note : '';
+                return $row->note ?: '';
             });
             $table->editColumn('reservation_id_ref', function ($row) {
-                return $row->reservation_id_ref ? $row->reservation_id_ref : '';
+                return $row->reservation_id_ref ?: '';
             });
             $table->editColumn('code_ref', function ($row) {
-                return $row->code_ref ? $row->code_ref : '';
+                return $row->code_ref ?: '';
             });
             $table->editColumn('insurance_company', function ($row) {
-                return $row->insurance_company ? $row->insurance_company : '';
+                return $row->insurance_company ?: '';
             });
 
             $table->rawColumns(['actions', 'placeholder', 'service', 'centre']);
