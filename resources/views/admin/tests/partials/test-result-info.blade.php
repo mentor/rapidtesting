@@ -145,7 +145,7 @@
                     <a style="color: white;" class="btn btn-success" data-toggle="modal" data-target="#sendEmailModal" data-url="{{ route('admin.tests.email', $test->code_ref) }}" data-email="{{ $test->email }}" data-ref="{{ $test->code_ref }}">
                         Email
                     </a>
-                    <a class="btn btn-success" href="{{ route('admin.tests.pdf', $test->code_ref) }}">
+                    <a class="btn btn-success" target="_blank" href="{{ route('admin.tests.pdf', $test->code_ref) }}">
                         Vytlačiť
                     </a>
             @endif
