@@ -29,6 +29,8 @@ class Centre extends Model
         'postal',
         'place_id_ref',
         'country',
+        'result_test_manufacturer',
+        'result_test_name',
         'created_at',
         'updated_at',
         'deleted_at',

@@ -69,6 +69,39 @@
                 @endif
 
             </div>
+
+            <div class="form-group">
+                <label>{{ trans('cruds.test.fields.result_test_manufacturer') }}</label>
+                <select class="form-control select2 {{ $errors->has('result_test_manufacturer') ? 'is-invalid' : '' }}" name="result_test_manufacturer" id="result_test_manufacturer">
+                    <option value disabled {{ old('result_test_manufacturer', null) === null ? 'selected' : '' }}>{{ trans('global.pleaseSelect') }}</option>
+                    @foreach(App\Models\Test::RESULT_TEST_MANUFACTURER_SELECT as $key => $label)
+                        <option value="{{ $key }}" {{ old('result_test_manufacturer', '') === (string) $key ? 'selected' : '' }}>{{ $label }}</option>
+                    @endforeach
+                </select>
+                @if($errors->has('result_test_manufacturer'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('result_test_manufacturer') }}
+                    </div>
+                @endif
+
+            </div>
+
+            <div class="form-group">
+                <label>{{ trans('cruds.test.fields.result_test_name') }}</label>
+                <select class="form-control select2 {{ $errors->has('result_test_name') ? 'is-invalid' : '' }}" name="result_test_name" id="result_test_name">
+                    <option value disabled {{ old('result_test_name', null) === null ? 'selected' : '' }}>{{ trans('global.pleaseSelect') }}</option>
+                    @foreach(App\Models\Test::RESULT_TEST_NAME_SELECT as $key => $label)
+                        <option value="{{ $key }}" {{ old('result_test_name', '') === (string) $key ? 'selected' : '' }}>{{ $label }}</option>
+                    @endforeach
+                </select>
+                @if($errors->has('result_test_name'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('result_test_name') }}
+                    </div>
+                @endif
+
+            </div>
+
             <div class="form-group">
                 <button class="btn btn-danger" type="submit">
                     {{ trans('global.save') }}
@@ -80,4 +113,26 @@
 
 
 
+@endsection
+@section('scripts')
+    @parent
+    <script type="text/javascript">
+        $(function () {
+            var test_names = {!! collect(App\Models\Test::RESULT_TEST_NAME_SELECT)->toJson() !!};
+
+            $('#result_test_manufacturer').on('change', function () {
+                var val = $(this).val();
+                var accepted_keys = Object.keys(test_names).filter(function(key) { return key.startsWith(val) });
+
+                var $test_names_dropdown = $('#result_test_name');
+                $test_names_dropdown.empty();
+                $test_names_dropdown.append('<option disabled value="">{{ trans('global.pleaseSelect') }}</option>');
+                accepted_keys.forEach(function(key) {
+                    $test_names_dropdown.append('<option value="'+ key + '">'+ test_names[key] +'</option>');
+                });
+
+            });
+            $('#result_test_manufacturer').trigger('change');
+        });
+    </script>
 @endsection

@@ -133,10 +133,23 @@
 
         </div>
 
-        <div class="form-group">
-            <button class="btn btn-danger" type="submit">
-                {{ trans('global.save') }}
-            </button>
+        <div class="button-group">
+            <div class="form-group">
+                <a class="btn btn-outline-info" href="{{ route('admin.tests.index') }}">
+                    {{ trans('global.back_to_list') }}
+                </a>
+                <button class="btn btn-danger" type="submit">
+                    {{ trans('global.save') }}
+                </button>
+            @if($test->isTested())
+                    <a style="color: white;" class="btn btn-success" data-toggle="modal" data-target="#sendEmailModal" data-url="{{ route('admin.tests.email', $test->code_ref) }}" data-email="{{ $test->email }}" data-ref="{{ $test->code_ref }}">
+                        Email
+                    </a>
+                    <a class="btn btn-success" href="{{ route('admin.tests.pdf', $test->code_ref) }}">
+                        Vytlačiť
+                    </a>
+            @endif
+            </div>
         </div>
 
     </div>

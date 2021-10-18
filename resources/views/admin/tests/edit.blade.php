@@ -1,4 +1,5 @@
 @extends('layouts.admin')
+@include('admin.tests.partials.email-send-modal')
 @section('content')
 
 <form method="POST" action="{{ route("admin.tests.update", [$test->id]) }}" enctype="multipart/form-data">
@@ -27,6 +28,22 @@
         $(function () {
             var test_names = {!! collect(App\Models\Test::RESULT_TEST_NAME_SELECT)->toJson() !!};
 
+            @if($test->result_test_manufacturer)
+                $('#result_test_manufacturer').val('{{ $test->result_test_manufacturer }}');
+            @else
+                @if(strpos(strtolower($test->service->name), 'pcr'))
+                    $('#result_test_manufacturer').val('pcr-1');
+                @else
+                    $('#result_test_manufacturer').val('{{ $test->centre->result_test_manufacturer }}');
+                @endif
+            @endif
+
+            @if($test->result_test_name)
+                $('#result_test_name').val('{{ $test->result_test_name }}');
+            @else
+                $('#result_test_name').val('{{ $test->centre->result_test_name }}');
+            @endif
+
             $('#result_test_manufacturer').on('change', function () {
                 var val = $(this).val();
                 var accepted_keys = Object.keys(test_names).filter(function(key) { return key.startsWith(val) });
@@ -40,8 +57,7 @@
 
             });
             $('#result_test_manufacturer').trigger('change');
-            $('#result_test_manufacturer').val('{{ $test->result_test_manufacturer }}');
-            $('#result_test_name').val('{{ $test->result_test_name }}');
+
         });
     </script>
 @endsection

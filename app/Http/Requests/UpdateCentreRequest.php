@@ -45,6 +45,12 @@ class UpdateCentreRequest extends FormRequest
                 'string',
                 'required',
             ],
+            'result_test_manufacturer' => [
+                'string',
+            ],
+            'result_test_name' => [
+                'string',
+            ],
         ];
     }
 }
