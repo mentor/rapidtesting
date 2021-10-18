@@ -12,7 +12,7 @@ class SystemCalendarController extends Controller
         [
             'model'      => '\App\Models\Test',
             'date_field' => 'start',
-            'fields'      => 'code_ref,name',
+            'fields'      => 'code_ref,service.name,name',
             'prefix'     => '',
             'suffix'     => '',
             'route'      => 'admin.tests.edit',
