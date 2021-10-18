@@ -181,10 +181,10 @@
     },
     stateSave: true,
     colReorder: true,
-    fixedHeader: {
-        header: true,
-        headerOffset: $('header').outerHeight()
-    },
+    // fixedHeader: {
+    //     header: true,
+    //     headerOffset: $('header').outerHeight()
+    // },
     scrollX: true,
     columnDefs: [{
         orderable: false,
