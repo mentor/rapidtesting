@@ -9,8 +9,9 @@ use App\Http\Requests\UpdateUserRequest;
 use App\Models\Centre;
 use App\Models\Role;
 use App\Models\User;
-use Gate;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 use Symfony\Component\HttpFoundation\Response;
 use Yajra\DataTables\Facades\DataTables;
 
@@ -33,7 +34,7 @@ class UsersController extends Controller
                 $deleteGate = 'user_delete';
                 $crudRoutePart = 'users';
 
-                return view('partials.datatablesActions', compact(
+                return view('admin.users.partials.datatablesActions', compact(
                 'viewGate',
                 'editGate',
                 'deleteGate',
@@ -141,5 +142,17 @@ class UsersController extends Controller
         User::whereIn('id', request('ids'))->delete();
 
         return response(null, Response::HTTP_NO_CONTENT);
+    }
+
+    public function impersonate(Request $request, User $user)
+    {
+        abort_if(Gate::denies('user_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if($user->is($request->user()), Response::HTTP_BAD_REQUEST, '400 Bad Request');
+
+        Auth::logout(); // end current session
+        Auth::login($user); // login as new user
+
+        return redirect()->route('admin.home')->with('message', sprintf('Uživateľ %s bol úspešne prihlásený!', $user->name)); // redirect to landing page
+
     }
 }

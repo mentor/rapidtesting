@@ -13,6 +13,7 @@ return [
     'clear'                          => 'Vymaž',
     'downloadFile'                   => 'Stiahnuť súbor',
     'edit'                           => 'Upraviť',
+    'impersonate'                    => 'Prihlásiť ako...',
     'email'                          => 'Email',
     'pdf'                            => 'PDF',
     'emailVerificationSuccess'       => 'E-mail používateľa bol úspešne overený',

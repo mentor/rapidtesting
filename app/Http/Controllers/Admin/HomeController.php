@@ -6,7 +6,7 @@ class HomeController
 {
     public function index()
     {
-        return redirect('admin/tests');
+        return redirect()->route('admin.tests.index');
         //return view('home');
     }
 }
