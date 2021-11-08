@@ -1,26 +1,26 @@
 @extends('layouts.admin')
 @include('admin.tests.partials.email-send-modal')
 @section('content')
-
-<form method="POST" action="{{ route("admin.tests.update", [$test->id]) }}" enctype="multipart/form-data">
-@method('PUT')
-@csrf
-
     <nav>
         <div class="nav nav-tabs" id="nav-tab" role="tablist">
             <button class="nav-link active" id="nav-test-result-tab"
                     data-toggle="tab" data-target="#nav-test-result" type="button"
-                    role="tab" aria-controls="nav-test-result" aria-selected="true">{{ trans('cruds.test.title_edit_result') }}</button>
+                    role="tab" aria-controls="nav-test-result"
+                    aria-selected="true">{{ trans('cruds.test.title_edit_result') }}</button>
             <button class="nav-link" id="nav-test-user-tab"
                     data-toggle="tab" data-target="#nav-test-user" type="button"
-                    role="tab" aria-controls="nav-test-user" aria-selected="false">{{ trans('cruds.test.title_edit_user') }}</button>
+                    role="tab" aria-controls="nav-test-user"
+                    aria-selected="false">{{ trans('cruds.test.title_edit_user') }}</button>
         </div>
     </nav>
     <div class="tab-content" id="nav-tabContent">
-        <div class="tab-pane fade show active" id="nav-test-result" role="tabpanel" aria-labelledby="nav-test-result-tab">@include('admin.tests.partials.test-result-info')</div>
-        <div class="tab-pane fade" id="nav-test-user" role="tabpanel" aria-labelledby="nav-test-user-tab">@include('admin.tests.partials.test-user-info')</div>
+        <div class="tab-pane fade show active" id="nav-test-result" role="tabpanel" aria-labelledby="nav-test-result-tab">
+            @include('admin.tests.partials.test-result-info')
+        </div>
+        <div class="tab-pane fade" id="nav-test-user" role="tabpanel" aria-labelledby="nav-test-user-tab">
+            @include('admin.tests.partials.test-user-info')
+        </div>
     </div>
-</form>
 @endsection
 @section('scripts')
 @parent

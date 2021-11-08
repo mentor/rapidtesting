@@ -206,8 +206,10 @@ class TestController extends Controller
     {
         $test->update($request->all());
 
-        $request->session()->flash('message', sprintf('Test bol úspešne uložený!', ));
-        return redirect()->route('admin.tests.edit', [$test->id]);
+        return redirect()
+            ->route('admin.tests.edit', [$test->id])
+            ->withInput($request->only('redirect_back'))
+            ->with('message', sprintf('Test bol úspešne uložený!', ));
     }
 
     public function show(Test $test)
