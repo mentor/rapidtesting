@@ -120,9 +120,9 @@ class TestController extends Controller
             $table->editColumn('country', function ($row) {
                 return $row->country ?: '';
             });
-            $table->editColumn('symptoms', function ($row) {
-                return $row->symptoms ? Test::SYMPTOMS_SELECT[$row->symptoms] : '';
-            });
+//            $table->editColumn('symptoms', function ($row) {
+//                return $row->symptoms ? Test::SYMPTOMS_SELECT[$row->symptoms] : '';
+//            });
 
             $table->editColumn('result_status', function ($row) {
                 return $row->result_status ? Test::RESULT_STATUS_SELECT[$row->result_status] : '';

@@ -24,10 +24,10 @@ class Test extends Model
         'diagnosis-1' => 'U07.2',
     ];
 
-    public const SYMPTOMS_SELECT = [
+    /*public const SYMPTOMS_SELECT = [
         'GRJCO' => 'Yes',
         'OVYNP' => 'No',
-    ];
+    ];*/
 
     public const RESULT_STATUS_SELECT = [
         'positive' => 'Positive',
@@ -95,7 +95,7 @@ class Test extends Model
         'city',
         'postal',
         'country',
-        'symptoms',
+//        'symptoms',
         'result_date',
         'result_status',
         'result_test_name',

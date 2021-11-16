@@ -81,7 +81,7 @@ class WebhookController extends Controller
             $payload['centre_id'] = $this->lookupCentreByPlaceId($reservation->json('detail.placeId'));
             $payload['pinrc'] = $this->getPlainValue($reservation->json('detail.customForms.0.fields'), 'QTQMVKQT') ?: null;
             $payload['pinid'] = $this->getPlainValue($reservation->json('detail.customForms.0.fields'), 'JRHRFPDB');
-            $payload['symptoms'] = $this->getGeneratedValue($reservation->json('detail.customForms.0.fields'), 'EAENGFYD', Test::SYMPTOMS_SELECT);
+//            $payload['symptoms'] = $this->getGeneratedValue($reservation->json('detail.customForms.0.fields'), 'EAENGFYD', Test::SYMPTOMS_SELECT);
             $payload['insurance_company'] = $this->getPlainValue($reservation->json('detail.customForms.0.fields'), 'KJEKPWCB') ?: null;
 
             $payload['dob'] = Carbon::createFromFormat('d.m.Y', $this->getPlainValue(
@@ -252,8 +252,8 @@ class WebhookController extends Controller
 
     private function getPlainValue($fields, string $key)
     {
-        foreach ($fields as $field) {
-            if ($field['key'] == $key) {
+        foreach ((array)$fields as $field) {
+            if (isset($field['key'], $field['value']) && ($field['key'] == $key)) {
                 return $field['value'];
             }
         }
@@ -262,8 +262,8 @@ class WebhookController extends Controller
 
     private function getGeneratedValue($fields, string $key, array $mapper)
     {
-        foreach ($fields as $field) {
-            if ($field['key'] == $key) {
+        foreach ((array)$fields as $field) {
+            if (isset($field['key'], $field['valueKey']) && ($field['key'] == $key)) {
                 return $field['valueKey'];
             }
         }

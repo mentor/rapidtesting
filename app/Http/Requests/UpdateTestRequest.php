@@ -69,9 +69,9 @@ class UpdateTestRequest extends FormRequest
             'country' => [
                 'string',
             ],
-            'symptoms' => [
-                'string',
-            ],
+//            'symptoms' => [
+//                'string',
+//            ],
             'result_date' => [
                 'date_format:' . config('panel.date_format') . ' ' . config('panel.time_format'),
                 'nullable',
