@@ -13,7 +13,7 @@ class TestRemoveSymptoms extends Migration
      */
     public function up()
     {
-        Schema::table('centres', function (Blueprint $table) {
+        Schema::table('tests', function (Blueprint $table) {
             $table->dropColumn('symptoms');
         });
     }
