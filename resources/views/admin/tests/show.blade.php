@@ -143,14 +143,14 @@
                             {{ $test->country }}
                         </td>
                     </tr>
-                    <tr>
-                        <th>
-                            {{ trans('cruds.test.fields.symptoms') }}
-                        </th>
-                        <td>
-                            {{ App\Models\Test::SYMPTOMS_SELECT[$test->symptoms] ?? '' }}
-                        </td>
-                    </tr>
+{{--                    <tr>--}}
+{{--                        <th>--}}
+{{--                            {{ trans('cruds.test.fields.symptoms') }}--}}
+{{--                        </th>--}}
+{{--                        <td>--}}
+{{--                            {{ App\Models\Test::SYMPTOMS_SELECT[$test->symptoms] ?? '' }}--}}
+{{--                        </td>--}}
+{{--                    </tr>--}}
                     <tr>
                         <th>
                             {{ trans('cruds.test.fields.result_date') }}

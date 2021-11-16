@@ -69,9 +69,9 @@
                         <th>
                             {{ trans('cruds.test.fields.country') }}
                         </th>
-                        <th>
-                            {{ trans('cruds.test.fields.symptoms') }}
-                        </th>
+{{--                        <th>--}}
+{{--                            {{ trans('cruds.test.fields.symptoms') }}--}}
+{{--                        </th>--}}
                         <th>
                             {{ trans('cruds.test.fields.result_date') }}
                         </th>
@@ -161,9 +161,9 @@
                             <td>
                                 {{ $test->country ?? '' }}
                             </td>
-                            <td>
-                                {{ App\Models\Test::SYMPTOMS_SELECT[$test->symptoms] ?? '' }}
-                            </td>
+{{--                            <td>--}}
+{{--                                {{ App\Models\Test::SYMPTOMS_SELECT[$test->symptoms] ?? '' }}--}}
+{{--                            </td>--}}
                             <td>
                                 {{ $test->result_date ?? '' }}
                             </td>
@@ -270,7 +270,7 @@
       $($.fn.dataTable.tables(true)).DataTable()
           .columns.adjust();
   });
-  
+
 })
 
 </script>

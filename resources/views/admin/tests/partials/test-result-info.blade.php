@@ -49,25 +49,25 @@
 
                     </div>
 
-                    <div class="form-group">
-                        <label class="required">{{ trans('cruds.test.fields.symptoms') }}</label>
-                        <select class="form-control select2 {{ $errors->has('symptoms') ? 'is-invalid' : '' }}"
-                                name="symptoms"
-                                id="symptoms" required>
-                            <option value
-                                    disabled {{ old('symptoms', null) === null ? 'selected' : '' }}>{{ trans('global.pleaseSelect') }}</option>
-                            @foreach(App\Models\Test::SYMPTOMS_SELECT as $key => $label)
-                                <option
-                                    value="{{ $key }}" {{ old('symptoms', $test->symptoms) === (string) $key ? 'selected' : '' }}>{{ $label }}</option>
-                            @endforeach
-                        </select>
-                        @if($errors->has('symptoms'))
-                            <div class="invalid-feedback">
-                                {{ $errors->first('symptoms') }}
-                            </div>
-                        @endif
+{{--                    <div class="form-group">--}}
+{{--                        <label class="required">{{ trans('cruds.test.fields.symptoms') }}</label>--}}
+{{--                        <select class="form-control select2 {{ $errors->has('symptoms') ? 'is-invalid' : '' }}"--}}
+{{--                                name="symptoms"--}}
+{{--                                id="symptoms" required>--}}
+{{--                            <option value--}}
+{{--                                    disabled {{ old('symptoms', null) === null ? 'selected' : '' }}>{{ trans('global.pleaseSelect') }}</option>--}}
+{{--                            @foreach(App\Models\Test::SYMPTOMS_SELECT as $key => $label)--}}
+{{--                                <option--}}
+{{--                                    value="{{ $key }}" {{ old('symptoms', $test->symptoms) === (string) $key ? 'selected' : '' }}>{{ $label }}</option>--}}
+{{--                            @endforeach--}}
+{{--                        </select>--}}
+{{--                        @if($errors->has('symptoms'))--}}
+{{--                            <div class="invalid-feedback">--}}
+{{--                                {{ $errors->first('symptoms') }}--}}
+{{--                            </div>--}}
+{{--                        @endif--}}
 
-                    </div>
+{{--                    </div>--}}
 
                     <div class="form-group">
                         <label class="required"

@@ -85,9 +85,9 @@
                     <th>
                         {{ trans('cruds.test.fields.country') }}
                     </th>
-                    <th>
-                        {{ trans('cruds.test.fields.symptoms') }}
-                    </th>
+{{--                    <th>--}}
+{{--                        {{ trans('cruds.test.fields.symptoms') }}--}}
+{{--                    </th>--}}
                     <th>
                         {{ trans('cruds.test.fields.result_date') }}
                     </th>
@@ -195,14 +195,14 @@
                         <input class="search form-control  form-control-sm " type="text"
                                placeholder="{{ trans('global.search') }}">
                     </td>
-                    <td>
-                        <select class="search form-control  form-control-sm">
-                            <option value>{{ trans('global.all') }}</option>
-                            @foreach(App\Models\Test::SYMPTOMS_SELECT as $key => $item)
-                                <option value="{{ $key }}">{{ $item }}</option>
-                            @endforeach
-                        </select>
-                    </td>
+{{--                    <td>--}}
+{{--                        <select class="search form-control  form-control-sm">--}}
+{{--                            <option value>{{ trans('global.all') }}</option>--}}
+{{--                            @foreach(App\Models\Test::SYMPTOMS_SELECT as $key => $item)--}}
+{{--                                <option value="{{ $key }}">{{ $item }}</option>--}}
+{{--                            @endforeach--}}
+{{--                        </select>--}}
+{{--                    </td>--}}
                     <td>
                         {{--                        <input class="search form-control  form-control-sm" type="text" placeholder="{{ trans('global.search') }}">--}}
                     </td>
@@ -342,7 +342,7 @@
                     {data: 'city', name: 'city'},
                     {data: 'postal', name: 'postal'},
                     {data: 'country', name: 'country'},
-                    {data: 'symptoms', name: 'symptoms'},
+                    // {data: 'symptoms', name: 'symptoms'},
                     {data: 'result_date', name: 'result_date'},
                     {data: 'result_status', name: 'result_status'},
                     {data: 'result_test_name', name: 'result_test_name'},
