@@ -5,32 +5,44 @@ namespace App\Http\Controllers;
 use App\Models\Centre;
 use App\Models\Service;
 use App\Models\Test;
+use App\Services\ReenioService;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Http;
 
 
 class WebhookController extends Controller
 {
-    const REENIO_API_KEY = 'TkNqej2CkRjWsuAPWs15OkW4OpKIViM961Ffa4Ym6fds30C9IFckhWPYTVW9QOQ7';
-    const REENIO_API_HOST = 'https://reenio.cz/sk/api/v1/admin';
+    /**
+     * @var ReenioService $reenioService
+     */
+    private $reenioService;
 
-    const REENIO_RESERVATION_STATUSES = [
-        0  => 'created',
-        1  => 'ended',
-        2  => 'finished',
-        3  => 'confirmed',
-        4  => 'started',
-        5  => 'registered',
-        6  => 'unpaid',
-        7  => 'paid',
-        8  => 'withdrawn',
-        9  => 'cancelled',
-        10 => 'noshow',
-        11 => 'notarrived',
-    ];
+    public function __construct(ReenioService $reenioService)
+    {
+        $this->reenioService = $reenioService;
+    }
 
+    private function lookupCentreByPlaceId($placeId)
+    {
+        // retrieve centre.id by matching centre.placeId with $placeId
+        $centre = Centre::firstWhere('place_id_ref', $placeId);
+        return $centre->id;
+    }
+
+    private function lookupServiceByServiceId($serviceId)
+    {
+        // retrieve service.id by matching service.serviceId with $serviceId
+        $service = Service::firstWhere('service_id_ref', $serviceId);
+        return $service->id;
+    }
+
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
+     */
     public function created(Request $request)
     {
 
@@ -39,24 +51,24 @@ class WebhookController extends Controller
         // webhook synchronization request
         if (!$request->input()) {
             Log::info('Reservation CREATED webhook: SYNC');
-            $this->response();
+            return $this->reenioService->response();
         }
 
         Log::info('Reservation CREATED webhook: phase 0', $request->input());
         // get reservation data
         $reservationId = $request->input('reservationId');
-        $reservation = $this->getReservationDetail($reservationId);
+        $reservation = $this->reenioService->getReservation($reservationId);
         Log::info('Reservation CREATED webhook: phase 1 - reservation API call', compact('reservation'));
 
         // get customer data
         $customerId = $request->input('customerId');
-        $customer = $this->getCustomerDetail($customerId);
+        $customer = $this->reenioService->getCustomer($customerId);
         Log::info('Reservation CREATED webhook: phase 2 - customer API call', compact('customer'));
 
         // check if API calls returned HTTP 200
         if (!$reservation->ok() || !$customer->ok()) {
             Log::error('Invalid response from REENIO API when retrieving reservation/customer details!');
-            $this->response();
+            return $this->reenioService->response();
         }
 
         Log::info('Reservation CREATED webhook: phase 3 - data extraction');
@@ -79,15 +91,24 @@ class WebhookController extends Controller
             $payload['code_ref'] = $reservation->json('detail.code');
             $payload['service_id'] = $this->lookupServiceByServiceId($reservation->json('detail.serviceId'));
             $payload['centre_id'] = $this->lookupCentreByPlaceId($reservation->json('detail.placeId'));
-            $payload['pinrc'] = $this->getPlainValue($reservation->json('detail.customForms.0.fields'), 'QTQMVKQT') ?: null;
-            $payload['pinid'] = $this->getPlainValue($reservation->json('detail.customForms.0.fields'), 'JRHRFPDB');
-//            $payload['symptoms'] = $this->getGeneratedValue($reservation->json('detail.customForms.0.fields'), 'EAENGFYD', Test::SYMPTOMS_SELECT);
-            $payload['insurance_company'] = $this->getPlainValue($reservation->json('detail.customForms.0.fields'), 'KJEKPWCB') ?: null;
-
-            $payload['dob'] = Carbon::createFromFormat('d.m.Y', $this->getPlainValue(
+            $payload['pinrc'] = $this->reenioService->parsePlainValue(
                 $reservation->json('detail.customForms.0.fields'),
-                'DXCWCJIL'
-            ))->toDateString();
+                'QTQMVKQT'
+            ) ?: null;
+            $payload['pinid'] = $this->reenioService->parsePlainValue(
+                $reservation->json('detail.customForms.0.fields'),
+                'JRHRFPDB'
+            );
+//            $payload['symptoms'] = $this->reenioService->parseKeyedValue($reservation->json('detail.customForms.0.fields'), 'EAENGFYD', Test::SYMPTOMS_SELECT);
+            $payload['insurance_company'] = $this->reenioService->parsePlainValue(
+                $reservation->json('detail.customForms.0.fields'),
+                'KJEKPWCB'
+            ) ?: null;
+
+            $payload['dob'] = Carbon::createFromFormat(
+                'd.m.Y',
+                $this->reenioService->parsePlainValue($reservation->json('detail.customForms.0.fields'),'DXCWCJIL')
+            )->toDateString();
 
             $payload['start'] = Carbon::parse($reservation->json('detail.start'))
                 ->tz('Europe/Bratislava')
@@ -97,7 +118,7 @@ class WebhookController extends Controller
                 ->tz('Europe/Bratislava')
                 ->format('Y-m-d H:i:s');
 
-            $payload['status'] = self::REENIO_RESERVATION_STATUSES[$reservation->json('detail.state')];
+            $payload['status'] = $this->reenioService::REENIO_RESERVATION_STATUSES[$reservation->json('detail.state')];
 
             Log::info('Reservation CREATED webhook: phase 4 - data push', compact('payload'));
 
@@ -106,14 +127,18 @@ class WebhookController extends Controller
 
             Log::info('Reservation CREATED webhook: phase 5 - DONE', ['id' => $test->id]);
 
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             Log::error($e->getMessage(), $e->getTrace());
         }
 
         // return happy response back!
-        $this->response();
+        return $this->reenioService->response();
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
+     */
     public function change(Request $request) {
 
         Log::info('Reservation CHANGED webhook: INIT');
@@ -121,7 +146,7 @@ class WebhookController extends Controller
         // webhook synchronization request
         if (!$request->input()) {
             Log::info('Reservation CHANGED webhook: SYNC');
-            $this->response();
+            return $this->reenioService->response();
         }
 
         Log::info('Reservation CHANGED webhook: phase 0', $request->input());
@@ -135,13 +160,13 @@ class WebhookController extends Controller
                 Log::error('Reservation CHANGED webhook: phase 0 - INVALID STATUS, expected 12', $triggerType);
             } else {
                 // get reservation data
-                $reservation = $this->getReservationDetail($reservationId);
+                $reservation = $this->reenioService->getReservation($reservationId);
                 Log::info('Reservation CHANGED webhook: phase 1 - reservation API call', compact('reservation'));
 
                 // check if API calls returned HTTP 200
                 if (!$reservation->ok()) {
                     Log::error('Invalid response from REENIO API when retrieving reservation/customer details!');
-                    $this->response();
+                    return $this->reenioService->response();
                 }
 
                 $payload = [];
@@ -169,14 +194,18 @@ class WebhookController extends Controller
                 }
             }
 
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             Log::error($e->getMessage(), $e->getTrace());
         }
 
-        $this->response();
+        return $this->reenioService->response();
 
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\Routing\ResponseFactory|\Illuminate\Http\Response
+     */
     public function status(Request $request) {
 
         Log::info('Reservation UPDATED webhook: INIT');
@@ -184,7 +213,7 @@ class WebhookController extends Controller
         // webhook synchronization request
         if (!$request->input()) {
             Log::info('Reservation UPDATED webhook: SYNC');
-            $this->response();
+            return $this->reenioService->response();
         }
 
         Log::info('Reservation UPDATED webhook: phase 0', $request->input());
@@ -204,7 +233,7 @@ class WebhookController extends Controller
                     Log::error('Reservation UPDATED webhook: phase 2 - Test NOT FOUND!');
                 } else {
                     Log::info('Reservation UPDATED webhook: phase 3 - Test FOUND!', $test->toArray());
-                    $newStatus = self::REENIO_RESERVATION_STATUSES[$triggerType];
+                    $newStatus = $this->reenioService::REENIO_RESERVATION_STATUSES[$triggerType];
                     $test->update([
                         'status' => $newStatus
                     ]);
@@ -213,70 +242,17 @@ class WebhookController extends Controller
             } else {
                 // Test was found, updating
                 Log::info('Reservation UPDATED webhook: phase 3 - Test FOUND!', $test->toArray());
-                $newStatus = self::REENIO_RESERVATION_STATUSES[$triggerType];
+                $newStatus = $this->reenioService::REENIO_RESERVATION_STATUSES[$triggerType];
                 $test->update([
                     'status' => $newStatus
                 ]);
                 Log::info('Reservation UPDATED webhook: phase 4 - Test UPDATED!', [$newStatus]);
             }
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             Log::error($e->getMessage(), $e->getTrace());
         }
 
-        $this->response();
+        return $this->reenioService->response();
     }
-
-    private function getReservationDetail($reservationId)
-    {
-        return Http::acceptJson()->withToken(self::REENIO_API_KEY)->get(self::REENIO_API_HOST . '/reservation/detail/' . $reservationId);
-    }
-
-    private function getCustomerDetail($customerId)
-    {
-        return Http::acceptJson()->withToken(self::REENIO_API_KEY)->get(self::REENIO_API_HOST . '/customer/detail/' . $customerId);
-    }
-
-    private function lookupCentreByPlaceId($placeId)
-    {
-        // retrieve centre.id by matching centre.placeId with $placeId
-        $centre = Centre::firstWhere('place_id_ref', $placeId);
-        return $centre->id;
-    }
-
-    private function lookupServiceByServiceId($serviceId)
-    {
-        // retrieve service.id by matching service.serviceId with $serviceId
-        $service = Service::firstWhere('service_id_ref', $serviceId);
-        return $service->id;
-    }
-
-    private function getPlainValue($fields, string $key)
-    {
-        foreach ((array)$fields as $field) {
-            if (isset($field['key'], $field['value']) && ($field['key'] == $key)) {
-                return $field['value'];
-            }
-        }
-        return '';
-    }
-
-    private function getGeneratedValue($fields, string $key, array $mapper)
-    {
-        foreach ((array)$fields as $field) {
-            if (isset($field['key'], $field['valueKey']) && ($field['key'] == $key)) {
-                return $field['valueKey'];
-            }
-        }
-        return '';
-    }
-
-
-    private function response()
-    {
-        echo 'REENIO';
-        exit;
-    }
-
-
 
 }

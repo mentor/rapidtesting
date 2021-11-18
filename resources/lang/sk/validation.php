@@ -103,7 +103,7 @@ return [
     'starts_with' => ':attribute musí začínať jedným z nasledujúcich spôsobov: :values',
     'string'      => ':attribute musí byť reťazec',
     'timezone'    => ':attribute musí byť platnou zónou.',
-    'unique'      => ':attribute už bol prijatý.',
+    'unique'      => ':attribute :input je obsadený.',
     'uploaded'    => ':attribute sa nepodarilo nahrať.',
     'url'         => 'Formát :attribute je neplatný.',
     'uuid'        => ':attribute musí byť platné UUID',

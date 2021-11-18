@@ -24,8 +24,6 @@ class UpdateServiceRequest extends FormRequest
             'service_id_ref' => [
                 'required',
                 'integer',
-                'min:-2147483648',
-                'max:2147483647',
                 'unique:services,service_id_ref,' . request()->route('service')->id,
             ],
         ];

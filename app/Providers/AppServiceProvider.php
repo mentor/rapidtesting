@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Services\ReenioService;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +14,13 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        // Reenio API
+        $this->app->singleton(ReenioService::class, function() {
+            return new ReenioService(
+                env('REENIO_API_KEY'),
+                env('REENIO_API_HOST', 'https://reenio.cz/sk/api/v1/admin')
+            );
+        });
     }
 
     /**

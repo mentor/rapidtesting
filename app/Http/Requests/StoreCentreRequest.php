@@ -2,10 +2,8 @@
 
 namespace App\Http\Requests;
 
-use App\Models\Centre;
 use Gate;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Http\Response;
 
 class StoreCentreRequest extends FormRequest
 {
@@ -37,8 +35,6 @@ class StoreCentreRequest extends FormRequest
             'place_id_ref' => [
                 'required',
                 'integer',
-                'min:-2147483648',
-                'max:2147483647',
                 'unique:centres,place_id_ref',
             ],
             'country' => [

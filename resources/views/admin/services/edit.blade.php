@@ -22,7 +22,11 @@
             </div>
             <div class="form-group">
                 <label class="required" for="service_id_ref">{{ trans('cruds.service.fields.service_id_ref') }}</label>
-                <input class="form-control {{ $errors->has('service_id_ref') ? 'is-invalid' : '' }}" type="number" name="service_id_ref" id="service_id_ref" value="{{ old('service_id_ref', $service->service_id_ref) }}" step="1" required>
+                <select class="form-control select2 {{ $errors->has('service_id_ref') ? 'is-invalid' : '' }}" name="service_id_ref" id="service_id_ref" required>
+                    @foreach(app(\App\Services\ReenioService::class)->getServices()->json('list') as $reenioService)
+                        <option value="{{ $reenioService['id'] }}" {{ old('service_id_ref', $service->service_id_ref) == $reenioService['id'] ? 'selected' : '' }}>{{ $reenioService['id'] . ' | ' .  $reenioService['name'] }}</option>
+                    @endforeach
+                </select>
                 @if($errors->has('service_id_ref'))
                     <div class="invalid-feedback">
                         {{ $errors->first('service_id_ref') }}
