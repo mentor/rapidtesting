@@ -96,6 +96,9 @@ class UpdateTestRequest extends FormRequest
             'insurance_company' => [
                 'string',
             ],
+            'presence' => [
+                'boolean',
+            ],
         ];
     }
 }

@@ -236,17 +236,7 @@
             </div>
         </div>
         <div class="card-footer">
-            <div class="form-group">
-                <input type="hidden" name="redirect_back"
-                       value="{{ old('redirect_back', url()->previous('admin.tests.index')) }}"/>
-                <a class="btn btn-outline-info"
-                   href="{{ old('redirect_back', url()->previous('admin.tests.index')) }}">
-                    {{ trans('global.back') }}
-                </a>
-                <button class="btn btn-danger" type="submit">
-                    {{ trans('global.save') }}
-                </button>
-            </div>
+            @include('admin.tests.partials.footer-buttons', compact('test'))
         </div>
     </form>
 </div>

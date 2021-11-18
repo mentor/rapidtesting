@@ -35,7 +35,17 @@ class TestController extends Controller
                 $query = $query->where('centre_id', $request->user()->centre_id);
             }
 
-            $table = Datatables::of($query);
+            $table = Datatables::of($query)->filterColumn('presence', function($query, $value) {
+                $value = ltrim(rtrim($value, '$'), '^');
+                if ($value == 'null') {
+                    $sql = "tests.presence IS NULL";
+                } elseif ($value == '1') {
+                    $sql = "tests.presence = 1";
+                } else {
+                    $sql = "tests.presence = 0";
+                }
+                $query->whereRaw($sql);
+            });
 
             $table->addColumn('placeholder', '&nbsp;');
             $table->addColumn('actions', '&nbsp;');
@@ -57,6 +67,9 @@ class TestController extends Controller
 
             $table->editColumn('id', function ($row) {
                 return $row->id ?: '';
+            });
+            $table->editColumn('presence', function ($row) {
+                return is_null($row->presence) ? '' : $row->presence;
             });
             $table->editColumn('status', function ($row) {
                 return $row->status ? Test::STATUS_SELECT[$row->status] : '';
@@ -256,5 +269,17 @@ class TestController extends Controller
         $pdf = PDF::loadView('certificate', compact('test', 'qrcode'));
 
         return $pdf->stream($code_ref . '.pdf');
+    }
+
+    public function presence(Test $test, $presence)
+    {
+        abort_if(!in_array($presence, ['0', '1']), Response::HTTP_BAD_REQUEST, '400 Bad Request');
+
+        $name = $test->name;
+        $test->update(['presence' => $presence]);
+
+        session()->flash('message', trans('cruds.test.fields.presence') . ' bola zmenená klientovi "' . $name
+            . '" na "' . trans('cruds.test.fields.presence_' . ($presence ? 'true' : 'false')) . '"!');
+        return back();
     }
 }

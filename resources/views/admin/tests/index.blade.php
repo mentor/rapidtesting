@@ -37,6 +37,9 @@
                         {{ trans('cruds.test.fields.code_ref') }}
                     </th>
                     <th>
+                        {{ trans('cruds.test.fields.presence') }}
+                    </th>
+                    <th>
                         {{ trans('cruds.test.fields.status') }}
                     </th>
                     <th>
@@ -122,10 +125,17 @@
                         <svg aria-hidden="true" focusable="false" height="18px" data-icon="filter-circle-xmark" class="svg-inline--fa fa-filter-circle-xmark" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M382.8 199.1l121.9-146.1C521.1 31.28 506.8 0 479.3 0H32.7C5.213 0-9.965 31.28 7.375 52.19L192 274.8V368c0 7.828 3.812 15.17 10.25 19.66l66.88 46.8C260.7 413.9 256 391.5 256 368C256 288.1 309.6 220.5 382.8 199.1zM432 224C352.5 224 288 288.5 288 368s64.47 144 144 144s144-64.47 144-144S511.5 224 432 224zM488.5 401.9c6.242 6.242 6.252 16.37 .0098 22.62c-6.24 6.242-16.37 6.231-22.62-.0113l-33.91-33.91l-33.91 33.91c-6.242 6.242-16.37 6.253-22.62 .0106s-6.232-16.37 .0098-22.62l33.91-33.91l-33.91-33.91c-6.242-6.242-6.251-16.37-.009-22.62s16.37-6.232 22.62 .0106l33.91 33.91l33.91-33.91c6.242-6.242 16.37-6.254 22.61-.0113s6.233 16.37-.009 22.62l-33.91 33.91L488.5 401.9z"></path></svg>
                         </button>
                     </td>
-
                     <td>
                         <input class="search form-control  form-control-sm" type="text"
                                placeholder="{{ trans('global.search') }}">
+                    </td>
+                    <td>
+                        <select class="search form-control form-control-sm">
+                            <option value>{{ trans('global.all') }}</option>
+                            <option value="null">{{ trans('cruds.test.fields.presence_null') }}</option>
+                            <option value="1">{{ trans('cruds.test.fields.presence_true') }}</option>
+                            <option value="0">{{ trans('cruds.test.fields.presence_false') }}</option>
+                        </select>
                     </td>
                     <td>
                         <select class="search form-control  form-control-sm">
@@ -324,6 +334,30 @@
                         "render": function (data, type, row, meta) {
                             return '<a class="btn btn-outline-dark" href="/admin/tests/' + row.id + '/edit">' + row.code_ref + '</a>';
                         },
+                        @endcan
+                    },
+                    {
+                        data: 'presence', name: 'presence',
+                        @can('test_edit')
+                         "render": function (data, type, row, meta) {
+
+                            let title = '';
+                            if (row.presence === '') {
+                                title = '{{ trans('cruds.test.fields.presence_null') }}';
+                            } else if (row.presence) {
+                                title = '{{ trans('cruds.test.fields.presence_true') }}';
+                            } else {
+                                title = '{{ trans('cruds.test.fields.presence_false') }}';
+                            }
+
+                            return '<div class="dropdown">' +
+                                '<button class="btn btn-outline-dark dropdown-toggle pull-right" type="button" id="dropdownMenu-' + row.id + '" data-toggle="dropdown" aria-expanded="false">' + title + '</button>' +
+                                '<div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu-' + row.id + '">' +
+                                    '<a class="dropdown-item" href="{{ route('admin.tests.index') }}/' + row.id + '/presence/1">{{ trans('cruds.test.fields.presence_true') }}</a>' +
+                                    '<a class="dropdown-item" href="{{ route('admin.tests.index') }}/' + row.id + '/presence/0">{{ trans('cruds.test.fields.presence_false') }}</a>' +
+                                '</div>' +
+                            '</div>';
+                         },
                         @endcan
                     },
                     {data: 'status', name: 'status'},

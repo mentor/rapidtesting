@@ -106,6 +106,7 @@ class Test extends Model
         'reservation_id_ref',
         'code_ref',
         'insurance_company',
+        'presence',
         'created_at',
         'updated_at',
         'deleted_at',

@@ -108,6 +108,9 @@ class StoreTestRequest extends FormRequest
                 'string',
                 'required',
             ],
+            'presence' => [
+                'boolean',
+            ],
         ];
     }
 }
