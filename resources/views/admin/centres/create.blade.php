@@ -51,7 +51,11 @@
             </div>
             <div class="form-group">
                 <label class="required" for="place_id_ref">{{ trans('cruds.centre.fields.place_id_ref') }}</label>
-                <input class="form-control {{ $errors->has('place_id_ref') ? 'is-invalid' : '' }}" type="number" name="place_id_ref" id="place_id_ref" value="{{ old('place_id_ref', '') }}" step="1" required>
+                <select class="form-control select2 {{ $errors->has('place_id_ref') ? 'is-invalid' : '' }}" name="place_id_ref" id="place_id_ref" required>
+                    @foreach(app(\App\Services\ReenioService::class)->getPlaces()->json('list') as $reenioPlace)
+                        <option value="{{ $reenioPlace['id'] }}" {{ old('service_id_ref') == $reenioPlace['id'] ? 'selected' : '' }}>{{ $reenioPlace['id'] . ' | ' .  $reenioPlace['name'] }}</option>
+                    @endforeach
+                </select>
                 @if($errors->has('place_id_ref'))
                     <div class="invalid-feedback">
                         {{ $errors->first('place_id_ref') }}
