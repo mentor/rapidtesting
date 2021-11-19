@@ -49,7 +49,6 @@ class UpdateTestRequest extends FormRequest
             ],
             'email' => [
                 'email',
-                Rule::unique('users')->ignore($this->user()->id)
             ],
             'phone' => [
                 'string',
