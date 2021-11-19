@@ -8,15 +8,15 @@ class CentreNullableResultTestManufacturerAndTestName extends Migration
 {
     public function up()
     {
-        Schema::table('tests', function (Blueprint $table) {
-            $table->string('result_test_manufacturer')->nullable('')->change();
-            $table->string('result_test_name')->nullable('')->change();
+        Schema::table('centres', function (Blueprint $table) {
+            $table->string('result_test_manufacturer')->nullable()->change();
+            $table->string('result_test_name')->nullable()->change();
         });
     }
 
     public function down()
     {
-        Schema::table('tests', function (Blueprint $table) {
+        Schema::table('centres', function (Blueprint $table) {
             //
         });
     }
