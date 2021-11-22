@@ -106,7 +106,6 @@ class StoreTestRequest extends FormRequest
             ],
             'insurance_company' => [
                 'string',
-                'required',
             ],
             'presence' => [
                 'boolean',
