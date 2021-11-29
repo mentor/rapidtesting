@@ -388,7 +388,7 @@
                     {data: 'insurance_company', name: 'insurance_company'}
                 ],
                 orderCellsTop: true,
-                order: [[8, 'desc']],
+                order: [[9, 'desc']],
                 pageLength: 100,
 
                 "initComplete": function(settings, json) {
