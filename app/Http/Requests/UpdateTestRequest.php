@@ -93,7 +93,7 @@ class UpdateTestRequest extends FormRequest
                 'max:11',
             ],
             'insurance_company' => [
-                'empty',
+                'nullable',
                 'string',
             ],
             'presence' => [
