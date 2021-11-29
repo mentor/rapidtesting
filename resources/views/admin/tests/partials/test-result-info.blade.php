@@ -70,12 +70,12 @@
 {{--                    </div>--}}
 
                     <div class="form-group">
-                        <label class="required"
+                        <label class=""
                                for="insurance_company">{{ trans('cruds.test.fields.insurance_company') }}</label>
                         <input class="form-control {{ $errors->has('insurance_company') ? 'is-invalid' : '' }}"
                                type="text"
                                name="insurance_company" id="insurance_company"
-                               value="{{ old('insurance_company', $test->insurance_company) }}" required>
+                               value="{{ old('insurance_company', $test->insurance_company) }}" >
                         @if($errors->has('insurance_company'))
                             <div class="invalid-feedback">
                                 {{ $errors->first('insurance_company') }}
