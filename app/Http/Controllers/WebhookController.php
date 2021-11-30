@@ -105,10 +105,14 @@ class WebhookController extends Controller
                 'KJEKPWCB'
             ) ?: null;
 
-            $payload['dob'] = Carbon::createFromFormat(
-                'd.m.Y',
-                $this->reenioService->parsePlainValue($reservation->json('detail.customForms.0.fields'),'DXCWCJIL')
-            )->toDateString();
+            $dob = $this->reenioService->parsePlainValue($reservation->json('detail.customForms.0.fields'),'DXCWCJIL');
+            $dob = str_replace(' ', '', $dob);
+            try {
+                $payload['dob'] = Carbon::createFromFormat('d.m.Y', $dob)->toDateString();
+            } catch (\Exception $e) {
+                $payload['dob'] = Carbon::createFromFormat('d.m.Y', '31.12.1900')->toDateString();
+                Log::error('Reservation CREATED webhook: phase 3 - data extraction failed for Date Of Birth of "' . $dob . '", setting to "1900-01-01"');
+            }
 
             $payload['start'] = Carbon::parse($reservation->json('detail.start'))
                 ->tz('Europe/Bratislava')
