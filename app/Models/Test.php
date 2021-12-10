@@ -40,6 +40,7 @@ class Test extends Model
         'siemens-1' => 'Siemens Healthcare, s.r.o.',
         'abbott-1' => 'ABBOTT Laboratories, s.r.o.',
         'rapigen-1' => 'RapiGEN Inc.',
+        'athena-1' => 'Athena nova a.s.',
         'pcr-1' => 'PCR',
     ];
 
@@ -49,6 +50,7 @@ class Test extends Model
         'siemens-1-ag-1' => 'CLINITEST® Rapid COVID-19 Antigen Test',
         'abbott-1-ag-1' => 'PANBIO™ COVID-19 Ag RAPID TEST DEVICE',
         'rapigen-1-ag-1' => 'BIOCREDIT COVID-19 Ag kit (Cat.No. G61RHA20)',
+        'athena-1-ag-1' => 'NOVA Test® SARS-CoV-2 Antigen Rapid Test Kit',
         'pcr-1-pcr-1' => 'PCR',
     ];
 
